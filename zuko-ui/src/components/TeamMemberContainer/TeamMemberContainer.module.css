@@ -1,0 +1,22 @@
+.teamContainer {
+    gap: 48px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.teamContainer > div:nth-child(odd) {
+    padding-left: 54px;
+    width: 100%;
+}
+
+@media only screen and (min-width: 1024px) {
+    .teamContainer {
+        gap: 60px;
+    }
+
+    .teamContainer > div:nth-child(odd) {
+        padding-left: 0;
+        width: unset;
+    }
+}
