@@ -5,5 +5,6 @@ export default function HomePage() {
     return <div>
         <Header />
         <TestComponent testProperty="new text"/>
-        <h1>Home Page</h1></div>
+        <h1>Home Page</h1>
+    </div>
 }
