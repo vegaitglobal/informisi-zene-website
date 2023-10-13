@@ -1,0 +1,50 @@
+
+.h1 {
+    font-size: 30px;
+    color: #2A2E32;
+    @media only screen and (min-width: 1024px) {
+      font-size: 38px;
+      margin: 0px;
+    }
+}
+
+.image{
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+    @media only screen and (min-width: 1024px) {
+      width: 40%;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+
+    }
+}
+
+.imgTextComp{
+  position: absolute;
+   @media only screen and (min-width: 1024px) {
+    margin-top: 90px;
+    margin-bottom:120px;
+  }
+}
+
+.paragraph {
+  margin-bottom: 30px;
+  width: 100%;
+  color: #2A2E32;
+  font-size: 18px;
+  @media only screen and (min-width: 1024px) {
+    width: 50%;
+    }
+}
+
+.description {
+  width: 100%;
+  font-weight: bold;
+  color: #2A2E32;
+  font-size: 18px;
+  @media only screen and (min-width: 1024px) {
+    width: 50%;
+    }
+}
