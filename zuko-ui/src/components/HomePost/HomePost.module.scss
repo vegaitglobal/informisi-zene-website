@@ -6,10 +6,9 @@
 .post {
 	width: 312px;
 	color: #2a2e32;
-	font-family: DM Sans;
 	display: flex;
 	flex-direction: column;
-	
+
 	@media only screen and (min-width: 1024px) {
 		width: fit-content;
 		flex-direction: row;
@@ -19,7 +18,6 @@
 .post__img {
 	height: 223px;
 	margin-bottom: 12px;
-	background-color: red;
 
 	@media only screen and (min-width: 1024px) {
 		height: 221px;

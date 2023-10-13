@@ -1,4 +1,4 @@
-import styles from './HomePost.module.css';
+import styles from './HomePost.module.scss';
 
 export default function HomePost({ imgSrc = 'www.google.com' }) {
 	return (
