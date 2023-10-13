@@ -1,3 +1,9 @@
+@import '../../styles/mixins.scss';
+
 .title {
     background-color: blue;
+    
+    @include media-breakpoint-desktop {
+        background-color: red;
+    }
 }
