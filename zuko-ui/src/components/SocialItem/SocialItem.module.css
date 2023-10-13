@@ -1,0 +1,9 @@
+.social-list-item {
+    list-style-type: none;
+}
+
+.social-list-link {
+    width: 37px;
+    height: 37px;
+    display: block;
+}
