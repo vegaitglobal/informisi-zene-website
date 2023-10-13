@@ -1,0 +1,9 @@
+@import '../../styles/mixins.scss';
+
+.layout {
+    padding: 0 24px;
+
+    @include media-breakpoint-desktop{
+        padding: 0 64px;
+    }
+}
