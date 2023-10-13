@@ -1,0 +1,23 @@
+
+.share {
+	color: #2a2e32;
+}
+
+.share__text {
+	font-size: 18px;
+}
+
+.share__icons {
+	display: flex;
+	align-items: center;
+	gap: 18px;
+	margin-top: 12px;
+}
+
+.share__icon img {
+	width: 20px;
+
+	@media only screen and (min-width: 1024px) {
+		width: 30px;
+	}
+}
