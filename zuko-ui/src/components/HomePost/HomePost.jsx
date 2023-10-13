@@ -1,6 +1,6 @@
 import styles from './HomePost.module.scss';
 
-export default function HomePost({ imgSrc = 'www.google.com' }) {
+export default function HomePost({ imgSrc = '/images/test.png' }) {
 	return (
 		<div className={styles.post}>
 			<img className={styles.post__img} src={imgSrc} alt="Missing" />
