@@ -13,6 +13,8 @@ class DonationInfoSeeder extends Seeder
      */
     public function run(): void
     {
-        DonationInfo::factory()->times(10)->create();
+        DonationInfo::factory()
+            ->times(10)
+            ->create();
     }
 }
