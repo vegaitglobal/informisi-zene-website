@@ -16,12 +16,9 @@ jobs:
       - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
         with:
           php-version: '8.0'
-      
-      - name: Set working directory
-        run: cd zuko-api
-        working-directory: zuko-api
-            
+
       - name: Build .env
+        working-directory: zuko-api
         run: -|
           echo "WWWGROUP=1000" >> .env
           echo "WWWUSER=1000" >> .env
@@ -46,9 +43,11 @@ jobs:
           # echo "APP_URL=http://localhost" >> .env # TODO
 
       - name: Installing project dependencies
+        working-directory: zuko-api
         run: docker run --rm -it -v "$(pwd):/app" composer/composer install
 
       - name: Building Docker image api
+        working-directory: zuko-api
         run: docker build -t codeforacause/informisizene:${{ github.run_number }} ./vendor/laravel/sail/runtimes/8.2 --build-arg="WWWGROUP=${WWWGROUP}"
     
       - name: Login to Docker Hub
@@ -76,7 +75,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          source: ".env,docker-compose.production.yml"
+          source: "./zuko-api/.env,./zuko-api/docker-compose.production.yml"
           target: "./Projects/informisizene/"
       
       
