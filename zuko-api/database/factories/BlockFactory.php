@@ -18,7 +18,7 @@ class BlockFactory extends Factory
     public function definition(): array
     {
         return [
-            'type' => fake()->randomElement(['analize', 'izvestaji', 'saopstenja']),
+            'type' => fake()->randomElement(['image', 'video', 'text']),
             'value' => $this->faker->randomElement(['I', 'B']),
             'post_id' => Post::factory()
         ];
