@@ -4,8 +4,7 @@ import PostShareLinks from '../components/PostShareLinks/PostShareLinks';
 export default function HomePage() {
 	return (
 		<div>
-			<TestComponent testProperty="new text" />
-			<h1>Home Page</h1>
+			<TestComponent testProperty="Example component" />
 			<PostShareLinks />
 		</div>
 	);
