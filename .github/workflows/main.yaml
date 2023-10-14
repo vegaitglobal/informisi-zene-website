@@ -19,7 +19,7 @@ jobs:
 
       - name: Build .env
         working-directory: zuko-api
-        run: -|
+        run: |
           echo "WWWGROUP=1000" >> .env
           echo "WWWUSER=1000" >> .env
           echo "LOG_CHANNEL=stack" >> .env
@@ -44,7 +44,7 @@ jobs:
 
       - name: Installing project dependencies
         working-directory: zuko-api
-        run: docker run --rm -it -v "$(pwd):/app" composer/composer install
+        run: docker run --rm -v "$(pwd):/app" composer/composer install
 
       - name: Building Docker image api
         working-directory: zuko-api
