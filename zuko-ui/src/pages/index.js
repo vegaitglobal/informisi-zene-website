@@ -2,7 +2,6 @@ import RoundedButton from "../components/RoundedButton/RoundedButton";
 import HomePost from '../components/HomePost/HomePost';
 import TestComponent from "../components/TestComponent/TestComponent";
 import PostShareLinks from '../components/PostShareLinks/PostShareLinks';
-import DonationHero from "../components/DonationHero/DonationHero";
 
 export default function HomePage() {
     return <div>
@@ -10,6 +9,5 @@ export default function HomePage() {
         <RoundedButton />
 		<HomePost />
 		<PostShareLinks />
-		<DonationHero />
     </div>
 }
