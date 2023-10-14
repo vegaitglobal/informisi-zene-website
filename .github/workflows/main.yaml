@@ -35,11 +35,11 @@ jobs:
           echo "VAPID_PUBLIC_KEY=${{ secrets.VAPID_PUBLIC_KEY }}" >> .env
           echo "VAPID_PRIVATE_KEY=${{ secrets.VAPID_PRIVATE_KEY }}" >> .env
           echo "APP_NAME=Laravel" >> .env
-          echo "APP_ENV=local" >> .env
+          echo "APP_ENV=production" >> .env
           echo "APP_KEY=${{ secrets.APP_KEY }}" >> .env
           echo "APP_DEBUG=false" >> .env
           echo "APP_URL=https://api.informisizene.codeforacause.rs" >> .env
-          echo "APP_PORT=${{ secrets.APP_PORT }}" >> .env
+          echo "APP_PORT=80" >> .env
           echo "UI_PORT=${{ secrets.UI_PORT }}" >> .env
 
       - name: Installing project dependencies - Laravel
