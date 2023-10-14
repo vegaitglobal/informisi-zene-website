@@ -1,0 +1,27 @@
+@import '../../styles/mixins.scss';
+
+
+.teamMember {
+    text-align: center;
+
+    img {
+        width: 152px;
+    }
+
+    .teamMemberName {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    @include media-breakpoint-desktop {
+        img {
+            width: 260px;
+        }
+
+        .teamMemberName {
+            font-size: 20px;
+            line-height: 26px;
+        }
+    }
+}
