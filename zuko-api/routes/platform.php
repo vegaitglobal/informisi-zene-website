@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Orchid\Screens\DonationInfo\DonationInfoCreateScreen;
 use App\Orchid\Screens\DonationInfo\DonationInfoEditScreen;
 use App\Orchid\Screens\DonationInfo\DonationInfoScreen;
 use App\Orchid\Screens\Examples\ExampleActionsScreen;
@@ -119,3 +120,8 @@ Route::screen('donation_info/{donation}/edit', DonationInfoEditScreen::class)
     ->parent('platform.donation_info')
     ->push($donation->id, route('platform.donation_info.edit', $donation)));
 
+Route::screen('donation_info/create', DonationInfoCreateScreen::class)
+    ->name('platform.donation_info.create')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+    ->parent('platform.donation_info')
+    ->push(__('Create'), route('platform.donation_info.create')));

@@ -3,12 +3,15 @@
 namespace App\Orchid\Screens\DonationInfo;
 
 use App\Models\DonationInfo;
-use App\Orchid\Layouts\DonationInfo\DonationInfoLayout;
-use Orchid\Screen\Actions\Link;
+use App\Orchid\Layouts\DonationInfo\DonationInfoCreateLayout;
+use Illuminate\Http\Request;
+use Orchid\Screen\Actions\Button;
+use Orchid\Screen\Fields\Group;
+use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Toast;
 
-class DonationInfoScreen extends Screen
+class DonationInfoCreateScreen extends Screen
 {
     /**
      * Fetch data to be displayed on the screen.
@@ -17,11 +20,7 @@ class DonationInfoScreen extends Screen
      */
     public function query(): iterable
     {
-        return [
-            'donation_infos' => DonationInfo::filters()
-            ->defaultSort('created_at', 'desc')
-            ->paginate(),
-        ];
+        return [];
     }
 
     /**
@@ -31,7 +30,7 @@ class DonationInfoScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'Donation Info';
+        return 'Donation Info Create';
     }
 
     /**
@@ -42,16 +41,20 @@ class DonationInfoScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Link::make(__('Add'))
-            ->icon('plus')
-            ->href(route('platform.donation_info.create')),];
+            Button::make(__('Save'))
+            ->icon('check')
+            ->method('save')
+        ];
     }
 
-    
-    public function delete(DonationInfo $donation)
+    public function save(Request $request, DonationInfo $donation)
     {
-        $donation->delete();
-        Toast::info(__('Donation was deleted'));
+
+        $donation->fill($request->get('donation_infos'));
+        $donation->save();
+
+        Toast::info(__('Donation was saved'));
+        return redirect()->route('platform.donation_info');
     }
 
     /**
@@ -62,7 +65,7 @@ class DonationInfoScreen extends Screen
     public function layout(): iterable
     {
         return [
-            DonationInfoLayout::class  
+           DonationInfoCreateLayout::class
         ];
     }
 }
