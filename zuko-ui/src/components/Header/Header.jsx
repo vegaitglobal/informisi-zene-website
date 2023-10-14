@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './Header.module.scss';
+import {NavLink} from 'react-router-dom';
 
 function Header(){
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,26 +28,17 @@ function Header(){
         },
         {
             label: 'Doniraj',
-            href: '',
-            submenu: [
-                {
-                    label: 'Vest',
-                    href:'www.google.com'
-                },
-                {
-                    label: 'Prilike za žene',
-                    href:'www.google.com'
-                },
-            ]
+            href: '/donations',
+            submenu: []
         },
         {
             label: 'O Nama',
-            href: '/publications',
+            href: '/about',
             submenu: [],
         },
         {
             label: 'Kontakt',
-            href: '/publications',
+            href: '/contact',
             submenu: [],
         }
     ]
@@ -72,14 +64,16 @@ function Header(){
                                         <ul className={styles.sublist}>
                                             {item?.submenu.map(subitem => (
                                                 <li className={styles.subitem} key={subitem.label}>
-                                                    <a className={styles.sublink} href={subitem.href}>{subitem.label}</a>
+                                                    <NavLink className={styles.sublink} to={subitem.href}>{subitem.label}</NavLink>
                                                 </li>
                                             ))}
                                         </ul>
                                     </div>
                                 )}
                             </>
-                            : <a href={item.href} className={styles.link}>{item.label}</a>}
+                            : 
+                            <NavLink to={item.href} className={styles.link}>{item.label}</NavLink>
+                            }
                         </li>))}
                     </ul>
                 </div>
