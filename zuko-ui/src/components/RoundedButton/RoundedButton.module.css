@@ -1,0 +1,14 @@
+.button {
+    background-color:#FFAA33 ;
+    border-radius: 12px;
+    width: 100%;
+    padding: 15px 0;
+    font-weight: 500;
+    border: none;
+    font-size: 16px;
+
+    @media only screen and (min-width: 1024px) {
+        font-size: 20px;
+        padding: 18px 0;
+    }
+}
