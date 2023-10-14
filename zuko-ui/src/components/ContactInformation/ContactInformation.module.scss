@@ -1,0 +1,23 @@
+@import '../../styles/mixins.scss';
+
+.namePropery{
+    font-weight: 700;
+    font-size: 18px;
+    color: #2A2E32;
+}
+
+.text{
+    font-weight: 400;
+    font-size: 18px;
+    color: #2A2E32;
+    margin-bottom: ;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 30px;
+    margin-bottom: 30px;
+    
+    @include media-breakpoint-desktop {
+    }
+}
