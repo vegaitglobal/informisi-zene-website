@@ -1,3 +1,6 @@
+@import '../../styles/mixins.scss';
+
+
 .teamMember {
     text-align: center;
 
@@ -10,10 +13,8 @@
         font-size: 18px;
         line-height: 24px;
     }
-}
 
-@media only screen and (min-width: 1024px) {
-    .teamMember {
+    @include media-breakpoint-desktop {
         img {
             width: 260px;
         }
