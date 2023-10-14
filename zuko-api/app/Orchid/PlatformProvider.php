@@ -43,11 +43,16 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make(__('Roles'))
                 ->icon('lock')
                 ->route('platform.systems.roles')
-                ->permission('platform.systems.roles'),
+                ->permission('platform.systems.roles')
+            Menu::make(__("Categories"))
+                ->icon("folder")
+                ->route("platform.categories")
+                ->permission('platform.categories'),
                 
             Menu::make(__('Donors'))
-            ->icon('folder')
-            ->route('platform.donors'),
+              ->icon('folder')
+              ->route('platform.donors')
+              ->permission('platform.donors'),
         ];
     }
 
