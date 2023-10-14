@@ -40,7 +40,7 @@ const router = createBrowserRouter([
     element: <PageWrapper><PostPage /></PageWrapper>,
   },
   {
-    path: 'publications/:id',
+    path: 'publications',
     element: <PageWrapper><PublicationsPage /></PageWrapper>,
   },
 ]);
