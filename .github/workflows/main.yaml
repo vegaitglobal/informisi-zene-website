@@ -2,10 +2,11 @@ name: CI
 on:
   push:
     branches:
-      - main
+      - feature/devops
+
 jobs:
   Main_branch:
-    if: ${{ github.ref == 'refs/heads/main' }}
+    
     runs-on: ubuntu-latest
     
     steps:
@@ -16,7 +17,7 @@ jobs:
         with:
           php-version: '8.0'
 
-      - name: Build .env
+      - name: Build .env - Laravel
         working-directory: zuko-api
         run: |
           echo "WWWGROUP=1000" >> .env
@@ -41,13 +42,17 @@ jobs:
           echo "APP_PORT=${{ secrets.APP_PORT }}" >> .env
           echo "APP_URL=https://informisizene.codeforacause.rs" >> .env
 
-      - name: Installing project dependencies
+      - name: Installing project dependencies - Laravel
         working-directory: zuko-api
         run: docker run --rm -v "$(pwd):/app" composer/composer install
 
-      - name: Building Docker image api
+      - name: Building Docker image api - Laravel
         working-directory: zuko-api
-        run: docker build -t codeforacause/informisizene:${{ github.run_number }} ./vendor/laravel/sail/runtimes/8.2 --build-arg="WWWGROUP=1000"
+        run: docker build -t codeforacause/informisizene-laravel:${{ github.run_number }} ./vendor/laravel/sail/runtimes/8.2 --build-arg="WWWGROUP=1000"
+      
+      - name: Building Docker image api - UI
+        working-directory: zuko-ui
+        run: docker build -t codeforacause/informisizene-ui:${{ github.run_number }} .
     
       - name: Login to Docker Hub
         uses: docker/login-action@v2
@@ -55,8 +60,10 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       
-      - name: Pushing Docker image to container registry
-        run: docker push codeforacause/informisizene:${{ github.run_number }}
+      - name: Pushing Docker images to container registry
+        run: |
+          docker push codeforacause/informisizene-laravel:${{ github.run_number }}
+          docker push codeforacause/informisizene-ui:${{ github.run_number }}
         
       - name: Replace tokens
         uses: cschleiden/replace-tokens@v1.1
@@ -67,7 +74,7 @@ jobs:
         env:
           TAG_NUMBER: "${{ github.run_number }}"
       
-      - name: Copy files via ssh
+      - name: Copy files via ssh - Laravel
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -76,8 +83,16 @@ jobs:
           port: ${{ secrets.PORT }}
           source: "./zuko-api/"
           target: "./Projects/informisizene/"
-          strip_components: 2
       
+      - name: Copy files via ssh - docker compose
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          source: "./docker-compose.production.yml"
+          target: "./Projects/informisizene/"
       
       - name: Run docker compose using ssh commands using password
         uses: appleboy/ssh-action@master
