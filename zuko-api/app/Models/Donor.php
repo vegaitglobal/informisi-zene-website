@@ -10,6 +10,9 @@ use Orchid\Screen\AsSource;
 class Donor extends Model
 {
     use HasFactory, AsSource, Filterable;
-    
-    protected $fillable = ['name','website_url'];
+
+    protected $fillable = [
+        "name",
+        "website_url"
+    ];
 }
