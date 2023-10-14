@@ -3,7 +3,7 @@ services:
         image: codeforacause/informisizene:#{TAG_NUMBER}#
         container_name: informisizene_laravel
         ports:
-            - '${APP_PORT:-11001}:80'
+            - '${APP_PORT:-80}:80'
         environment:
             WWWUSER: '${WWWUSER}'
             LARAVEL_SAIL: 1
