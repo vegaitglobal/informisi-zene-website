@@ -6,5 +6,9 @@
     width: 37px;
     height: 37px;
     display: block;
+    transition: opacity .3s ease-in-out;
+    &:hover {
+        opacity: .7;
+    }
 }
 

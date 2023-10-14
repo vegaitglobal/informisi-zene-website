@@ -1,6 +1,6 @@
 import React from 'react'
 import SocialItem from '../SocialItem/SocialItem'
-import styles from './FooterSocials.module.css'
+import styles from './FooterSocials.module.scss'
 
 const socialsList = [
     {

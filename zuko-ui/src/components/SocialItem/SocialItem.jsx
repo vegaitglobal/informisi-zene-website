@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import styles from './SocialItem.module.css'
+import styles from './SocialItem.module.scss'
 
 const SocialItem = ({socialItem}) => {
   return (

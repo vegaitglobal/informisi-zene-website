@@ -49,6 +49,7 @@
     background-color: transparent;
     border: none;
     display: flex;
+    transition: right .3s ease;
 }
 
 .footer-img {
@@ -58,8 +59,8 @@
     @media only screen and (min-width: 1024px) {
         margin: 0;
         position: absolute;
-        top: -20px;
-        right: -134px;
+        top: -41px;
+        right: -147px;
     }
 }
 
