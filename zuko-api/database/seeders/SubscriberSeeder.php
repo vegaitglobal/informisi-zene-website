@@ -2,19 +2,19 @@
 
 namespace Database\Seeders;
 
-use App\Models\DonationInfo;
+use App\Models\Subscriber;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class DonationInfoSeeder extends Seeder
+class SubscriberSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        DonationInfo::factory()
-            ->times(10)
+        Subscriber::factory()
+            ->count(25)
             ->create();
     }
 }
