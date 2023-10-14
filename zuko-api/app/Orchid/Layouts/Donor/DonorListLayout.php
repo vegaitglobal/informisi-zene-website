@@ -36,20 +36,20 @@ class DonorListLayout extends Table
             TD::make('created_at', __('Created'))
                 ->sort()
                 ->render(fn (Donor $donor) => $donor->created_at->toDateTimeString()),
-                            TD::make(__('Actions'))
+            TD::make(__('Actions'))
                 ->align(TD::ALIGN_CENTER)
                 ->width('100px')
                 ->render(fn (Donor $donor) => DropDown::make()
-                    ->icon('options-vertical')
+                    ->icon('bs.three-dots-vertical')
                     ->list([
 
                         Link::make(__('Edit'))
                             ->route('platform.donors.edit', $donor->id)
-                            ->icon('pencil'),
+                            ->icon('bs.pencil'),
 
                         Button::make(__('Delete'))
-                            ->icon('trash')
-                            ->confirm(__('Once the account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.'))
+                            ->icon('bs.trash3')
+                            ->confirm(__('Are you sure that you want to delete this donor?'))
                             ->method('remove', [
                                 'id' => $donor->id,
                             ]),
