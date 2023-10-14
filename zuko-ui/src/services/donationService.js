@@ -8,7 +8,7 @@ export const getDonationInfo = async () => {
         const [data] = donationData;
         console.log(data)
         const {account_number, recepient_name, default_amount, payment_code} = data;
-        // console.log(data, account_number)
+        // R: should be changed dynamically
         const qrImage = await axios.post('https://www.nbs.rs/QRcode/api/qr/v1/generate?lang=en',`K:PR|V:01|C:1|R:160000000039175078|N:${recepient_name}|I:RSD2424,00|SF:${payment_code}`,
           {
             headers: {
@@ -21,15 +21,4 @@ export const getDonationInfo = async () => {
       } catch (error) {
         console.log(error);
       }
-
-    
-
-
-    // const qrImage = await axios.post('nbs');
-
-    // return {
-    //     paymentData
-    //     // someData,
-    //     // qrImage
-    // }
 }
