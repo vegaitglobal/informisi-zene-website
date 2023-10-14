@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./TeamMember.module.css";
+import style from "./TeamMember.module.scss";
 
 export default  function TeamMember({imageLink, name}) {
     return (

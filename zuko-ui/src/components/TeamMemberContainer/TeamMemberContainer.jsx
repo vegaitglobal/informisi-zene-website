@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styles from "./TeamMemberContainer.module.css";
+import styles from "./TeamMemberContainer.module.scss";
 import TeamMember from "../TeamMember/TeamMember";
 
 export default  function TeamMemberContainer() {
