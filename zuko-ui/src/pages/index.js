@@ -1,4 +1,4 @@
-import TestComponent from "../components/TestComponent/TestComponent";
+import Stats from "../components/Stats/Stats";
 import PostShareLinks from '../components/PostShareLinks/PostShareLinks';
 import HomePostsContainer from "../components/HomePostsContainer/HomePostsContainer";
 import StrategyGoals from "../components/StrategyGoals/StrategyGoals";
@@ -9,6 +9,7 @@ export default function HomePage() {
         <HeroBanner />
         <StrategyGoals />
 		<HomePostsContainer />
+        <Stats/>
 		<PostShareLinks />
     </div>
 }
