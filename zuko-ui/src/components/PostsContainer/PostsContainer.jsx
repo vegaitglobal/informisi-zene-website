@@ -1,5 +1,5 @@
-import styles from './HomePostsContainer.module.scss';
-import HomePost from '../HomePost/HomePost';
+import styles from './PostsContainer.module.scss';
+import Post from '../Post/Post';
 
 const initialValue = [
 	{
@@ -13,7 +13,7 @@ const initialValue = [
 		category: 'KOLIKI JE MOJ DEO?',
 	},
 	{
-		id: 0,
+		id: 1,
 		title: 'Ruralne Evropljanke',
 		user: 'Marina',
 		crated: '2023-10-13T18:00',
@@ -24,12 +24,12 @@ const initialValue = [
 	},
 ];
 
-export default function HomePostsContainer({ data = initialValue}) {
+export default function PostsContainer({ data = initialValue}) {
 	return (
 		<div className={styles.container}>
 			<h3 className={styles.container__heading}>Prilike za žene</h3>
 			<div className={styles.container__posts}>
-				{data.map((post) => (<HomePost key={post.id} postData={post}/>))}
+				{data.map((post) => (<Post key={post.id} postData={post}/>))}
 			</div>
 		</div>
 	);

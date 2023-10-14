@@ -1,4 +1,4 @@
-import styles from './HomePost.module.scss';
+import styles from './Post.module.scss';
 
 const initialValue = {
 	id: 0,
@@ -11,7 +11,7 @@ const initialValue = {
 	category: 'KOLIKI JE MOJ DEO?',
 };
 
-export default function HomePost({ postData = initialValue }) {
+export default function Post({ postData = initialValue }) {
 	return (
 		<div>
 			<div className={styles.post}>
