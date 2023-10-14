@@ -4,11 +4,20 @@
     background-color: #FFF8E7;
     padding: 121px 25px 70px;
     @include media-breakpoint-desktop {
-        padding: 59px 100px 78px 109px;
-        display: flex;
-        justify-content: space-between;
+        padding: 59px 25px 78px;
+       
         
     }
+}
+
+.footerWrap {
+    @include media-breakpoint-desktop  {
+        max-width: 1289px;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+    }   
 }
 
 .footerTitle {
