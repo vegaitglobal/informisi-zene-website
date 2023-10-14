@@ -1,0 +1,28 @@
+@import '../../styles/mixins.scss';
+
+.share {
+	color: #2a2e32;
+}
+
+.share__text {
+	font-size: 18px;
+}
+
+.share__icons {
+	display: flex;
+	align-items: center;
+	gap: 18px;
+	margin-top: 13px;
+
+	@include media-breakpoint-desktop {
+		margin-top: 17px;
+	}
+}
+
+.share__icon img {
+	width: 20px;
+
+	@include media-breakpoint-desktop {
+		width: 30px;
+	}
+}

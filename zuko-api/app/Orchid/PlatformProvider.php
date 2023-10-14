@@ -44,10 +44,14 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('lock')
                 ->route('platform.systems.roles')
                 ->permission('platform.systems.roles'),
-                
+            Menu::make(__("Categories"))
+                ->icon("folder")
+                ->route("platform.categories")
+                ->permission('platform.categories'),
             Menu::make(__('Donors'))
-            ->icon('folder')
-            ->route('platform.donors'),
+              ->icon('folder')
+              ->route('platform.donors')
+              ->permission('platform.donors'),
         ];
     }
 
@@ -65,6 +69,8 @@ class PlatformProvider extends OrchidServiceProvider
                 
             ItemPermission::group(__('Blog'))
             ->addPermission('platform.posts', __('Posts'))
+            ->addPermission('platform.categories', __('Categories'))
+            ->addPermission('platform.donors', __('Donors'))
         ];
     }
 }

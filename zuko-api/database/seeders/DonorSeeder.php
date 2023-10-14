@@ -13,6 +13,8 @@ class DonorSeeder extends Seeder
      */
     public function run(): void
     {
-        Donor::factory()->times(10)->create();
+        Donor::factory()
+            ->times(10)
+            ->create();
     }
 }

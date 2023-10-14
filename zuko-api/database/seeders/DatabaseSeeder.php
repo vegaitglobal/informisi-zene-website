@@ -16,7 +16,10 @@ class DatabaseSeeder extends Seeder
             PublicationsSeeder::class,
             CategorySeeder::class,
             DonationInfoSeeder::class,
-            DonorSeeder::class
+            DonorSeeder::class,
+            BlockSeeder::class,
+            PostSeeder::class,
+            SubscriberSeeder::class
         ]);
     }
 }
