@@ -18,7 +18,7 @@ class PublicationsController extends Controller
     {
         $filter = new PublicationQuery();
         $queryItems = $filter->transform($request);
-        return new PublicationsCollection(Publications::where($queryItems)->paginate(3));
+        return new PublicationsCollection(Publications::where($queryItems)->paginate($request->query('size',3)));
     }
 
 }
