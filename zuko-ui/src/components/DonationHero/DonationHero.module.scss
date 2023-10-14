@@ -5,11 +5,11 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 314px;
+	width: 100%;
 	margin-inline: auto;
 
 	@include media-breakpoint-desktop {
-		width: 875px;
+		max-width: 875px;
 	}
 }
 
