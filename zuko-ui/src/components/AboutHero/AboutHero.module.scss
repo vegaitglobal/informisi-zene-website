@@ -1,50 +1,55 @@
+@import '../../styles/mixins.scss';
 
 .h1 {
     font-size: 30px;
     color: #2A2E32;
-    @media only screen and (min-width: 1024px) {
+    font-weight: 700;
+    @include media-breakpoint-desktop {
       font-size: 38px;
       margin: 0px;
     }
 }
-
-.image{
-  width: 100%;
-  margin-top: 30px;
-  margin-bottom: 30px;
-    @media only screen and (min-width: 1024px) {
-      width: 40%;
-      position: absolute;
-      top: 0px;
-      right: 0px;
-
-    }
-}
-
 .imgTextComp{
-  position: absolute;
-   @media only screen and (min-width: 1024px) {
+  position: relative;
+  @include media-breakpoint-desktop {
+    display: flex;
+    flex-direction: column;
+align-items: safe;
     margin-top: 90px;
     margin-bottom:120px;
   }
 }
+.image{
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  @include media-breakpoint-desktop {
+      width: 40%;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      margin: 0;
+    }
+}
+
+
 
 .paragraph {
   margin-bottom: 30px;
   width: 100%;
   color: #2A2E32;
   font-size: 18px;
-  @media only screen and (min-width: 1024px) {
+  @include media-breakpoint-desktop {
     width: 50%;
     }
 }
 
 .description {
   width: 100%;
-  font-weight: bold;
+  font-weight: 600;
   color: #2A2E32;
   font-size: 18px;
-  @media only screen and (min-width: 1024px) {
+  @include media-breakpoint-desktop {
     width: 50%;
     }
 }
