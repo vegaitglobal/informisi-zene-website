@@ -2,6 +2,11 @@
 
 declare(strict_types=1);
 
+use App\Models\Category;
+use App\Models\Post;
+use App\Orchid\Layouts\Post\PostEditLayout;
+use App\Orchid\Screens\CategoryEditScreen;
+use App\Orchid\Screens\CategoryListScreen;
 use App\Orchid\Screens\Examples\ExampleActionsScreen;
 use App\Orchid\Screens\Examples\ExampleCardsScreen;
 use App\Orchid\Screens\Examples\ExampleChartsScreen;
@@ -17,6 +22,10 @@ use App\Orchid\Screens\Role\RoleListScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
+use App\Orchid\Screens\Donor\DonorListScreen;
+use App\Orchid\Screens\Donor\DonorEditScreen;
+use App\Orchid\Screens\Post\PostEditScreen;
+use App\Orchid\Screens\Post\PostListScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 
@@ -84,21 +93,56 @@ Route::screen('roles', RoleListScreen::class)
         ->parent('platform.index')
         ->push(__('Roles'), route('platform.systems.roles')));
 
-// Example...
-Route::screen('example', ExampleScreen::class)
-    ->name('platform.example')
+Route::screen('donors', DonorListScreen::class)
+    ->name('platform.donors')
     ->breadcrumbs(fn (Trail $trail) => $trail
         ->parent('platform.index')
-        ->push('Example Screen'));
+        ->push(__('Donors'), route('platform.donors')));
 
-Route::screen('/examples/form/fields', ExampleFieldsScreen::class)->name('platform.example.fields');
-Route::screen('/examples/form/advanced', ExampleFieldsAdvancedScreen::class)->name('platform.example.advanced');
-Route::screen('/examples/form/editors', ExampleTextEditorsScreen::class)->name('platform.example.editors');
-Route::screen('/examples/form/actions', ExampleActionsScreen::class)->name('platform.example.actions');
+Route::screen('categories', CategoryListScreen::class)
+    ->name('platform.categories')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.index')
+        ->push(__('Categories'), route('platform.categories')));
 
-Route::screen('/examples/layouts', ExampleLayoutsScreen::class)->name('platform.example.layouts');
-Route::screen('/examples/grid', ExampleGridScreen::class)->name('platform.example.grid');
-Route::screen('/examples/charts', ExampleChartsScreen::class)->name('platform.example.charts');
-Route::screen('/examples/cards', ExampleCardsScreen::class)->name('platform.example.cards');
+Route::screen('categories/create', CategoryEditScreen::class)
+    ->name('platform.categories.create')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.categories')
+        ->push(__('Create'), route('platform.categories.create')));
 
-//Route::screen('idea', Idea::class, 'platform.screens.idea');
+Route::screen('categories/{category}/edit', CategoryEditScreen::class)
+    ->name('platform.categories.edit')
+    ->breadcrumbs(fn (Trail $trail, $category) => $trail
+        ->parent('platform.categories')
+        ->push($category->id, route('platform.categories.edit', $category)));
+
+Route::screen('posts', PostListScreen::class)
+    ->name('platform.posts')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.index')
+        ->push(__('Posts'), route('platform.posts')));
+
+Route::screen('posts/create', PostEditScreen::class)
+    ->name('platform.posts.create')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.posts')
+        ->push(__('Create'), route('platform.posts.create')));
+
+Route::screen('posts/{post}/edit', PostEditScreen::class)
+    ->name('platform.posts.edit')
+    ->breadcrumbs(fn (Trail $trail, Post $post) => $trail
+        ->parent('platform.posts')
+        ->push(route('platform.posts.edit', $post)));
+
+Route::screen('donors/create', DonorEditScreen::class)
+    ->name('platform.donors.create')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.donors')
+        ->push(__('Create'), route('platform.donors.create')));
+
+Route::screen('donors/{donor}/edit', DonorEditScreen::class)
+    ->name('platform.donors.edit')
+    ->breadcrumbs(fn (Trail $trail, $donor) => $trail
+        ->parent('platform.donors')
+        ->push($donor->id, route('platform.donors.edit', $donor)));

@@ -1,0 +1,238 @@
+@import '../../styles/mixins.scss';
+
+.header {
+    padding-top: 21px;
+    padding-bottom: 21px;
+    font-family: 'DM Sans', sans-serif;
+    background-color: #FFF8E7;
+}
+
+.wrap {
+    max-width: 1440px;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.logo {
+    max-width: 60px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    @include media-breakpoint-desktop {
+        max-width: 100px;
+    }
+}
+
+.holder {
+    width: 100%;
+    background-color: #FFF8E7;
+    display: grid;
+    place-content: center;
+    transition: transform .5s ease-in;
+    top: 82px;
+    left: 0;
+    overflow: hidden;
+    position: fixed;
+    transform: translateY(-100%);
+    @include media-breakpoint-desktop {
+        top: auto;
+        left: auto;
+        overflow: initial;
+        position: relative;
+        place-content: end;
+        transform: translateY(0);
+        padding: 16px 66px 0 0;
+    }
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 83px);
+    @include media-breakpoint-desktop {
+        flex-direction: row;
+        justify-content: flex-end;
+        height: 100%;
+    }
+}
+
+.navActive {
+    transform: translateX(0);
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    &:not(:last-child) {
+        margin-bottom: 40px;
+    }
+    @include media-breakpoint-desktop {
+        position: relative;
+        &:not(:last-child) {
+            margin-bottom: 0;
+            margin-right: 54px;
+        }
+    }
+}
+
+.subitem {
+    &:not(:last-child) {
+        margin-bottom: 15px;
+    }
+    @include media-breakpoint-desktop {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.sublink {
+    font-size: 18px;
+    font-weight: 600;
+    color: inherit;
+    @include media-breakpoint-desktop {
+        transition: color .15s ease-out;
+        font-size: 16px;
+        font-weight: 400;
+        &:hover {
+            color: #FFAA33;
+        }
+    }
+}
+
+.link {
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #2A2E32;
+    background-color: transparent;
+    border: none;
+    letter-spacing: 1px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    @include media-breakpoint-desktop {
+        font-size: 16px;
+        letter-spacing: 1.7px;
+        transition: color .15s ease-out;
+        &:hover {
+            color: #FFAA33;
+            .chevronIcon {
+                border-color: #ffaa33;
+            }
+        }
+    }
+}
+
+.linkActive {
+    .chevronIcon {
+        transform: rotate(45deg);
+    }
+    @include media-breakpoint-desktop {
+        color: #FFAA33;
+        .chevronIcon {
+            border-color: #ffaa33;
+        }
+    }
+}
+
+.chevronIcon {
+    width: 8px;
+    height: 8px;
+    border-right: 3px solid #2A2E32;
+    border-bottom: 3px solid #2A2E32;
+    transform: rotate(-45deg);
+    margin-left: 10px;
+    transition-property: border-color transform;
+    transition: .3s ease-out;
+    @include media-breakpoint-desktop {
+        transform: rotate(45deg);
+        margin-top: -5px;
+    }
+}
+
+@keyframes slideIn{
+    from {
+        max-height: 0;
+    } to {
+        max-height: 1000px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+
+.subnav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+    animation: sladeIn .5s ease-in;
+    @include media-breakpoint-desktop {
+        position: absolute;
+        width: 200px;
+        background-color: #FFF8E7;
+        border-radius: 10px;
+        top: 40px;
+        box-shadow: 0px 4px 24px 5px rgba(62,66,66,0.1);
+        animation: fadeIn .15s ease-out;
+    }
+}
+
+.sublist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 0 0;
+    @include media-breakpoint-desktop {
+        padding: 20px;
+    }
+}
+
+.menuBtn {
+    background-color: transparent;
+    border: none;
+    width: 30px;
+    height: 22px;
+    position: relative;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    @include media-breakpoint-desktop {
+        display: none;
+    }
+}
+
+.menuIcon {
+    height: 3px;
+    width: 18px;
+    background-color: #000;
+    display: block;
+    &::before,
+    &::after {
+        position: absolute;
+        content: '';
+        height: 3px;
+        width: 25px;
+        background-color: #000;
+        right: 0;
+    }
+    &::after {
+        top: 0;
+    }
+    &::before {
+        bottom: 0;
+    }
+}
