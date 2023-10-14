@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\V1\PublicationsResource;
 use App\Http\Resources\V1\PublicationsCollection;
-use App\Services\V1\PublicationQuery;
+use App\Filters\V1\PublicationsFilter;
 
 class PublicationsController extends Controller
 {
@@ -16,7 +16,7 @@ class PublicationsController extends Controller
      */
     public function index(Request $request)
     {
-        $filter = new PublicationQuery();
+        $filter = new PublicationsFilter();
         $queryItems = $filter->transform($request);
         return new PublicationsCollection(Publications::where($queryItems)->paginate($request->query('size',3)));
     }

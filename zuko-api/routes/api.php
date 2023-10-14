@@ -27,6 +27,8 @@ Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\V1'], funct
     Route::post('notifications/newsletters/subscriptions', 'NewsletterController@store');
     Route::apiResource('publications', PublicationsController::class);
     Route::apiResource('categories', CategoriesController::class);
-    Route::apiResource("donations", DonationInfoController::class);
-    Route::apiResource("donors", DonorController::class);
+    Route::apiResource('posts', PostController::class);
+    Route::apiResource('employees', EmployeController::class);
+    Route::apiResource('donations/donation-info', DonationInfoController::class);
+    Route::apiResource('donations/donors', DonorController::class);
 });
