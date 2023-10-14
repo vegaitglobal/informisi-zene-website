@@ -1,0 +1,32 @@
+@import '../../styles/mixins.scss';
+
+.title {
+    text-align: center;
+    font-size: 18px;
+    color: #2A2E32;
+    font-weight: 600;
+    @include media-breakpoint-desktop {
+        visibility:hidden;
+    }
+}
+.search{
+    border-radius: 12px;
+    margin-top: 12px;
+    width: calc(100% - 2 * 16px);
+    height: 48px;
+    border-width: 0.75px;
+    padding: 0px 16px;
+    @include media-breakpoint-desktop {
+        width: 50%;
+    }
+}
+
+.search::placeholder{
+    visibility:hidden;
+    @include media-breakpoint-desktop {
+        visibility:visible;
+        font-size: 20px;
+        color: #2A2E32;
+        font-weight: 600;
+    }
+}
