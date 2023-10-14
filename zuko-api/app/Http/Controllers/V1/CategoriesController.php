@@ -9,12 +9,10 @@ use App\Models\Category;
 
 class CategoriesController extends Controller
 {
-    public function index(Category $category)
+    public function index()
     {
-        $category = Category::select("name", "id")->get();
+        $categories = Category::all();
 
-        return response()->json(
-            $category
-        );
+        return CategoryResource::collection($categories);
     }
 }
