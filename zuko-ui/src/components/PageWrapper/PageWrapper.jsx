@@ -1,3 +1,4 @@
+import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 
@@ -7,7 +8,7 @@ export default function PageWrapper({children}){
         <LayoutWrapper>
             {children}
         </LayoutWrapper>
-        <h3>Footer</h3>
+        <Footer/>
     </>
     
 }
