@@ -21,7 +21,7 @@
     width: 100%;
     position: relative;
     z-index: 2;
-    @media only screen and (min-width: 1024px) {
+    @include media-breakpoint-desktop {
         max-width: 100px;
     }
 }
@@ -32,16 +32,18 @@
     display: grid;
     place-content: center;
     transition: transform .5s ease-in;
-    @media only screen and (max-width: 1023px) {
-        top: 82px;
-        left: 0;
-        overflow: hidden;
-        position: fixed;
-        transform: translateY(-100%);
-    }
-    @media only screen and (min-width: 1024px) {
+    top: 82px;
+    left: 0;
+    overflow: hidden;
+    position: fixed;
+    transform: translateY(-100%);
+    @include media-breakpoint-desktop {
+        top: auto;
+        left: auto;
+        overflow: initial;
         position: relative;
         place-content: end;
+        transform: translateY(0);
         padding: 16px 66px 0 0;
     }
 }
@@ -52,7 +54,7 @@
     align-items: center;
     justify-content: center;
     height: calc(100vh - 83px);
-    @media only screen and (min-width: 1024px) {
+    @include media-breakpoint-desktop {
         flex-direction: row;
         justify-content: flex-end;
         height: 100%;
@@ -70,7 +72,7 @@
     &:not(:last-child) {
         margin-bottom: 40px;
     }
-    @media only screen and (min-width: 1024px) {
+    @include media-breakpoint-desktop {
         position: relative;
         &:not(:last-child) {
             margin-bottom: 0;
@@ -83,7 +85,7 @@
     &:not(:last-child) {
         margin-bottom: 15px;
     }
-    @media only screen and (min-width: 1024px) {
+    @include media-breakpoint-desktop {
         width: 100%;
         text-align: center;
     }
@@ -93,7 +95,7 @@
     font-size: 18px;
     font-weight: 600;
     color: inherit;
-    @media only screen and (min-width: 1024px) {
+    @include media-breakpoint-desktop {
         transition: color .15s ease-out;
         font-size: 16px;
         font-weight: 400;
@@ -114,7 +116,7 @@
     padding: 0;
     display: flex;
     align-items: center;
-    @media only screen and (min-width: 1024px) {
+    @include media-breakpoint-desktop {
         font-size: 16px;
         letter-spacing: 1.7px;
         transition: color .15s ease-out;
@@ -128,12 +130,10 @@
 }
 
 .linkActive {
-    @media only screen and (max-width: 1023px) {
-        .chevronIcon {
-            transform: rotate(45deg);
-        }
+    .chevronIcon {
+        transform: rotate(45deg);
     }
-    @media only screen and (min-width: 1024px) {
+    @include media-breakpoint-desktop {
         color: #FFAA33;
         .chevronIcon {
             border-color: #ffaa33;
@@ -178,10 +178,8 @@
     flex-direction: column;
     width: 100%;
     overflow: hidden;
-    @media only screen and (max-width: 1023px) {
-        animation: sladeIn .5s ease-in;
-    }
-    @media only screen and (min-width: 1024px) {
+    animation: sladeIn .5s ease-in;
+    @include media-breakpoint-desktop {
         position: absolute;
         width: 200px;
         background-color: #FFF8E7;
@@ -196,10 +194,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    @media only screen and (max-width: 1023px) {
-        padding: 16px 0 0;
-    }
-    @media only screen and (min-width: 1024px) {
+    padding: 16px 0 0;
+    @include media-breakpoint-desktop {
         padding: 20px;
     }
 }
@@ -214,7 +210,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    @media only screen and (min-width: 1024px) {
+    @include media-breakpoint-desktop {
         display: none;
     }
 }
