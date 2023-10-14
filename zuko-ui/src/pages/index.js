@@ -1,10 +1,13 @@
-import Footer from "../components/Footer/Footer";
+import RoundedButton from "../components/RoundedButton/RoundedButton";
 import TestComponent from "../components/TestComponent/TestComponent";
+import PostShareLinks from '../components/PostShareLinks/PostShareLinks';
+import HomePostsContainer from "../components/HomePostsContainer/HomePostsContainer";
 
 export default function HomePage() {
-    return  <div>
-                <TestComponent testProperty="new text"/>
-                <TestComponent testProperty="Example component"/>
-                <h1>Home Page</h1>
-            </div>
+    return <div>
+        <TestComponent testProperty="Example component"/>
+        <RoundedButton />
+		<HomePostsContainer />
+		<PostShareLinks />
+    </div>
 }
