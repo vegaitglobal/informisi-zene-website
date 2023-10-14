@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Orchid\Screens;
 
 use Orchid\Screen\Screen;
-use Orchid\Support\Facades\Layout;
 
 class PlatformScreen extends Screen
 {
@@ -32,7 +31,7 @@ class PlatformScreen extends Screen
      */
     public function description(): ?string
     {
-        return 'Welcome to Zuko Admin Panel.';
+        return 'Dobrodosli na Zuko Admin Panel.';
     }
 
     /**
