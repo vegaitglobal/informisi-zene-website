@@ -1,37 +1,39 @@
 <?php
 
-namespace App\Services\V1;
+namespace App\Filters\V1;
 
 use Illuminate\Http\Request;
+use App\Filters\ApiFilter;
 
-class PublicationQuery {
+class PostsFilter extends ApiFilter {
     protected $safeParams = [
-        'type' => ['eq'],
+        'title' => ['like'],
     ];
 
     protected $columnMap = [
-        'type' => 'type',
+        'title' => 'title',
     ];
 
     protected $operatorMap = [
-        'eq' => '=',
+        'like' => 'LIKE',
     ];
 
     public function transform(Request $request) {
         $eloQuery = [];
 
-        foreach ($this->safeParams as $parm => $operators) {
-            $query = $request->query($parm);
+        foreach ($this->safeParams as $param => $operators) {
+            $query = $request->query($param);
 
             if (!isset($query)) {
                 continue;
             }
 
-            $column = $this->columnMap[$parm] ?? $parm;
+            $column = $this->columnMap[$param] ?? $param;
 
             foreach ($operators as $operator) {
+
                 if (isset($query[$operator])){
-                    $eloQuery[] = [$column, $this->operatorMap[$operator], $query[$operator]];
+                    $eloQuery[] = [$column, $this->operatorMap[$operator], '%' . $query[$operator] . '%'];
                 }
             }
         }

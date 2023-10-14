@@ -1,35 +1,37 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\V1;
 
 use App\Models\Post;
-use App\Http\Requests\StorePostRequest;
-use App\Http\Requests\UpdatePostRequest;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\PostResource;
+use App\Http\Resources\V1\PostCollection;
+use App\Http\Resources\V1\SinglePostResource;
+use App\Http\Resources\V1\SinglePostCollection;
+use App\Filters\V1\PostsFilter;
 
 class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-    }
+        $filter = new PostsFilter();
+        $queryItems = $filter->transform($request);
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+        $categoryId = $request->input('category');
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StorePostRequest $request)
-    {
-        //
+        $postsQuery = Post::when(!is_null($categoryId), function ($query) use ($categoryId) {
+            $query->whereHas('categories', function ($subQuery) use ($categoryId) {
+                $subQuery->where('category_id', $categoryId);
+            });
+        });
+
+        $result = $postsQuery->where($queryItems)->paginate($request->query('size', 3));
+
+        return new PostCollection($result);
     }
 
     /**
@@ -37,30 +39,6 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Post $post)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdatePostRequest $request, Post $post)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Post $post)
-    {
-        //
+        return new SinglePostResource($post);
     }
 }

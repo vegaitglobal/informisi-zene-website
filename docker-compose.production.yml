@@ -1,0 +1,54 @@
+services:
+    ui:
+        image: codeforacause/informisizene-ui:#{TAG_NUMBER}#
+        container_name: informisizene_ui
+        ports:
+            - '11002:80'
+        restart: always
+        depends_on:
+            - laravel
+
+    laravel:
+        image: codeforacause/informisizene-laravel:#{TAG_NUMBER}#
+        container_name: informisizene_laravel
+        ports:
+            - '11001:80'
+        environment:
+            WWWUSER: '${WWWUSER}'
+            LARAVEL_SAIL: 1
+            IGNITION_LOCAL_SITES_PATH: '${PWD}'
+        volumes:
+            - './zuko-api:/var/www/html:rw'
+            - './.env:/var/www/html/.env:rw'
+        restart: always
+        depends_on:
+            - mysql
+
+    mysql:
+        image: 'mysql/mysql-server:8.0'
+        container_name: informisizene_mysql
+        ports:
+            - '3306/tcp'
+        environment:
+            MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_ROOT_HOST: '%'
+            MYSQL_DATABASE: '${DB_DATABASE}'
+            MYSQL_USER: '${DB_USERNAME}'
+            MYSQL_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_ALLOW_EMPTY_PASSWORD: 1
+        env_file:
+            - .env
+        volumes:
+            - 'informisizene-mysql:/var/lib/mysql:rw'
+            - './zuko-api/vendor/laravel/sail/database/mysql/create-testing-database.sh:/docker-entrypoint-initdb.d/10-create-testing-database.sh:ro'
+        restart: always
+        healthcheck:
+            test:
+                - CMD
+                - mysqladmin
+                - ping
+                - '-p${DB_PASSWORD}'
+            retries: 3
+            timeout: 5s
+volumes:
+    informisizene-mysql:
