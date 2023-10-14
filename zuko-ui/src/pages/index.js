@@ -9,6 +9,5 @@ export default function HomePage() {
         <RoundedButton />
 		<HomePostsContainer />
 		<PostShareLinks />
-		<NewsPostsContainer />
     </div>
 }
