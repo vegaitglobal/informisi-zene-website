@@ -5,6 +5,10 @@
     padding-bottom: 21px;
     font-family: 'DM Sans', sans-serif;
     background-color: #FFF8E7;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 
 .wrap {
@@ -36,7 +40,7 @@
     left: 0;
     overflow: hidden;
     position: fixed;
-    transform: translateY(-100%);
+    transform: translateY(-110%);
     @include media-breakpoint-desktop {
         top: auto;
         left: auto;
@@ -152,7 +156,7 @@
     transition: .3s ease-out;
     @include media-breakpoint-desktop {
         transform: rotate(45deg);
-        margin-top: -5px;
+        margin-top: -8px;
     }
 }
 
@@ -235,4 +239,8 @@
     &::before {
         bottom: 0;
     }
+}
+
+.scrollDisabled {
+    overflow: hidden;
 }
