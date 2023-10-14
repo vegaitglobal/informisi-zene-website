@@ -10,7 +10,6 @@ import PostPage from '../pages/post.page';
 import PublicationsPage from '../pages/publications.page';
 import OpportunitiesPage from '../pages/opportunities.page';
 
-
 const router = createBrowserRouter([
   {
     path: '/',
