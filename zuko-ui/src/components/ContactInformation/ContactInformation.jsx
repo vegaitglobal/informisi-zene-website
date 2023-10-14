@@ -7,7 +7,7 @@ const namePropery3 = 'Mail'
 const text1 = 'Žensko udruženje kolubarskog okruga'
 const text2 = 'Kolubarska 22 \n11563 Veliki Crljen \nSrbija'
 const text3 = 'zenekolubara@yahoo.com'
-export default function ContactInformation({testProperty = "default value"}){
+export default function ContactInformation(){
     return <div className={styles.wrapper}>
                     <h2 className={styles.title}>{dataZUKOHeading}</h2>
                 <div className={styles.wrapperElement}>
