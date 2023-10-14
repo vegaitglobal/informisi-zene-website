@@ -59,7 +59,7 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make(__('Donation Info'))
               ->icon('box')
               ->route('platform.donation_info')
-              ->permission('platform.donation_info'),,
+              ->permission('platform.donation_info'),
              Menu::make(__('Posts'))
                 ->icon('folder')
                 ->route('platform.posts')
@@ -79,7 +79,7 @@ class PlatformProvider extends OrchidServiceProvider
                 ->addPermission('platform.systems.roles', __('Roles'))
                 ->addPermission('platform.systems.users', __('Users')),
 
-            ItemPermission::group(__('Blog')
+            ItemPermission::group(__('Blog'))
               ->addPermission('platform.posts', __('Posts'))
               ->addPermission('platform.categories', __('Categories'))
               ->addPermission('platform.donors', __('Donors'))
