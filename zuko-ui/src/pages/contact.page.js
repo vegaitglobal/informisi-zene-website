@@ -1,3 +1,8 @@
+import ContactInformation from "../components/ContactInformation/ContactInformation";
+
 export default function ContactPage() {
-    return <h2>Contact us page</h2>
+    return <div>
+        <h2>Contact us page</h2>
+        <ContactInformation/>
+    </div>
 }

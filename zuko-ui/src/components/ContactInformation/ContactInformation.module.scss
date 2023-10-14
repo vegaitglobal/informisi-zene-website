@@ -1,16 +1,30 @@
 @import '../../styles/mixins.scss';
 
+
+.wrapper{
+    max-width: 316px;
+}
+.wrapperElement{
+    margin-bottom: 30px;
+}
 .namePropery{
     font-weight: 700;
     font-size: 18px;
     color: #2A2E32;
+    @include media-breakpoint-desktop {
+        font-size: 20px;
+    }
 }
 
 .text{
     font-weight: 400;
     font-size: 18px;
     color: #2A2E32;
-    margin-bottom: ;
+    white-space: pre;
+
+    @include media-breakpoint-desktop {
+        font-size: 20px;
+    }
 }
 
 .title {
@@ -19,5 +33,6 @@
     margin-bottom: 30px;
     
     @include media-breakpoint-desktop {
+        font-size: 34px;
     }
 }
