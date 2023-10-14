@@ -1,0 +1,15 @@
+@import '../../styles/mixins.scss';
+
+.QRCodeText {
+    margin-bottom: 60px;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 600;
+    color: #2A2E32;
+    a {
+        color: #FFAA33;
+    }
+    @include media-breakpoint-desktop {
+        margin-bottom: 120px;
+    }
+}
