@@ -18,7 +18,6 @@ jobs:
           php-version: '8.0'
 
       - name: Build .env - Laravel
-        working-directory: zuko-api
         run: |
           echo "WWWGROUP=1000" >> .env
           echo "WWWUSER=1000" >> .env
@@ -39,8 +38,9 @@ jobs:
           echo "APP_ENV=local" >> .env
           echo "APP_KEY=${{ secrets.APP_KEY }}" >> .env
           echo "APP_DEBUG=false" >> .env
-          echo "APP_PORT=${{ secrets.APP_PORT }}" >> .env
           echo "APP_URL=https://informisizene.codeforacause.rs" >> .env
+          echo "APP_PORT=${{ secrets.APP_PORT }}" >> .env
+          echo "UI_PORT=${{ secrets.UI_PORT }}" >> .env
 
       - name: Installing project dependencies - Laravel
         working-directory: zuko-api
@@ -91,7 +91,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          source: "./docker-compose.production.yml"
+          source: "docker-compose.production.yml,.env"
           target: "./Projects/informisizene/"
       
       - name: Run docker compose using ssh commands using password
