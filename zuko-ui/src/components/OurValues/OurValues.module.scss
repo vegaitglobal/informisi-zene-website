@@ -1,0 +1,26 @@
+@import "../../styles/mixins.scss";
+
+.ourValues {
+    color: #2A2E32;
+
+    .ourValuesContainer {
+        & > div {
+            padding-top: 48px;
+        }
+    }
+    
+
+    h2 {
+        font-size: 30px;
+        font-weight: 600;
+        text-align: center;
+        font-variant: all-small-caps;
+    } 
+
+    @include media-breakpoint-desktop{
+        h2 {
+            font-size: 32px;
+            font-variant: unset;
+        }
+    }
+}

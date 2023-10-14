@@ -4,7 +4,6 @@ import HomePage from '../pages/index';
 import ContactPage from '../pages/contact.page';
 import PageWrapper from '../components/PageWrapper/PageWrapper';
 
-
 const router = createBrowserRouter([
   {
     path: '/',
