@@ -1,0 +1,90 @@
+name: CI
+on:
+  push:
+    branches:
+      - feature/devops
+
+jobs:
+  Main_branch:
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@main
+      
+      - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+        with:
+          php-version: '8.0'
+      
+      - name: Set working directory
+        run: cd zuko-api
+        working-directory: zuko-api
+            
+      - name: Build .env
+        run: -|
+          echo "WWWGROUP=1000" >> .env
+          echo "WWWUSER=1000" >> .env
+          echo "LOG_CHANNEL=stack" >> .env
+          echo "LOG_DEPRECATIONS_CHANNEL=null" >> .env
+          echo "LOG_LEVEL=info" >> .env
+          echo "NEWSLETTER_API_KEY=${{ secrets.NEWSLETTER_API_KEY }}" >> .env
+          echo "NEWSLETTER_LIST_ID=${{ secrets.NEWSLETTER_LIST_ID }}" >> .env
+          echo "DB_CONNECTION=mysql" >> .env
+          echo "DB_HOST=mysql" >> .env
+          echo "DB_PORT=3306" >> .env
+          echo "DB_DATABASE=zuko_db" >> .env
+          echo "DB_USERNAME=mysql" >> .env
+          echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env
+          echo "VAPID_PUBLIC_KEY=${{ secrets.VAPID_PUBLIC_KEY }}" >> .env
+          echo "VAPID_PRIVATE_KEY=${{ secrets.VAPID_PRIVATE_KEY }}" >> .env
+          echo "APP_NAME=Laravel" >> .env
+          echo "APP_ENV=local" >> .env
+          echo "APP_KEY=${{ secrets.APP_KEY }}" >> .env
+          echo "APP_DEBUG=false" >> .env
+          # echo "APP_PORT=8000" >> .env # TODO
+          # echo "APP_URL=http://localhost" >> .env # TODO
+
+      - name: Installing project dependencies
+        run: docker run --rm -it -v "$(pwd):/app" composer/composer install
+
+      - name: Building Docker image api
+        run: docker build -t codeforacause/informisizene:${{ github.run_number }} ./vendor/laravel/sail/runtimes/8.2 --build-arg="WWWGROUP=${WWWGROUP}"
+    
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      
+      - name: Pushing Docker image to container registry
+        run: docker push codeforacause/informisizene:${{ github.run_number }}
+        
+      - name: Replace tokens
+        uses: cschleiden/replace-tokens@v1.1
+        with:
+          tokenPrefix: '#{'
+          tokenSuffix: '}#'
+          files: '["**docker-compose.production.yml"]'
+        env:
+          TAG_NUMBER: "${{ github.run_number }}"
+      
+      - name: Copy files via ssh
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          source: ".env,docker-compose.production.yml"
+          target: "./Projects/informisizene/"
+      
+      
+      - name: Run docker compose using ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: docker compose -f ./Projects/informisizene/docker-compose.production.yml up -d
