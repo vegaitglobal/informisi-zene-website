@@ -1,13 +1,15 @@
-import RoundedButton from "../components/RoundedButton/RoundedButton";
-import HomePost from '../components/HomePost/HomePost';
-import TestComponent from "../components/TestComponent/TestComponent";
+import Stats from "../components/Stats/Stats";
 import PostShareLinks from '../components/PostShareLinks/PostShareLinks';
+import HomePostsContainer from "../components/HomePostsContainer/HomePostsContainer";
+import StrategyGoals from "../components/StrategyGoals/StrategyGoals";
+import HeroBanner from '../components/HeroBanner/HeroBanner';
 
 export default function HomePage() {
     return <div>
-        <TestComponent testProperty="Example component"/>
-        <RoundedButton />
-		<HomePost />
+        <HeroBanner />
+        <StrategyGoals />
+		<HomePostsContainer />
+        <Stats/>
 		<PostShareLinks />
     </div>
 }
