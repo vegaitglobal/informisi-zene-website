@@ -1,0 +1,25 @@
+@import '../../styles/mixins.scss';
+
+
+.wrapper {
+    margin-bottom: 45px;
+    @include media-breakpoint-desktop {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10%;
+        margin-top: 90px;
+        margin-bottom: 120px;
+    }
+}
+
+.form{
+    @include media-breakpoint-desktop {
+        flex: 1;
+    }
+}
+.text{
+    max-width: 100px;
+    @include media-breakpoint-desktop {
+    }
+}
