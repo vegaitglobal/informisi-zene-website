@@ -1,8 +1,12 @@
 <?php
 
 declare(strict_types=1);
-
+use App\Orchid\Screens\DonationInfo\DonationInfoCreateScreen;
+use App\Orchid\Screens\DonationInfo\DonationInfoEditScreen;
+use App\Orchid\Screens\DonationInfo\DonationInfoScreen;
 use App\Models\Category;
+use App\Models\Post;
+use App\Orchid\Layouts\Post\PostEditLayout;
 use App\Orchid\Screens\CategoryEditScreen;
 use App\Orchid\Screens\CategoryListScreen;
 use App\Orchid\Screens\Examples\ExampleActionsScreen;
@@ -22,6 +26,8 @@ use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
 use App\Orchid\Screens\Donor\DonorListScreen;
 use App\Orchid\Screens\Donor\DonorEditScreen;
+use App\Orchid\Screens\Post\PostEditScreen;
+use App\Orchid\Screens\Post\PostListScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 
@@ -94,6 +100,7 @@ Route::screen('donors', DonorListScreen::class)
     ->breadcrumbs(fn (Trail $trail) => $trail
         ->parent('platform.index')
         ->push(__('Donors'), route('platform.donors')));
+
 Route::screen('categories', CategoryListScreen::class)
     ->name('platform.categories')
     ->breadcrumbs(fn (Trail $trail) => $trail
@@ -112,14 +119,51 @@ Route::screen('categories/{category}/edit', CategoryEditScreen::class)
         ->parent('platform.categories')
         ->push($category->id, route('platform.categories.edit', $category)));
 
+Route::screen('posts', PostListScreen::class)
+    ->name('platform.posts')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.index')
+        ->push(__('Posts'), route('platform.posts')));
+
+Route::screen('posts/create', PostEditScreen::class)
+    ->name('platform.posts.create')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.posts')
+        ->push(__('Create'), route('platform.posts.create')));
+
+Route::screen('posts/{post}/edit', PostEditScreen::class)
+    ->name('platform.posts.edit')
+    ->breadcrumbs(fn (Trail $trail, Post $post) => $trail
+        ->parent('platform.posts')
+        ->push(route('platform.posts.edit', $post)));
+
 Route::screen('donors/create', DonorEditScreen::class)
-->name('platform.donors.create')
-->breadcrumbs(fn (Trail $trail) => $trail
-    ->parent('platform.donors')
-    ->push(__('Create'), route('platform.donors.create')));
+    ->name('platform.donors.create')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.donors')
+        ->push(__('Create'), route('platform.donors.create')));
 
 Route::screen('donors/{donor}/edit', DonorEditScreen::class)
     ->name('platform.donors.edit')
     ->breadcrumbs(fn (Trail $trail, $donor) => $trail
         ->parent('platform.donors')
         ->push($donor->id, route('platform.donors.edit', $donor)));
+
+// Donation Info
+Route::screen('donation_info', DonationInfoScreen::class)
+    ->name('platform.donation_info')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+    ->parent('platform.index')
+    ->push(__('Donation Info'), route('platform.donation_info')));
+
+Route::screen('donation_info/{donation}/edit', DonationInfoEditScreen::class)
+    ->name('platform.donation_info.edit')
+    ->breadcrumbs(fn (Trail $trail, $donation) => $trail
+    ->parent('platform.donation_info')
+    ->push($donation->id, route('platform.donation_info.edit', $donation)));
+
+Route::screen('donation_info/create', DonationInfoCreateScreen::class)
+    ->name('platform.donation_info.create')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+    ->parent('platform.donation_info')
+    ->push(__('Create'), route('platform.donation_info.create')));

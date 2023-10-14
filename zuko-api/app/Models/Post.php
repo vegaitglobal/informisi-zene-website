@@ -7,16 +7,19 @@ use App\Models\User;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Orchid\Filters\Filterable;
+use Orchid\Screen\AsSource;
 
 class Post extends Model
 {
-    use HasFactory;
+    use HasFactory, AsSource, Filterable;
 
     protected $fillable = [
         'user_id',
         'description',
         'cover_image_url',
-        'title'
+        'title',
+        "categories"
     ];
 
     public function blocks()
