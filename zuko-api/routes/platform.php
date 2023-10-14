@@ -22,6 +22,8 @@ use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
 use App\Orchid\Screens\Donor\DonorListScreen;
 use App\Orchid\Screens\Donor\DonorEditScreen;
+use App\Orchid\Screens\Publications\PublicationsListScreen;
+use App\Orchid\Screens\Publications\PublicationsEditScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 
@@ -123,3 +125,20 @@ Route::screen('donors/{donor}/edit', DonorEditScreen::class)
     ->breadcrumbs(fn (Trail $trail, $donor) => $trail
         ->parent('platform.donors')
         ->push($donor->id, route('platform.donors.edit', $donor)));
+
+Route::screen('publications/create', PublicationsEditScreen::class)
+->name('platform.publications.create')
+->breadcrumbs(fn (Trail $trail) => $trail
+    ->parent('platform.publications')
+    ->push(__('Create'), route('platform.publications.create')));
+
+Route::screen('publications/{publication}/edit', PublicationsEditScreen::class)
+    ->name('platform.publications.edit')
+    ->breadcrumbs(fn (Trail $trail, $publication) => $trail
+        ->parent('platform.publications')
+        ->push($publication->id, route('platform.publications.edit', $publication)));
+Route::screen('publications', PublicationsListScreen::class)
+    ->name('platform.publications')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.index')
+        ->push(__('Publications'), route('platform.publications')));

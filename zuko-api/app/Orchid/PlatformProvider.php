@@ -52,6 +52,10 @@ class PlatformProvider extends OrchidServiceProvider
               ->icon('folder')
               ->route('platform.donors')
               ->permission('platform.donors'),
+            Menu::make(__('Publications'))
+            ->icon('folder')
+            ->route('platform.publications')
+            ->permission('platform.publications'),
         ];
     }
 
@@ -71,6 +75,7 @@ class PlatformProvider extends OrchidServiceProvider
             ->addPermission('platform.posts', __('Posts'))
             ->addPermission('platform.categories', __('Categories'))
             ->addPermission('platform.donors', __('Donors'))
+            ->addPermission('platform.publications', __('publications'))
         ];
     }
 }
