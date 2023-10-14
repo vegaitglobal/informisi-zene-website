@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import SearchPostInput from '../components/SearchPostInput/SearchPostInput'
-import getPostsService from '../services/posts.service'
+import {getPostsService} from '../services/posts.service'
 
 export default function NewsPage() {
     const [data, setData] = useState([])
