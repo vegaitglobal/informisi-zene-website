@@ -1,8 +1,7 @@
-import RoundedButton from '../RoundedButton/RoundedButton';
-import styles from './Idea.module.scss';
+import styles from './QuickInformation.module.scss';
 import {Link} from 'react-router-dom';
 
-function Idea(){
+function QuickInformation(){
     return (
         <section className={styles.holder}>
             <img className={styles.image} src='/bulb.svg' alt='Decorative image of bulb' />
@@ -12,5 +11,5 @@ function Idea(){
     )
 }
 
-export default Idea
+export default QuickInformation;
  
