@@ -8,6 +8,7 @@ import DonationsPage from '../pages/donations.page';
 import NewsPage from '../pages/news.page';
 import PostPage from '../pages/post.page';
 import PublicationsPage from '../pages/publications.page';
+import OpportunitiesPage from '../pages/opportunities.page';
 
 
 const router = createBrowserRouter([
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: 'news',
     element: <PageWrapper><NewsPage /></PageWrapper>,
+  },
+  {
+    path: 'opportunities',
+    element: <PageWrapper><OpportunitiesPage /></PageWrapper>,
   },
   {
     path: 'post/:id',

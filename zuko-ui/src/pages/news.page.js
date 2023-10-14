@@ -1,5 +1,7 @@
+import SearchPostInput from '../components/SearchPostInput/SearchPostInput'
+
 export default function NewsPage() {
     return <div>
-        News page
+        <SearchPostInput />
     </div>
 }
