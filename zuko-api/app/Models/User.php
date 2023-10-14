@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Post;
 use Orchid\Filters\Types\Like;
 use Orchid\Filters\Types\Where;
 use Orchid\Filters\Types\WhereDateStartEnd;
@@ -19,6 +20,7 @@ class User extends Authenticatable
         'email',
         'password',
         'permissions',
+        'profile_image_url'
     ];
 
     /**
@@ -67,4 +69,9 @@ class User extends Authenticatable
         'updated_at',
         'created_at',
     ];
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'user_id');
+    }
 }

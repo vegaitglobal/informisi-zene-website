@@ -6,17 +6,18 @@ use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Block extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        "id",
-        "name"
+        'post_id',
+        'value',
+        'type'
     ];
 
-    public function posts(): BelongsToMany
+    public function post()
     {
-        return $this->belongsToMany(Post::class);
+        return $this->belongsTo(Post::class ,'post_id');
     }
 }
