@@ -35,19 +35,23 @@ class PlatformProvider extends OrchidServiceProvider
     {
         return [
             Menu::make(__('Users'))
-                ->icon('user')
+                ->icon('people')
                 ->route('platform.systems.users')
                 ->permission('platform.systems.users')
                 ->title(__('Access rights')),
 
             Menu::make(__('Roles'))
-                ->icon('lock')
+                ->icon('controller')
                 ->route('platform.systems.roles')
                 ->permission('platform.systems.roles'),
                 
             Menu::make(__('Donors'))
             ->icon('folder')
             ->route('platform.donors'),
+
+            Menu::make(__('Donation Info'))
+            ->icon('box')
+            ->route('platform.donation_info'),
         ];
     }
 
