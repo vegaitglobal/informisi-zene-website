@@ -1,7 +1,9 @@
-import TestComponent from "../components/TestComponent/TestComponent";
+// import TestComponent from "../components/TestComponent/TestComponent";
+import HeroBanner from "../components/HeroBanner/HeroBanner";
 
 export default function HomePage() {
     return <div>
-        <TestComponent testProperty="Example component"/>
+        <HeroBanner />
+        {/* <TestComponent testProperty="Example component"/> */}
     </div>
 }
