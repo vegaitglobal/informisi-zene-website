@@ -53,7 +53,7 @@ class CategoryEditScreen extends Screen
         $category->save();
 
         Toast::info(__("Category was saved"));
-        return redirect()->route('platform.categories.edit.block', $category->id);
+        return redirect()->route('platform.categories');
     }
 
     /**

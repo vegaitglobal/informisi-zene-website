@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Models\Category;
+use App\Orchid\Screens\CategoryEditScreen;
 use App\Orchid\Screens\CategoryListScreen;
 use App\Orchid\Screens\Examples\ExampleActionsScreen;
 use App\Orchid\Screens\Examples\ExampleCardsScreen;
@@ -93,31 +94,23 @@ Route::screen('example', ExampleScreen::class)
         ->parent('platform.index')
         ->push(__('Roles'), route('platform.systems.roles')));
 
-Route::screen("categories", CategoryListScreen::class)
-    ->name("platform.categories")
+Route::screen('categories', CategoryListScreen::class)
+    ->name('platform.categories')
     ->breadcrumbs(fn (Trail $trail) => $trail
-        ->parent('platform.categories')
+        ->parent('platform.index')
         ->push(__('Categories'), route('platform.categories')));
 
-Route::screen("categories/create", CategoryEditScreen::class)
-    ->name("platform.categories.create")
+Route::screen('categories/create', CategoryEditScreen::class)
+    ->name('platform.categories.create')
     ->breadcrumbs(fn (Trail $trail) => $trail
         ->parent('platform.categories')
         ->push(__('Create'), route('platform.categories.create')));
 
-
-Route::screen("categories/create", CategoryEditScreen::class)
-    ->name("platform.categories.create")
-    ->breadcrumbs(fn (Trail $trail) => $trail
-        ->parent('platform.categories')
-        ->push(__('Create'), route('platform.categories.create')));
-
-
-Route::screen("categories/{category}/edit", CategoryEditScreen::class)
-    ->name("platform.categories.edit")
+Route::screen('donors/{category}/edit', CategoryEditScreen::class)
+    ->name('platform.categories.edit')
     ->breadcrumbs(fn (Trail $trail, $category) => $trail
         ->parent('platform.categories')
-        ->push(__('Create'), route('platform.categories.edit', $category)));
+        ->push($category->id, route('platform.categories.edit', $category)));
 
 
 Route::screen('/examples/form/fields', ExampleFieldsScreen::class)->name('platform.example.fields');

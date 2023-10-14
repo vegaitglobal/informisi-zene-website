@@ -20,7 +20,7 @@ class CategoryListLayout extends Table
      *
      * @var string
      */
-    protected $target = '';
+    protected $target = 'categories';
 
     /**
      * Get the table cells to be displayed.
@@ -43,15 +43,15 @@ class CategoryListLayout extends Table
                 ->width("100px")
                 ->render(
                     fn (Category $category) => DropDown::make()
-                        ->icon("options-vertical")
+                        ->icon('bs.three-dots-vertical')
                         ->list([
                             Link::make(__("Edit"))
                                 ->route("platform.categories.edit", $category->id)
                                 ->icon('pencil'),
 
                             Button::make(__("Delete"))
-                                ->icon("trash")
-                                ->confirm(__("Once the account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain"))
+                                ->icon('bs.trash3')
+                                ->confirm(__("Are you sure that you want to delete this category"))
                                 ->method("remove", [
                                     'id' => $category->id
                                 ])
