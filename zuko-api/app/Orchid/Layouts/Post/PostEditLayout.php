@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\User;
 use Orchid\Screen\Field;
 use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Picture;
 use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Layouts\Rows;
 
@@ -34,11 +35,9 @@ class PostEditLayout extends Rows
             Input::make('post.title')
                 ->title("Post Title")
                 ->placeholder("Enter post title"),
-            Input::make('post.cover_image_url')
-                ->title("Post Cover image")
-                ->placeholder("Enter post cover image")
-                ->width(1000)
-                ->height(500),
+            Picture::make('post.cover_image_url')
+                ->acceptableFiles(".jpg, .jpeg, .png")
+                ->title("Post Cover image"),
             Input::make("post.description")
                 ->title("Post Description")
                 ->placeholder("Enter Your Text"),
