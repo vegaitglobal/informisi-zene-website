@@ -1,7 +1,9 @@
+@import '../../styles/mixins.scss';
+
 .footer {
     background-color: #FFF8E7;
     padding: 121px 25px 70px;
-    @media only screen and (min-width: 1024px) {
+    @include media-breakpoint-desktop {
         padding: 59px 100px 78px 109px;
         display: flex;
         justify-content: space-between;
@@ -9,29 +11,29 @@
     }
 }
 
-.footer-title {
+.footerTitle {
     font-size: 24px;
     line-height: 31px;
     text-align: center;
     margin-bottom: 24px;
-    @media only screen and (min-width: 1024px) {
+    @include media-breakpoint-desktop {
         text-align: left;
         margin-bottom: 31px;
     }
 }
 
-.footer-form {
+.footerForm {
     width: 100%;
     position: relative;
     max-width: 500px;
     margin: 0 auto 49px;
-    @media only screen and (min-width: 1024px) {
+    @include media-breakpoint-desktop {
         margin: 0;
         max-width: 100%;
     }
 }
 
-.footer-input {
+.footerInput {
     width: 100%;
     height: 46px;
     background-color: #fffefd;
@@ -41,7 +43,7 @@
     border-radius: 15px;
 }
 
-.footer-btn {
+.footerBtn {
     position: absolute;
     right: 26px;
     top: 50%;
@@ -52,11 +54,11 @@
     transition: right .3s ease;
 }
 
-.footer-img {
+.footerImg {
     margin: 0 auto 146px;
     display: block;
     max-width: 100%;
-    @media only screen and (min-width: 1024px) {
+    @include media-breakpoint-desktop {
         margin: 0;
         position: absolute;
         top: -41px;
@@ -64,8 +66,8 @@
     }
 }
 
-.footer-content {
-    @media only screen and (min-width: 1024px) {
+.footerContent {
+    @include media-breakpoint-desktop {
        width: 36.2%;
        position: relative;
     }

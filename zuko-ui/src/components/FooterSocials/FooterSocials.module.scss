@@ -1,15 +1,17 @@
-.socials-title {
+@import '../../styles/mixins.scss';
+
+.socialsTitle {
     margin-bottom:32px;
     text-align: center;
     font-size: 24px;
     line-height: 31px;
     font-weight: 700;
-    @media only screen and (min-width: 1024px) {
+    @include media-breakpoint-desktop {
         text-align: left;
     }
 }
 
-.socials-list {
+.socialsList {
     display: flex;
     align-items: center;
     justify-content: space-between;

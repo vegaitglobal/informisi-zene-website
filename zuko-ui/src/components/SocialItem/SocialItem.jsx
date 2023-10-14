@@ -4,8 +4,8 @@ import styles from './SocialItem.module.scss'
 
 const SocialItem = ({socialItem}) => {
   return (
-    <li className={styles['social-list-item']}>
-        <Link to={socialItem.linkUrl} target='_blank' className={styles['social-list-link']}>
+    <li className={styles.socialListItem}>
+        <Link to={socialItem.linkUrl} target='_blank' className={styles.socialListLink}>
             <img src={socialItem.socialImg} alt="" />
         </Link>
     </li>

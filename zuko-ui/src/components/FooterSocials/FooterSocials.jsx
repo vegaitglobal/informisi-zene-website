@@ -6,26 +6,30 @@ const socialsList = [
     {
         linkUrl: 'https://www.instagram.com',
         socialImg: '/instagram.svg',
+        socialAlt: 'instagram'
     },
     {
         linkUrl: 'https://www.tiktok.com',
         socialImg: '/tiktok.svg',
+        socialAlt: 'tiktok'
     },
     {
         linkUrl: 'https://www.facebook.com',
         socialImg: '/facebook.svg',
+        socialAlt: 'facebook'
     },
     {
         linkUrl: 'https://www.twitter.com',
         socialImg: '/twitter.svg',
+        socialAlt: 'twitter'
     }
 ]
 
 const FooterSocials = () => {
   return (
     <div>
-        <h3 className={styles['socials-title']}>Pratite nas</h3>
-        <ul className={styles['socials-list']}>
+        <h3 className={styles.socialsTitle}>Pratite nas</h3>
+        <ul className={styles.socialsList}>
             {socialsList.map(socialItem => (
                 <SocialItem socialItem={socialItem}/>
             ))}
