@@ -25,7 +25,7 @@ export default function ContactForm({ heading = "Pišite nam" }) {
         console.log('Form data:', formData);
         // You can send the form data to an API endpoint or perform any other actions here
     };
-    return <div >
+    return <div className={styles.formContainer}>
         <h2 className={styles.title}>{heading}</h2>
         <form className={styles.wrapper} onSubmit={handleSubmit}>
 
