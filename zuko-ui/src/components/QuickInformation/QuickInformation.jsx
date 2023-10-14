@@ -12,4 +12,3 @@ function QuickInformation(){
 }
 
 export default QuickInformation;
- 
