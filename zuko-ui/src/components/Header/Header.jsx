@@ -58,7 +58,8 @@ function Header(){
                         <li className={styles.item} key={item.label}>
                             {item?.submenu?.length ? 
                             <>
-                                <button onClick={() => onClick(index)} className={`${styles.link} ${displayedSubmenu === index && styles.linkActive}`} type='button'>{item.label}</button> 
+                                <button onClick={() => onClick(index)} className={`${styles.link} ${displayedSubmenu === index && styles.linkActive}`} type='button'>{item.label}<span className={styles.chevronIcon}></span>
+                                </button> 
                                 {displayedSubmenu === index && (
                                     <div className={styles.subnav}>
                                         <ul className={styles.sublist}>

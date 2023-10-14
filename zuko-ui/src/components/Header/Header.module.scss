@@ -1,3 +1,5 @@
+@import '../../styles/mixins.scss';
+
 .header {
     padding-top: 21px;
     padding-bottom: 21px;
@@ -110,19 +112,47 @@
     border: none;
     letter-spacing: 1px;
     padding: 0;
+    display: flex;
+    align-items: center;
     @media only screen and (min-width: 1024px) {
         font-size: 16px;
         letter-spacing: 1.7px;
         transition: color .15s ease-out;
         &:hover {
             color: #FFAA33;
+            .chevronIcon {
+                border-color: #ffaa33;
+            }
         }
     }
 }
 
 .linkActive {
+    @media only screen and (max-width: 1023px) {
+        .chevronIcon {
+            transform: rotate(45deg);
+        }
+    }
     @media only screen and (min-width: 1024px) {
         color: #FFAA33;
+        .chevronIcon {
+            border-color: #ffaa33;
+        }
+    }
+}
+
+.chevronIcon {
+    width: 8px;
+    height: 8px;
+    border-right: 3px solid #2A2E32;
+    border-bottom: 3px solid #2A2E32;
+    transform: rotate(-45deg);
+    margin-left: 10px;
+    transition-property: border-color transform;
+    transition: .3s ease-out;
+    @include media-breakpoint-desktop {
+        transform: rotate(45deg);
+        margin-top: -5px;
     }
 }
 
