@@ -64,7 +64,7 @@ jobs:
         with:
           tokenPrefix: '#{'
           tokenSuffix: '}#'
-          files: '["**docker-compose.production.yml"]'
+          files: '["**/docker-compose.production.yml"]'
         env:
           TAG_NUMBER: "${{ github.run_number }}"
       
@@ -75,7 +75,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          source: "./zuko-api/.env,./zuko-api/docker-compose.production.yml"
+          source: "./zuko-api/"
           target: "./Projects/informisizene/"
           strip_components: 2
       

@@ -1,19 +1,15 @@
 services:
     laravel:
         image: codeforacause/informisizene:#{TAG_NUMBER}#
-        extra_hosts:
-            - 'host.docker.internal:host-gateway'
         ports:
-            - '${APP_PORT:-80}:80'
+            - '${APP_PORT:-11001}:80'
             - '${VITE_PORT:-5173}:${VITE_PORT:-5173}'
         environment:
             WWWUSER: '${WWWUSER}'
             LARAVEL_SAIL: 1
-            XDEBUG_MODE: '${SAIL_XDEBUG_MODE:-off}'
-            XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
             IGNITION_LOCAL_SITES_PATH: '${PWD}'
         volumes:
-            - 'informisizene-laravel:/var/www/html:rw'
+            - '.:/var/www/html'
         depends_on:
             - mysql
     mysql:
@@ -27,7 +23,7 @@ services:
                     GRANT ALL PRIVILEGES ON \`testing%\`.* TO '$MYSQL_USER'@'%';
                 EOSQL
         ports:
-            - '${FORWARD_DB_PORT:-3306}:3306'
+            - '3306/tcp'
         environment:
             MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
             MYSQL_ROOT_HOST: '%'
@@ -46,6 +42,4 @@ services:
             retries: 3
             timeout: 5s
 volumes:
-    informisizene-laravel:
     informisizene-mysql:
-    
