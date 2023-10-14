@@ -25,6 +25,10 @@
     position: relative;
     max-width: 500px;
     margin: 0 auto 49px;
+    @media only screen and (min-width: 1024px) {
+        margin: 0;
+        max-width: 100%;
+    }
 }
 
 .footer-input {
@@ -54,7 +58,7 @@
     @media only screen and (min-width: 1024px) {
         margin: 0;
         position: absolute;
-        top: 0;
+        top: -20px;
         right: -134px;
     }
 }
