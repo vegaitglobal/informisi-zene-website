@@ -1,20 +1,27 @@
+@import '../../styles/mixins.scss';
+
 .post {
 	width: 312px;
-	color: #2a2e32;
 	display: flex;
 	flex-direction: column;
-
-	@media only screen and (min-width: 1024px) {
+	overflow: hidden;
+	
+	@include media-breakpoint-desktop {
 		width: fit-content;
 		flex-direction: row;
 	}
+}
+
+.post__content {
+	color: #2a2e32;
+	
 }
 
 .post__img {
 	height: 223px;
 	margin-bottom: 12px;
 
-	@media only screen and (min-width: 1024px) {
+	@include media-breakpoint-desktop {
 		height: 221px;
 		width: 347px;
 		margin-bottom: 0;
@@ -26,7 +33,7 @@
 	display: flex;
 	flex-direction: column;
 
-	@media only screen and (min-width: 1024px) {
+	@include media-breakpoint-desktop {
 		width: 286px;
 	}
 }
@@ -42,7 +49,7 @@
 	font-weight: 700;
 	margin-bottom: 12px;
 
-	@media only screen and (min-width: 1024px) {
+	@include media-breakpoint-desktop {
 		font-size: 30px;
 		font-weight: 600;
 	}
