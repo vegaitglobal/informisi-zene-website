@@ -1,0 +1,11 @@
+@import '../../styles/mixins.scss';
+
+.title {
+    padding: 20px;
+    border-radius: 7px;
+    background-color: rgb(164, 150, 94);
+    
+    @include media-breakpoint-desktop {
+        background-color: rgb(86, 154, 104);
+    }
+}
