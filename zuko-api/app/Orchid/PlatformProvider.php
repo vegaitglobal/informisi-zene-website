@@ -35,13 +35,13 @@ class PlatformProvider extends OrchidServiceProvider
     {
         return [
             Menu::make(__('Users'))
-                ->icon('user')
+                ->icon('people')
                 ->route('platform.systems.users')
                 ->permission('platform.systems.users')
                 ->title(__('Access rights')),
 
             Menu::make(__('Roles'))
-                ->icon('lock')
+                ->icon('controller')
                 ->route('platform.systems.roles')
                 ->permission('platform.systems.roles'),
             Menu::make(__("Categories"))
@@ -53,9 +53,17 @@ class PlatformProvider extends OrchidServiceProvider
               ->route('platform.donors')
               ->permission('platform.donors'),
             Menu::make(__('Publications'))
-            ->icon('folder')
-            ->route('platform.publications')
-            ->permission('platform.publications'),
+              ->icon('folder')
+              ->route('platform.publications')
+              ->permission('platform.publications'),
+            Menu::make(__('Donation Info'))
+              ->icon('box')
+              ->route('platform.donation_info')
+              ->permission('platform.donation_info'),,
+             Menu::make(__('Posts'))
+                ->icon('folder')
+                ->route('platform.posts')
+                ->permission('platform.posts'),
         ];
     }
 
@@ -70,12 +78,13 @@ class PlatformProvider extends OrchidServiceProvider
             ItemPermission::group(__('System'))
                 ->addPermission('platform.systems.roles', __('Roles'))
                 ->addPermission('platform.systems.users', __('Users')),
-                
-            ItemPermission::group(__('Blog'))
-            ->addPermission('platform.posts', __('Posts'))
-            ->addPermission('platform.categories', __('Categories'))
-            ->addPermission('platform.donors', __('Donors'))
-            ->addPermission('platform.publications', __('publications'))
+
+            ItemPermission::group(__('Blog')
+              ->addPermission('platform.posts', __('Posts'))
+              ->addPermission('platform.categories', __('Categories'))
+              ->addPermission('platform.donors', __('Donors'))
+              ->addPermission('platform.publications', __('publications'))
+              ->addPermission('platform.donation_info', __('donation_info'))
         ];
     }
 }

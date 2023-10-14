@@ -1,0 +1,36 @@
+@import '../../styles/mixins.scss';
+
+.title {
+    text-align: center;
+    font-size: 18px;
+    color: #2A2E32;
+    font-weight: 600;
+    @include media-breakpoint-desktop {
+        visibility:hidden;
+    }
+}
+.search{
+    border-radius: 12px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 12px;
+    width: 100%;
+    height: 48px;
+    border-width: 0.75px;
+    padding: 0px 16px;
+    gap: 8px;
+    @include media-breakpoint-desktop {
+        width: 50%;
+    }
+}
+
+.search::placeholder{
+    visibility:hidden;
+    @include media-breakpoint-desktop {
+        visibility:visible;
+        font-size: 20px;
+        color: #2A2E32;
+        font-weight: 600;
+    }
+}
