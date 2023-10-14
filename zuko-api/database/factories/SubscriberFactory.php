@@ -17,7 +17,7 @@ class SubscriberFactory extends Factory
     public function definition(): array
     {
         return [
-            'email' => preg_replace('/@example\..*/', '@domain.com', $faker->unique()->safeEmail),
+            'email' => preg_replace('/@example\..*/', '@domain.com', $this->faker->unique()->safeEmail),
             'is_subscribed' => $this->faker->boolean
         ];
     }
