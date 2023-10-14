@@ -1,3 +1,4 @@
+import RoundedButton from '../RoundedButton/RoundedButton';
 import styles from './ContactForm.module.scss'
 import { useState } from "react";
 
@@ -30,6 +31,7 @@ export default function ContactForm({ heading = "Pišite nam" }) {
 
 
                 <input
+                    className={styles.input}
                     type="text"
                     name="ime"
                     placeholder='Ime'
@@ -40,6 +42,7 @@ export default function ContactForm({ heading = "Pišite nam" }) {
 
 
                 <input
+                    className={styles.input}
                     type="email"
                     name="mail"
                     placeholder='Mail'
@@ -49,6 +52,7 @@ export default function ContactForm({ heading = "Pišite nam" }) {
                 />
 
                 <input
+                    className={styles.input}
                     type="tel"
                     name="telefon"
                     placeholder='Telefon'
@@ -57,6 +61,7 @@ export default function ContactForm({ heading = "Pišite nam" }) {
                     required
                 />
                 <input
+                    className={styles.input}
                     type="text"
                     name="naslov"
                     placeholder='Naslov'
@@ -65,13 +70,16 @@ export default function ContactForm({ heading = "Pišite nam" }) {
                     required
                 />
                 <textarea
+                    className={styles.textarea}
                     name="poruka"
                     placeholder='Poruka'
                     value={formData.poruka}
                     onChange={handleInputChange}
                     required
                 />
-            <input type="submit" value="Submit" />
+                <div className={styles.button}>
+            <RoundedButton buttonType='submit' label='Pošalji'/>
+            </div>
         </form>
     </div>
 }
