@@ -12,12 +12,12 @@ function Header(){
             href: '',
             submenu: [
                 {
-                    label: 'Vest',
-                    href:'www.google.com'
+                    label: 'Vesti',
+                    href:'/news'
                 },
                 {
                     label: 'Prilike za žene',
-                    href:'www.google.com'
+                    href:'/opportunities'
                 },
             ]
         },
@@ -51,7 +51,9 @@ function Header(){
     return (
         <header className={styles.header}>
             <div className={styles.wrap}>
+                <NavLink to="/">
                 <img className={styles.logo} src="../logo.png" alt=" Logo" />
+                </NavLink>
                 <div className={styles.holder} style={isMenuOpen ? {transform: `translateY(0px)`} : null}>
                     <ul className={`${styles.nav}`} >
                         {data?.map((item, index) => (
