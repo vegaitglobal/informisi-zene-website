@@ -4,7 +4,6 @@ import HomePage from '../pages/index';
 import ContactPage from '../pages/contact.page';
 import AboutPage from '../pages/about.page';
 import PageWrapper from '../components/PageWrapper/PageWrapper';
-import AboutPage from '../pages/about.page';
 import DonationsPage from '../pages/donations.page';
 import NewsPage from '../pages/news.page';
 import PostPage from '../pages/post.page';

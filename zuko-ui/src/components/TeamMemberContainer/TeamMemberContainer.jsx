@@ -5,10 +5,6 @@ import TeamMember from "../TeamMember/TeamMember";
 export default  function TeamMemberContainer() {
     const [team, setTeam] = useState({});
 
-    useEffect(() => {
-      setTeam(mockData);
-    }, [])
-    
     const mockData = {
         title: "Naš tim",
         data: [
@@ -31,9 +27,13 @@ export default  function TeamMemberContainer() {
         ]
     }
 
+    useEffect(() => {
+      setTeam(mockData);
+    }, [])
+
     return (
         <section className={styles.team}>
-            <h2>
+            <h2 className={styles.title}>
                 {team.title}
             </h2>
             <div className={styles.teamContainer}>

@@ -1,9 +1,12 @@
+@import '../../styles/mixins.scss';
+
 .team {
     color: #2A2E32;
 
-    h2 {
+    .title {
         font-size: 30px;
         text-align: center;
+        margin-bottom: 48px;
     }
 
     .teamContainer {
@@ -17,15 +20,14 @@
             width: 100%;
         } 
     }
-}
 
-@media only screen and (min-width: 1024px) {
-    .team {
-        h2 {
+    @include media-breakpoint-desktop {
+        .title {
             text-align: left;
             font-size: 46px;
             line-height: 62px;
             letter-spacing: 5%;
+            margin-bottom: 60px;
         }
 
         .teamContainer {
@@ -36,6 +38,6 @@
                 width: unset;
             }
         }
+        
     }
-    
 }
