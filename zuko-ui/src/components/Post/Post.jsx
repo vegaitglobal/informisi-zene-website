@@ -1,34 +1,25 @@
 import { NavLink } from 'react-router-dom';
 import styles from './Post.module.scss';
 
-const initialValue = {
-	id: 0,
-	title: 'Ruralne Evropljanke',
-	user: 'Marina',
-	crated: '2023-10-13T18:00',
-	description:
-		'Bits of moving fluff white dwarf kindling the energy hidden in matter shores of the cosmic ocean Jean-François Champollion consciousness.',
-	coverImageUri: './placeholder.png',
-	category: 'KOLIKI JE MOJ DEO?',
-};
-
-export default function Post({ postData = initialValue }) {
+export default function Post({ postData = {} }) {
 	return (
 		<div>
 			<div className={styles.post}>
 				<NavLink to={`posts/${postData.id}`} target="_blank">
 					<div className={styles.post__img}>
 						<img
-							src={postData.coverImageUri}
+							src={postData?.cover_image}
 							alt={postData.title}
 						/>
 					</div>
 				</NavLink>
 				<div className={styles.post__content}>
-					{postData.category && (
-						<span className={styles.post__subheading}>
-							{postData.category}
-						</span>
+					{postData.categories && (
+						postData.categories.map((category) => (
+							<span key={category.id} className={styles.post__subheading}>
+								{category.name}
+							</span>
+						))
 					)}
 					<NavLink to={`posts/${postData.id}`} target="_blank">
 						{postData.title && (
