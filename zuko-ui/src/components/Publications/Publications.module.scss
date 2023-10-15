@@ -1,0 +1,38 @@
+@import "../../styles/mixins.scss";
+
+.publications {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+
+    .card {
+        display: block;
+        .imgContainer, .img{
+            margin-bottom: 12px;
+            width: 206px;
+        }
+    
+        .title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2A2E32;
+        }
+    }
+
+    @include media-breakpoint-desktop {
+        gap: 60px 24px;
+
+        .card {
+            .imgContainer, .img{
+                margin-bottom: 32px;
+                width: 306px;
+            }
+        
+            .title {
+                font-size: 20px;
+            }
+        }
+    }
+}
