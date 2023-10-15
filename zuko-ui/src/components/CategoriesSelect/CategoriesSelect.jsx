@@ -10,7 +10,7 @@ export default function CategoriesSelect({options, defaultSelection}) {
             value={selectedFruit}
             onChange={e => setSelectedFruit(e.target.value)}
         >
-            <option value={0} selected hidden>
+            <option value={0} selected hidden> 
                 {defaultSelection}
             </option>
             {options.map(({id, name}) => <option value={id} key={`option-${id}`}>{name}</option>)}
