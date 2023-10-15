@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getByQueryService, getPostsService } from '../services/posts.service';
+import { getByQueryService } from '../services/posts.service';
 import PostsContainer from '../components/PostsContainer/PostsContainer';
 import SearchPostInput from '../components/SearchPostInput/SearchPostInput';
 import GeneralHeading from '../components/GeneralHeading/GeneralHeading';

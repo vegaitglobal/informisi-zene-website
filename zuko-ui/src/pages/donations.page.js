@@ -1,3 +1,4 @@
+
 import QRCode from "../components/QRCode/QRCode";
 import QRCodeOutroText from "../components/QRCodeOutroText/QRCodeOutroText";
 import DonationHero from "../components/DonationHero/DonationHero";

@@ -7,12 +7,14 @@ import QRCodeItem from '../QRCodeItem/QRCodeItem'
 const QRCode = () => {
     const [donationData, setDonationData] = useState({});
     const [QRUrl, setQRUrl] = useState('')
-
+	
     useEffect(() => {
         try {
             const getData = async () => {
-                const data = await getDonationInfo()
-                setDonationData(data.donationData[0])
+				const data = await getDonationInfo()
+				console.log("data2",data);
+				setDonationData(data.donationData[0])
+				console.log('data.donationData[0] :>> ', data.donationData[0]);
                 setQRUrl(data.qrImage.data.i)
             }
             getData()
