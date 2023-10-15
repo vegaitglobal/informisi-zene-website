@@ -21,12 +21,12 @@ export default function HomePage() {
         <HeroBanner />
         <StrategyGoals />
         <HorizontalSpacer desktopSize={180} mobileSize={90} />
+		<PostsContainer data={listOfPosts} />
         <RoundedButton
 				label="Sve prilike za žene"
 				isAnchor="true"
 				navigateTo='/opportunities'
 		/>
-		<PostsContainer data={listOfPosts} />
         <Stats/>
         <QuickInformation />
     </div>
