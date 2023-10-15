@@ -1,0 +1,25 @@
+@import '../../styles/mixins.scss';
+
+.wrapper {
+    margin-bottom: 60px;
+    margin-top: 45px;
+    @include media-breakpoint-desktop {
+        display: flex; 
+        justify-content: space-between;
+        margin-top: 90px;
+    }
+}
+
+.form {
+
+    @include media-breakpoint-desktop {
+        width: 70%;
+        margin-bottom: 60px;
+        display: flex;
+    }
+}
+.text{
+    @include media-breakpoint-desktop {
+        margin-right: 10%;
+    }
+}
