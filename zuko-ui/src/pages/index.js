@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import Stats from "../components/Stats/Stats";
 import QuickInformation from "../components/QuickInformation/QuickInformation";
-import HomePostsContainer from "../components/HomePostsContainer/HomePostsContainer";
+import PostShareLinks from '../components/PostShareLinks/PostShareLinks';
+import PostsContainer from "../components/PostsContainer/PostsContainer";
 import StrategyGoals from "../components/StrategyGoals/StrategyGoals";
 import HeroBanner from '../components/HeroBanner/HeroBanner';
 import { getNumberOfPostsService } from "../services/posts.service";
@@ -15,11 +16,14 @@ export default function HomePage() {
             .catch(error => console.error(error));
     },[])
 
-    return <div>
-        <HeroBanner />
-        <StrategyGoals />
-		<HomePostsContainer data={listOfPosts} />
-        <Stats/>
-        <QuickInformation />
-    </div>
+    return (
+		<div>
+			<HeroBanner />
+			<StrategyGoals />
+			<PostsContainer data={listOfPosts} />
+			<PostsContainer />
+			<Stats />
+			<QuickInformation />
+		</div>
+	);
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import PostsContainer from '../components/PostsContainer/PostsContainer'
 import SearchPostInput from '../components/SearchPostInput/SearchPostInput'
 import {getPostsService} from '../services/posts.service'
 
@@ -15,6 +16,7 @@ export default function NewsPage() {
     console.log(data)
 
     return <div>
-        <SearchPostInput />
+		<SearchPostInput />
+		<PostsContainer displayVersion="v2" />
     </div>
 }
