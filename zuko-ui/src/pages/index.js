@@ -20,13 +20,14 @@ export default function HomePage() {
     return <div>
         <HeroBanner />
         <StrategyGoals />
-        <HorizontalSpacer desktopSize={180} mobileSize={90} />
 		<PostsContainer data={listOfPosts} />
+        <HorizontalSpacer desktopSize={60} mobileSize={30} />
         <RoundedButton
 				label="Sve prilike za žene"
 				isAnchor="true"
 				navigateTo='/opportunities'
 		/>
+        <HorizontalSpacer desktopSize={180} mobileSize={90} />
         <Stats/>
         <QuickInformation />
     </div>
