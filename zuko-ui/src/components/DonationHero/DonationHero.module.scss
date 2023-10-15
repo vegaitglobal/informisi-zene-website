@@ -7,9 +7,10 @@
 	align-items: center;
 	width: 100%;
 	margin-inline: auto;
-
+	margin-bottom: 60px;
 	@include media-breakpoint-desktop {
 		max-width: 875px;
+		margin-bottom: 90px;
 	}
 }
 
@@ -50,6 +51,7 @@
 .hero__text {
 	font-size: 18px;
 	margin-top: 48px;
+	text-align: center;
 
 	@include media-breakpoint-desktop {
 		font-size: 28px;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Orchid\Layouts;
+namespace App\Orchid\Layouts\Category;
 
 use App\Models\Category;
 use Orchid\Screen\Actions\DropDown;

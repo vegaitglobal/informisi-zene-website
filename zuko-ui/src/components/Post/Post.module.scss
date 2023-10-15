@@ -3,7 +3,7 @@
 .post {
 	max-width: 310px;
 	width: 100%;
-	
+
 	@include media-breakpoint-desktop {
 		max-width: 646px;
 		display: flex;
@@ -29,6 +29,16 @@
 		max-height: unset;
 		margin-bottom: unset;
 	}
+
+	@media (hover: hover) {
+		&:hover,
+		&:focus {
+			img {
+				transform: scale(1.2);
+				transition: transform 500ms ease-in-out;
+			}
+		}
+	}
 }
 
 .post__content {
@@ -48,6 +58,7 @@
 }
 
 .post__heading {
+	color: #2a2e32;
 	font-size: 24px;
 	font-weight: 700;
 	margin-bottom: 12px;
@@ -55,6 +66,13 @@
 	@include media-breakpoint-desktop {
 		font-size: 30px;
 		font-weight: 600;
+	}
+
+	@media (hover: hover) {
+		&:hover,
+		&:focus {
+			color: #ffaa33;
+		}
 	}
 }
 

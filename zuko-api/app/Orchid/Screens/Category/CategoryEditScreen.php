@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Orchid\Screens;
+namespace App\Orchid\Screens\Category;
 
 use App\Models\Category;
-use App\Orchid\Layouts\CategoryEditLayout;
+use App\Orchid\Layouts\Category\CategoryEditLayout;
 use Illuminate\Http\Request;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;

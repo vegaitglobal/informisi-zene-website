@@ -7,7 +7,7 @@ const stats = [
         resultPrefix: "",
         resultNumber: "30",
         resultSuffix: "+",
-        resultDescription: "Projekata spreovedenih tokom 10 godina trajanja udruženja"
+        resultDescription: "Projekata sprovedenih tokom 10 godina trajanja udruženja"
     },
     {
         resultPrefix: "",
@@ -19,7 +19,7 @@ const stats = [
         resultPrefix: "",
         resultNumber: "40",
         resultSuffix: "+",
-        resultDescription: "Žena uključenih iz ruralnih područja gde ŽUKO deluje"
+        resultDescription: "Poznatih ličnosti iz sveta umetnosti, sporta i politike uključenih u kampanje udruženja"
     },
     {
         resultPrefix: "",
