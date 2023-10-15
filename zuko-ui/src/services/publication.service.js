@@ -1,14 +1,14 @@
 import axios from 'axios'
 
-export async function getPublicationService({id = 0}) {
+export async function getPublicationsService() {
     const response = await axios
-        .get(`${process.env.REACT_APP_ENDPOINT}publications/${id}`)
+        .get(`${process.env.REACT_APP_ENDPOINT}publications`)
         .catch(error => console.error(error));
 
     return response.data;
 }
 
-export async function getPublicationByCategoryService({id = 0}) {
+export async function getPublicationByCategoryService({id = 1}) {
     const response = await axios
         .get(`${process.env.REACT_APP_ENDPOINT}publications?type=${id}`)
         .catch(error => console.error(error));
