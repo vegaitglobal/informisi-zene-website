@@ -1,7 +1,9 @@
-import Article from '../components/Article/Article'
+import PostContainer from "../components/PostContainer/PostContainer";
 
 export default function PostPage() {
-    return <div>
-        <Article />
-    </div>
+    return (
+        <>
+            <PostContainer/>
+        </>
+    )
 }

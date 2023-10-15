@@ -13,7 +13,7 @@ function Article(){
             <div className={styles.rte}>
                 {parse(paragraphs)}
             </div>
-            <img className={styles.image} src="/placeholder.png" alt="Post image" />
+            <img className={styles.image} src="/placeholder.png" alt="Placeholder for our blog" />
             <PostShareLinks />
         </article>
     )

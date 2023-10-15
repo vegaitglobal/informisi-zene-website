@@ -28,8 +28,8 @@ export default function PostShareLinks() {
 		<div className={styles.share}>
 			<span className={styles.share__text}>Podeli</span>
 			<div className={styles.share__icons}>
-				{data?.map((item) => (
-					<a className={styles.share__icon} href={item.href}>
+				{data?.map((item, index) => (
+					<a className={styles.share__icon} href={item.href} key={`link-${index}`}>
 						<img src={item.src} alt={item.alt} />
 					</a>
 				))}
