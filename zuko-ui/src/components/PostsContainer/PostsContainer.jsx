@@ -1,6 +1,6 @@
-import styles from './HomePostsContainer.module.scss';
-import HomePost from '../HomePost/HomePost';
-import HomePostV2 from '../HomePostV2/HomePostV2';
+import styles from './PostsContainer.module.scss';
+import Post from '../Post/Post';
+import PostV2 from '../PostV2/PostV2';
 
 const initialValue = [
 	{
@@ -71,7 +71,7 @@ const initialValue = [
 	},
 ];
 
-export default function HomePostsContainer({
+export default function PostsContainer({
 	data = initialValue,
 	displayVersion = 'v1',
 }) {
@@ -83,12 +83,12 @@ export default function HomePostsContainer({
 			<div className={styles.container__posts}>
 				{displayVersion === 'v2'
 					? data.map((post) => {
-							return <HomePostV2 key={post.id} postData={post} />;
+							return <PostV2 key={post.id} postData={post} />;
 					  })
 					: data.slice(0, 2).map((post) => {
 							return (
 								<>
-									<HomePost key={post.id} postData={post} />
+									<Post key={post.id} postData={post} />
 								</>
 							);
 					  })}

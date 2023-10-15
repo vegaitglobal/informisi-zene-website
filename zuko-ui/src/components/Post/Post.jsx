@@ -1,5 +1,4 @@
-import { NavLink } from 'react-router-dom';
-import styles from './HomePostV2.module.scss';
+import styles from './Post.module.scss';
 
 const initialValue = {
 	id: 0,
@@ -10,10 +9,9 @@ const initialValue = {
 		'Bits of moving fluff white dwarf kindling the energy hidden in matter shores of the cosmic ocean Jean-François Champollion consciousness.',
 	coverImageUri: './placeholder.png',
 	category: 'KOLIKI JE MOJ DEO?',
-	readMoreUri: '#',
 };
 
-export default function HomePostV2({ postData = initialValue }) {
+export default function Post({ postData = initialValue }) {
 	return (
 		<div>
 			<div className={styles.post}>
@@ -37,14 +35,6 @@ export default function HomePostV2({ postData = initialValue }) {
 						</p>
 					)}
 				</div>
-				{postData.readMoreUri && (
-					<div className={styles.post__link}>
-						<NavLink to={postData.readMoreUri}>
-							Pročitaj više
-						</NavLink>
-						<img src="./arrow-right-orange.svg" alt='Arrow icon' />
-					</div>
-				)}
 			</div>
 		</div>
 	);
