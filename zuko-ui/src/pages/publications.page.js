@@ -43,7 +43,7 @@ export default function PublicationsPage() {
     return (
         <div>
             <PublicationHero list={listOfPostCategories} onSelectChange={onSelectChange}/>
-            {data.length && <Publications data={data}/>}
+            {data?.data?.length && <Publications data={data?.data}/>}
         </div>
     );
 }
