@@ -33,7 +33,7 @@ export default function TeamMemberContainer() {
 			.then(setTeam)
 			.catch((error) => console.error(error));
 	}, []);
-	console.log(team);
+	
 	return (
 		<section className={styles.team}>
 			<h2 className={styles.title}>Naš tim</h2>

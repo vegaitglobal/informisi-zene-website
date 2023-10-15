@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-export async function getPostsService() {
-	const response = await axios
-		.get(`${process.env.REACT_APP_ENDPOINT}posts`)
-		.catch((error) => console.error(error));
+export async function getPostsService(pageNumber = 1) {
+    const response = await axios
+        .get(`${process.env.REACT_APP_ENDPOINT}posts?page=${pageNumber}&size=6`)
+        .catch(error => console.error(error));
 
-	return response.data.data;
+    return response?.data;
 }
 
 export async function getPostService({ id }) {
@@ -16,20 +16,20 @@ export async function getPostService({ id }) {
 	return response.data;
 }
 
-export async function getByQueryService({ query = '' }) {
-	const response = await axios
-		.get(`${process.env.REACT_APP_ENDPOINT}posts?title[like]=${query}`)
-		.catch((error) => console.error(error));
+export async function getByQueryService({query = '', pageNumber = 1}) {
+    const response = await axios
+        .get(`${process.env.REACT_APP_ENDPOINT}posts?title[like]=${query}&page=${pageNumber}&size=6`)
+        .catch(error => console.error(error));
 
 	return response.data;
 }
 
-export async function getPostByCategoryService({ id = 0 }) {
-	const response = await axios
-		.get(`${process.env.REACT_APP_ENDPOINT}posts?category=${id}`)
-		.catch((error) => console.error(error));
+export async function getPostByCategoryService({id = 1, pageNumber = 1}) {
+    const response = await axios
+        .get(`${process.env.REACT_APP_ENDPOINT}posts?page=${pageNumber}category=${id}`)
+        .catch(error => console.error(error));
 
-	return response.data.data;
+    return response?.data;
 }
 
 export async function getNumberOfPostsService(number = 2) {
