@@ -10,11 +10,12 @@ export default function BlogRecommendationContainer({blogs}) {
 			</h2>
 
 			<div className={style.blogs}>
-				{blogs.length && blogs.map(({id, title, description}) => (
+				{blogs.length && blogs.map(({id, title, description, categories}) => (
 					<BlogRecommendation 
 						title={title}
 						description={description}
 						blogId={id}
+						categories={categories}
 						key={`recommended-blog-${id}`}
 					/>
 				))}
