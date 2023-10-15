@@ -69,7 +69,7 @@ const isLocalhost = Boolean(
     }
   }
   function storePushSubscription(pushSubscription) {
-    fetch("http://127.0.0.1:8000/api/v1/notifications/push/subscriptions", {
+    fetch("https://api.informisizene.codeforacause.rs/api/v1/notifications/push/subscriptions", {
       method: "POST",
       body: JSON.stringify(pushSubscription),
       headers: {
