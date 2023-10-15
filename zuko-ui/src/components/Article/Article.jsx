@@ -5,9 +5,16 @@ import { Fragment } from 'react';
 
 function Article({data = {}}){
     const blocks = data.blocks;
+    console.log(data);
     return (
         <article className={styles.article}>
-            <span className={styles.subtitle}>Koliki je moj deo?</span>
+            {data?.categories ? 
+            <div className={styles.categories}>
+                {data?.categories.map((el, i) => (
+                    <span className={styles.subtitle}>{el?.name}</span>
+                ))}
+            </div>
+            : null}
             {data?.title ? <h2 className={styles.title}>{data?.title}</h2> : null}
             {blocks?.map((el, i)=>{
                 return (
