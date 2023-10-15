@@ -66,9 +66,12 @@ const initialValue = [
 ];
 
 export default function PostsContainer({
-	data = initialValue,
+	data = [],
 	displayVersion = 'v1',
 }) {
+
+	console.log(data);
+	
 	return (
 		<div className={styles.container}>
 			{displayVersion === 'v1' && (
