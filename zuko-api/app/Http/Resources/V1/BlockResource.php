@@ -5,7 +5,7 @@ namespace App\Http\Resources\V1;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class DonorResource extends JsonResource
+class BlockResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,8 +16,8 @@ class DonorResource extends JsonResource
     {
         return [
             "id" => $this->id,
-            "name" => $this->name,
-            "website_url" => $this->website_url,
+            "type" => $this->type,
+            "value" => $this->value,
         ];
     }
 }

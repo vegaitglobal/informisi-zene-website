@@ -2,6 +2,7 @@
 
 .donors {
     color: #2A2E32;
+    margin-bottom: 60px;
 
     .title {
         font-size: 30px;
@@ -22,6 +23,8 @@
     }
 
     @include media-breakpoint-desktop {
+        margin-bottom: 120px;
+        
         .title {
             font-size: 34px;
             font-weight: 600;
