@@ -10,20 +10,23 @@ const DonationForm = ({donationData}) => {
             <h4 className={styles.donationFormSubtitle}>Primalac</h4>
             <div className={styles.donationFormReciever}>
                 <p className={styles.donationFormData}>
-                    {donationData?.recepient_name}
+					  {donationData?.recepient_name}
+					  Zuko
                     <br/>
                     <br/>
-                    {donationData?.recepient_address}
+					  {donationData?.recepient_address}
+					  Adresa
                     <br/>
                     <br/>
-                    {donationData?.recepient_zip}
+					  {donationData?.recepient_zip}
+					  21 000
                 </p>
             </div>
         </div>
         <div>
             <h4 className={styles.donationFormSubtitle}>Broj računa</h4>
             <div className={styles.donationCardBox}>
-                <p className={styles.donationFormData}>{donationData?.account_number}</p>
+                <p className={styles.donationFormData}>{donationData?.account_number} 0000-0000-0000-0000</p>
             </div>
         </div>
     </div>
