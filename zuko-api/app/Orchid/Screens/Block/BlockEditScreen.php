@@ -5,18 +5,18 @@ namespace App\Orchid\Screens\Post;
 use App\Models\Post;
 use App\Models\Block;
 use App\Orchid\Layouts\Post\PostEditLayout;
-use App\Orchid\Layouts\Block\BlockListLayout;
+use App\Orchid\Layouts\Block\BlockEditLayout;
 use Illuminate\Http\Request;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Toast;
 
-class PostEditScreen extends Screen
+class BlockEditScreen extends Screen
 {
     /**
-     * @var Post
+     * @var Block
      */
-    public $post;
+    public $block;
     /*
      * Fetch data to be displayed on the screen.
      * 
@@ -25,12 +25,10 @@ class PostEditScreen extends Screen
      *
      * @return array
      */
-    public function query(Post $post): iterable
+    public function query(Block $block): iterable
     {
         return [
-            "post" => $post,
-            "blocks" => $post->blocks,
-            'categories' => $post->categories
+            "block" => $block
         ];
     }
 
@@ -41,7 +39,7 @@ class PostEditScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'PostEditScreen';
+        return 'BlockEditScreen';
     }
 
     /**
@@ -58,15 +56,12 @@ class PostEditScreen extends Screen
         ];
     }
 
-    public function save(Request $request, Post $post)
+    public function save(Request $request, Block $block)
     {
-        $post = new Post;
-        $post->fill($request->get('post'));
-        $post->save();
+        $block->fill($request->get('block'));
+        $block->save();
 
-        $post->categories()->sync($request->input('categories', []));
-
-        Toast::info(__("Post was saved"));
+        Toast::info(__("Block was saved"));
         return redirect()->route('platform.posts');
     }
 
@@ -78,8 +73,7 @@ class PostEditScreen extends Screen
     public function layout(): iterable
     {
         return [
-            PostEditLayout::class,
-            BlockListLayout::class
+            BlockEditLayout::class
         ];
     }
 }

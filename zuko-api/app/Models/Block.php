@@ -6,9 +6,12 @@ use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use Orchid\Attachment\Attachable;
+use Orchid\Filters\Filterable;
+use Orchid\Screen\AsSource;
 class Block extends Model
 {
-    use HasFactory;
+    use HasFactory, AsSource, Filterable, Attachable;
 
     protected $fillable = [
         'post_id',
