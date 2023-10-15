@@ -1,0 +1,20 @@
+@import "../../styles/mixins.scss";
+
+.categories {
+    color: #2A2E32;
+    font-size: 14px;
+    font-weight: 500;
+    height: 46px;
+    width: 312px;
+    display: flex;
+    justify-content: center;
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: 1px solid #2A2E32;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    background: url("../../../public/arrow-down.svg") 95% center no-repeat;
+    background-size: 14px;
+}

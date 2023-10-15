@@ -1,5 +1,9 @@
+import OpportunitiesHero from "../components/OpportunitiesHero/OpportunitiesHero";
+
 export default function OpportunitiesPage() {
-    return <div>
-        Prilike za zene
-    </div>
+    return (
+        <div>
+            <OpportunitiesHero/>
+        </div>
+    );
 }
