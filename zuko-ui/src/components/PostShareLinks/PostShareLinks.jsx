@@ -5,22 +5,22 @@ export default function PostShareLinks() {
 		{
 			alt: 'Instagram icon',
 			href: 'www.instagram.com',
-			src: './instagram-icon.svg'
+			src: '/instagram-icon.svg'
 		},
 		{
 			alt: 'Tiktok icon',
 			href: 'www.tiktok.com',
-			src: './tiktok-icon.svg'
+			src: '/tiktok-icon.svg'
 		},
 		{
 			alt: 'Facebook icon',
 			href: 'www.facebook.com',
-			src: './facebook-icon.svg'
+			src: '/facebook-icon.svg'
 		},
 		{
 			alt: 'Twitter icon',
 			href: 'www.twitter.com',
-			src: './twitter-icon.svg'
+			src: '/twitter-icon.svg'
 		},
 	];
 
