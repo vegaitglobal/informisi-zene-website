@@ -3,7 +3,9 @@
 namespace App\Orchid\Screens\Post;
 
 use App\Models\Post;
+use App\Models\Block;
 use App\Orchid\Layouts\Post\PostEditLayout;
+use App\Orchid\Layouts\Block\BlockListLayout;
 use Illuminate\Http\Request;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
@@ -12,9 +14,9 @@ use Orchid\Support\Facades\Toast;
 class PostEditScreen extends Screen
 {
     /**
-     * @var Role
+     * @var Post
      */
-    public $role;
+    public $post;
     /*
      * Fetch data to be displayed on the screen.
      * 
@@ -27,6 +29,7 @@ class PostEditScreen extends Screen
     {
         return [
             "post" => $post,
+            "blocks" => $post->blocks,
             'categories' => $post->categories
         ];
     }
@@ -75,7 +78,8 @@ class PostEditScreen extends Screen
     public function layout(): iterable
     {
         return [
-            PostEditLayout::class
+            PostEditLayout::class,
+            BlockListLayout::class
         ];
     }
 }

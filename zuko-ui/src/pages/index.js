@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { getNumberOfPostsService } from '../services/posts.service';
-import Stats from '../components/Stats/Stats';
-import QuickInformation from '../components/QuickInformation/QuickInformation';
-import HomePostsContainer from '../components/HomePostsContainer/HomePostsContainer';
 import StrategyGoals from '../components/StrategyGoals/StrategyGoals';
+import Stats from "../components/Stats/Stats";
+import PostsContainer from "../components/PostsContainer/PostsContainer";
+import QuickInformation from "../components/QuickInformation/QuickInformation";
 import HeroBanner from '../components/HeroBanner/HeroBanner';
 import RoundedButton from '../components/RoundedButton/RoundedButton';
 import HorizontalSpacer from '../components/HorizontalSpacer/HorizontalSpacer';
@@ -17,19 +17,17 @@ export default function HomePage() {
 			.catch((error) => console.error(error));
 	}, []);
 
-	return (
-		<div>
-			<HeroBanner />
-			<StrategyGoals />
-			<HomePostsContainer data={listOfPosts} />
-			<RoundedButton
+    return <div>
+        <HeroBanner />
+        <StrategyGoals />
+        <HorizontalSpacer desktopSize={180} mobileSize={90} />
+        <RoundedButton
 				label="Sve prilike za žene"
 				isAnchor="true"
 				navigateTo='/opportunities'
-			/>
-			<HorizontalSpacer desktopSize={180} mobileSize={90} />
-			<Stats />
-			<QuickInformation />
-		</div>
-	);
+		/>
+		<PostsContainer data={listOfPosts} />
+        <Stats/>
+        <QuickInformation />
+    </div>
 }

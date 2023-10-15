@@ -1,0 +1,33 @@
+@import '../../styles/mixins.scss';
+
+.hero {
+    padding: 24px 0 48px 0;
+    text-align: center;
+
+    .title {
+        @include title;
+        margin-bottom: 60px;
+    }
+
+    .subtitle {
+        color: #2A2E32;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 12px;
+    }
+
+    .categoriesContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @include media-breakpoint-desktop {
+        padding: 60px 0;
+    
+        .subtitle {
+            font-size: 20px;
+            margin-bottom: 28px;
+        }
+    }
+}

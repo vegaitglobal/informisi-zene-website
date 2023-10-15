@@ -1,12 +1,17 @@
 @import '../../styles/mixins.scss';
 
+.categories {
+    margin-bottom: 8px;
+}
+
 .subtitle {
-    display: block;
     font-size: 16px;
     font-weight: 500;
     color: #2a2e32;
-    margin-bottom: 8px;
     text-transform: uppercase;
+    &:not(:first-child) {
+        margin-left: 15px;
+    }
 }
 
 .title {
