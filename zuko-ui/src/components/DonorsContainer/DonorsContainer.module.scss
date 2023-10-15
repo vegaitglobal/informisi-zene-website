@@ -1,0 +1,47 @@
+@import "../../styles/mixins.scss";
+
+.donors {
+    color: #2A2E32;
+    margin-bottom: 60px;
+
+    .title {
+        font-size: 30px;
+        font-weight: 600;
+        font-variant: all-small-caps;
+    }
+
+    .description {
+        margin: 30px 0;
+        font-size: 18px;
+    }
+
+    .donorsContainer {
+        gap: 24px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    @include media-breakpoint-desktop {
+        margin-bottom: 120px;
+        
+        .title {
+            font-size: 34px;
+            font-weight: 600;
+            font-variant: unset;
+            line-height: 44px;
+            letter-spacing: 0.65px;
+        }
+    
+        .description {
+            margin: 48px 0;
+            font-size: 28px;
+            font-weight: 500;
+            max-width: 620px;
+        }
+
+        .donorsContainer {
+            gap: 16px;
+        } 
+    }
+}

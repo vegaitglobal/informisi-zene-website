@@ -1,12 +1,14 @@
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 
-export default function PageWrapper({children}){
+export default function PageWrapper({children, wrapperSmall}){
     return <>
-        <h3>Header</h3>
-        <LayoutWrapper>
+        <Header />
+        <LayoutWrapper wrapperSmall={wrapperSmall}>
             {children}
         </LayoutWrapper>
-        <h3>Footer</h3>
+        <Footer/>
     </>
     
 }

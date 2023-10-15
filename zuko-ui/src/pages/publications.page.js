@@ -1,5 +1,5 @@
 export default function PublicationsPage() {
     return <div>
-        Publications page
+        PublicationsPage should list publications
     </div>
 }

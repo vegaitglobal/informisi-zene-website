@@ -5,5 +5,11 @@
 
     @include media-breakpoint-desktop{
         padding: 0 64px;
+        max-width: 1440px;
+        margin: 0 auto;
     }
+}
+
+.layoutSmall {
+    max-width: 870px;
 }
