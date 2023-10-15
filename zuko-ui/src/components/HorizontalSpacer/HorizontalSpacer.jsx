@@ -2,7 +2,7 @@ import { useLayoutEffect } from 'react';
 import useResponsive from '../../hooks/useResponsive';
 import styles from './HorizontalSpacer.module.scss';
 
-function HorizontalSpacer({desktopSize, mobileSize }){
+function HorizontalSpacer({desktopSize, mobileSize = 0 }){
     const {isDesktop} = useResponsive();
     
     return (

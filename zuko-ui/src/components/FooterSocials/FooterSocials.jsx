@@ -30,8 +30,8 @@ const FooterSocials = () => {
     <div>
         <h3 className={styles.socialsTitle}>Pratite nas</h3>
         <ul className={styles.socialsList}>
-            {socialsList.map(socialItem => (
-                <SocialItem socialItem={socialItem}/>
+            {socialsList.map((socialItem, index) => (
+                <SocialItem socialItem={socialItem} key={`footer-socials-${index}`}/>
             ))}
         </ul>
     </div>

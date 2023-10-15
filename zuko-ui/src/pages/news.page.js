@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { getByQueryService } from '../services/posts.service';
 import PostsContainer from '../components/PostsContainer/PostsContainer';
 import SearchPostInput from '../components/SearchPostInput/SearchPostInput';
+import GeneralHeading from '../components/GeneralHeading/GeneralHeading';
+import HorizontalSpacer from '../components/HorizontalSpacer/HorizontalSpacer';
 import Pagination from '../components/Pagination/Pagination';
 
 export default function NewsPage() {
@@ -42,7 +44,9 @@ export default function NewsPage() {
 		<div>
 			<SearchPostInput setQuery={setQuery} />
 			<PostsContainer displayVersion="v2" data={data.data} />
+			<HorizontalSpacer desktopSize={120} mobileSize={60} />
             {currentPage === totalPages ? <></> : <Pagination onClick={handlePaginationClick}/> }
+			<HorizontalSpacer desktopSize={120} mobileSize={60} />
 		</div>
 	);
 }

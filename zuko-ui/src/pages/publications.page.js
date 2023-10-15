@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import PublicationHero from "../components/PublicationHero/PublicationHero";
 import { getPublicationsService, getPublicationByCategoryService } from "../services/publication.service"; 
+import Publications from "../components/Publications/Publications";
 export default function PublicationsPage() {
     const [selectedCategory, setSelectedCategory] = useState(0);
     const [data, setData] = useState([])
@@ -39,10 +40,10 @@ export default function PublicationsPage() {
     useEffect(()=>{
         fetchPublication(selectedCategory);
     },[selectedCategory])
-
     return (
         <div>
             <PublicationHero list={listOfPostCategories} onSelectChange={onSelectChange}/>
+            {data?.data?.length && <Publications data={data?.data}/>}
         </div>
     );
 }
