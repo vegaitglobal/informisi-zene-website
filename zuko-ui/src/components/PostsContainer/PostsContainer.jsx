@@ -17,12 +17,8 @@ export default function PostsContainer({
 					? data.map((post) => {
 							return <PostV2 key={post.id} postData={post} />;
 					  })
-					: data.slice(0, 2).map((post) => {
-							return (
-								<>
-									<Post key={post.id} postData={post} />
-								</>
-							);
+					: data.map((post) => {
+							return <Post key={post.id} postData={post} />;
 					  })}
 			</div>
 		</div>
