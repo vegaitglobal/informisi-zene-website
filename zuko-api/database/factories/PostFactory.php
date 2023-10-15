@@ -18,9 +18,9 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            'description' => $this->faker->randomElement(['I', 'B']),
-            'title' => $this->faker->randomElement(['I', 'B']),
-            'cover_image_url' => $this->faker->image(storage_path('app/files'),640,480, null, true),
+            'description' => $this->faker->text($maxNbChars = 50),
+            'title' => $this->faker->text($maxNbChars = 10),
+            'cover_image_url' => 'https://zuko.rs/wp-content/uploads/2023/06/viber_image_2023-06-06_11-40-20-190-768x575.jpg',
             'user_id' => User::factory()
         ];
     }

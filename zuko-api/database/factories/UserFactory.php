@@ -23,7 +23,7 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
-            'profile_image_url' => $this->faker->image(storage_path('app/files'),640,480, null, true),
+            'profile_image_url' => 'https://zuko.rs/wp-content/uploads/2023/06/viber_image_2023-06-06_11-40-20-190-768x575.jpg',
         ];
     }
 
