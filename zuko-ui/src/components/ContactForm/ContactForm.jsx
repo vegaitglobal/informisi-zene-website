@@ -10,6 +10,7 @@ export default function ContactForm({ heading = "Pišite nam" }) {
         naslov: '',
         poruka: '',
     });
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -20,7 +21,17 @@ export default function ContactForm({ heading = "Pišite nam" }) {
     };
 
     const handleSubmit = (e) => {
+        setIsSubmitted(true);
+        setFormData({
+            ime: '',
+            mail: '',
+            telefon: '',
+            naslov: '',
+            poruka: '',
+        });
+        
         e.preventDefault();
+        
         // Handle form submission logic here
         console.log('Form data:', formData);
         // You can send the form data to an API endpoint or perform any other actions here
@@ -77,6 +88,7 @@ export default function ContactForm({ heading = "Pišite nam" }) {
                 onChange={handleInputChange}
                 required
             />
+            {isSubmitted && <p>Hvala Vam. Vaša poruka je uspešno poslata!</p>}
             <div className={styles.button}>
                 <RoundedButton buttonType='submit' label='Pošalji' />
             </div>
