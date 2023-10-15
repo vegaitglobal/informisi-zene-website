@@ -8,7 +8,7 @@ export default function NewsPage() {
 	const [searchedData, setSearchedData] = useState([]);
 
 	useEffect(() => {
-        getByQueryService({query}).then(setSearchedData);
+		getByQueryService({ query }).then(setSearchedData);
 	}, [query]);
 
 	return (

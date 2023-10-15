@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styles from "./TeamMemberContainer.module.scss";
 import TeamMember from "../TeamMember/TeamMember";
+import { getEmployeesService } from "../../services/employees.service";
 
 export default  function TeamMemberContainer() {
-    const [team, setTeam] = useState({});
+    const [team, setTeam] = useState([]);
 
     const mockData = {
         title: "Naš tim",
@@ -28,19 +29,24 @@ export default  function TeamMemberContainer() {
     }
 
     useEffect(() => {
-      setTeam(mockData);
-    }, [])
-
+		getEmployeesService()
+			.then(setTeam)
+			.catch((error) => console.error(error));
+	}, []);
+console.log(team);
     return (
-        <section className={styles.team}>
-            <h2 className={styles.title}>
-                {team.title}
-            </h2>
-            <div className={styles.teamContainer}>
-                {team?.data && team.data.map(({imageLink, name}, index)=> (
-                    <TeamMember imageLink={imageLink} name={name} key={`team-member-${index}`}/>
-                ))}
-            </div>
-        </section>
-    )
+		<section className={styles.team}>
+			<h2 className={styles.title}>Naš tim</h2>
+			<div className={styles.teamContainer}>
+				{team &&
+					team.map(({ imageLink, name }, index) => (
+						<TeamMember
+							imageLink={imageLink}
+							name={name}
+							key={`team-member-${index}`}
+						/>
+					))}
+			</div>
+		</section>
+	);
 }
