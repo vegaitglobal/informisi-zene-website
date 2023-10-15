@@ -12,7 +12,6 @@ export async function getPostService({id}) {
     const response = await axios
         .get(`${process.env.REACT_APP_ENDPOINT}posts/${id}`)
         .catch(error => console.error(error));
-
     return response.data;
 }
 
