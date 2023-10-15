@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Stats from "../components/Stats/Stats";
+import PostsContainer from "../components/PostsContainer/PostsContainer";
 import QuickInformation from "../components/QuickInformation/QuickInformation";
-import HomePostsContainer from "../components/HomePostsContainer/HomePostsContainer";
 import StrategyGoals from "../components/StrategyGoals/StrategyGoals";
 import HeroBanner from '../components/HeroBanner/HeroBanner';
 import HorizontalSpacer from "../components/HorizontalSpacer/HorizontalSpacer";
@@ -20,7 +20,7 @@ export default function HomePage() {
         <HeroBanner />
         <StrategyGoals />
         <HorizontalSpacer desktopSize={180} mobileSize={90} />
-		<HomePostsContainer data={listOfPosts} />
+		<PostsContainer data={listOfPosts} />
         <Stats/>
         <QuickInformation />
     </div>
