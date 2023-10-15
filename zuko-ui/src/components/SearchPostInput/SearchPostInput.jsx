@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import styles from './SearchPostInput.module.scss'
 
 export default function SearchPostInput({label = "Pretraga", setQuery}){
