@@ -10,8 +10,8 @@ const initialValue = [
 		crated: '2023-10-13T18:00',
 		description:
 			'Bits of moving fluff white dwarf kindling the energy hidden in matter shores of the cosmic ocean Jean-François Champollion consciousness.',
-		coverImageUri: './placeholder.png',
-		category: 'KOLIKI JE MOJ DEO?'
+		cover_image: './placeholder.png',
+		category: 'KOLIKI JE MOJ DEO?',
 	},
 	{
 		id: 1,
@@ -20,8 +20,8 @@ const initialValue = [
 		crated: '2023-10-13T18:00',
 		description:
 			'Bits of moving fluff white dwarf kindling the energy hidden in matter shores of the cosmic ocean Jean-François Champollion consciousness.',
-		coverImageUri: './placeholder.png',
-		category: 'KOLIKI JE MOJ DEO?'
+		cover_image: './placeholder.png',
+		category: 'KOLIKI JE MOJ DEO?',
 	},
 	{
 		id: 2,
@@ -30,8 +30,8 @@ const initialValue = [
 		crated: '2023-10-13T18:00',
 		description:
 			'Bits of moving fluff white dwarf kindling the energy hidden in matter shores of the cosmic ocean Jean-François Champollion consciousness.',
-		coverImageUri: './placeholder.png',
-		category: 'KOLIKI JE MOJ DEO?'
+		cover_image: './placeholder.png',
+		category: 'KOLIKI JE MOJ DEO?',
 	},
 	{
 		id: 3,
@@ -40,8 +40,8 @@ const initialValue = [
 		crated: '2023-10-13T18:00',
 		description:
 			'Bits of moving fluff white dwarf kindling the energy hidden in matter shores of the cosmic ocean Jean-François Champollion consciousness.',
-		coverImageUri: './placeholder.png',
-		category: 'KOLIKI JE MOJ DEO?'
+		cover_image: './placeholder.png',
+		category: 'KOLIKI JE MOJ DEO?',
 	},
 	{
 		id: 4,
@@ -50,8 +50,8 @@ const initialValue = [
 		crated: '2023-10-13T18:00',
 		description:
 			'Bits of moving fluff white dwarf kindling the energy hidden in matter shores of the cosmic ocean Jean-François Champollion consciousness.',
-		coverImageUri: './placeholder.png',
-		category: 'KOLIKI JE MOJ DEO?'
+		cover_image: './placeholder.png',
+		category: 'KOLIKI JE MOJ DEO?',
 	},
 	{
 		id: 5,
@@ -60,8 +60,8 @@ const initialValue = [
 		crated: '2023-10-13T18:00',
 		description:
 			'Bits of moving fluff white dwarf kindling the energy hidden in matter shores of the cosmic ocean Jean-François Champollion consciousness.',
-		coverImageUri: './placeholder.png',
-		category: 'KOLIKI JE MOJ DEO?'
+		cover_image: './placeholder.png',
+		category: 'KOLIKI JE MOJ DEO?',
 	},
 ];
 
@@ -79,12 +79,8 @@ export default function PostsContainer({
 					? data.map((post) => {
 							return <PostV2 key={post.id} postData={post} />;
 					  })
-					: data.slice(0, 2).map((post) => {
-							return (
-								<>
-									<Post key={post.id} postData={post} />
-								</>
-							);
+					: data.map((post) => {
+							return <Post key={post.id} postData={post} />;
 					  })}
 			</div>
 		</div>

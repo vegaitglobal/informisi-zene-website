@@ -8,7 +8,7 @@ const initialValue = {
 	crated: '2023-10-13T18:00',
 	description:
 		'Bits of moving fluff white dwarf kindling the energy hidden in matter shores of the cosmic ocean Jean-François Champollion consciousness.',
-	coverImageUri: './placeholder.png',
+	cover_image: './placeholder.png',
 	category: 'KOLIKI JE MOJ DEO?',
 };
 
@@ -19,7 +19,7 @@ export default function Post({ postData = initialValue }) {
 				<NavLink to={`posts/${postData.id}`} target="_blank">
 					<div className={styles.post__img}>
 						<img
-							src={postData.coverImageUri}
+							src={postData.cover_image}
 							alt={postData.title}
 						/>
 					</div>

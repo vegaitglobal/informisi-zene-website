@@ -16,7 +16,7 @@ export async function getPostService({id = 0}) {
     return response.data;
 }
 
-export async function getNumberOfPostsService(number = 2) {
+export async function getNumberOfPostsService(number = 1) {
     const response = await axios
         .get(`${process.env.REACT_APP_ENDPOINT}posts?size=${number}`)
         .catch(error => console.error(error));
