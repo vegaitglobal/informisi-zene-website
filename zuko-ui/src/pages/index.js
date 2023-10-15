@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getNumberOfPostsService } from '../services/posts.service';
 import { useNavigate } from 'react-router-dom';
-import { getNumberOfPostsService } from '../services/posts.service';
 import Stats from '../components/Stats/Stats';
 import QuickInformation from '../components/QuickInformation/QuickInformation';
 import HomePostsContainer from '../components/HomePostsContainer/HomePostsContainer';
@@ -29,12 +28,12 @@ export default function HomePage() {
 		<div>
 			<HeroBanner />
 			<StrategyGoals />
-			<HorizontalSpacer desktopSize={180} mobileSize={90} />
 			<HomePostsContainer data={listOfPosts} />
 			<RoundedButton
 				label="Sve prilike za žene"
 				onClick={goToOpportunities}
 			/>
+			<HorizontalSpacer desktopSize={180} mobileSize={90} />-
 			<Stats />
 			<QuickInformation />
 		</div>
