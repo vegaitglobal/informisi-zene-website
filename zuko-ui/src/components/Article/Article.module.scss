@@ -1,0 +1,33 @@
+@import '../../styles/mixins.scss';
+
+.subtitle {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    color: #2a2e32;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.title {
+    font-size: 46px;
+    line-height: 1.35;
+    margin-bottom: 48px;
+    letter-spacing: 1px;
+}
+
+.rte {
+    p {
+        font-size: 20px;
+        color: #2a2e32;
+        font-weight: 400;
+        &:not(:last-child) {
+            margin-bottom: 30px;
+        }
+    }
+}
+
+.image {
+    margin: 48px 0;
+    max-width: 100%;
+}
