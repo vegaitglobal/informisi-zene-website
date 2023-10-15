@@ -9,6 +9,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    z-index: 10;
 }
 
 .wrap {
@@ -48,7 +49,7 @@
         position: relative;
         place-content: end;
         transform: translateY(0);
-        padding: 16px 66px 0 0;
+        padding-right: 66px;
     }
 }
 
