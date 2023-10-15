@@ -3,7 +3,6 @@ import style from "./BlogRecommendationContainer.module.scss";
 import BlogRecommendation from '../BlogRecommendation/BlogRecommendation';
 
 export default function BlogRecommendationContainer({blogs}) {
-	console.log(blogs)
 	return (
 		<aside className={style.blogRecommendationContainer}>
 			<h2 className={style.title}>
