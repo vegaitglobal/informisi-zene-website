@@ -1,10 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './Header.module.scss';
 import {NavLink} from 'react-router-dom';
 
 function Header(){
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [displayedSubmenu, setDisplayedSubmenu] = useState(null);
+
+    
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 100) {
+                setDisplayedSubmenu(false);
+            } else {
+                setDisplayedSubmenu(true);
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => window.addEventListener('scroll', handleScroll);
+    }, [])
 
     const data = [
         {
@@ -48,8 +63,14 @@ function Header(){
         setDisplayedSubmenu(index);
     };
 
+    if (isMenuOpen) {
+        document.body.classList.add(styles.scrollDisabled);
+    } else {
+        document.body.classList.remove(styles.scrollDisabled);
+    }
+
     return (
-        <header className={styles.header}>
+        <header className={styles.header} >
             <div className={styles.wrap}>
                 <NavLink to="/">
                 <img className={styles.logo} src="../logo.png" alt=" Logo" />
@@ -67,7 +88,7 @@ function Header(){
                                         <ul className={styles.sublist}>
                                             {item?.submenu.map(subitem => (
                                                 <li className={styles.subitem} key={subitem.label}>
-                                                    <NavLink className={styles.sublink} to={subitem.href}>{subitem.label}</NavLink>
+                                                    <NavLink className={styles.sublink} to={subitem.href} onClick={() => setDisplayedSubmenu(false)}>{subitem.label}</NavLink>
                                                 </li>
                                             ))}
                                         </ul>
@@ -75,7 +96,7 @@ function Header(){
                                 )}
                             </>
                             : 
-                            <NavLink to={item.href} className={styles.link}>{item.label}</NavLink>
+                            <NavLink to={item.href} className={styles.link} onClick={() => setDisplayedSubmenu(false)}>{item.label}</NavLink>
                             }
                         </li>))}
                     </ul>
