@@ -1,0 +1,60 @@
+@import '../../styles/mixins.scss';
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: space-between;
+  }
+
+.title {
+    font-weight: 600;
+    font-size: 30px;
+    margin-bottom: 30px;
+    @include media-breakpoint-desktop {
+
+    }
+}
+.button {
+    @include media-breakpoint-desktop {
+        max-width: 245px;
+    }
+}
+.input {
+    width: calc(100%-16*2);
+    padding: 0px 16px;
+    height: 48px;
+    font-size: 18px;
+    border-radius: 12px;
+    border: 0.5px solid #2A2E32;
+    @include media-breakpoint-desktop {
+        height: 45px;
+        font-size: 20px;
+    }
+  }
+  .textarea {
+    width: calc(100%-16*2);
+    padding: 16px;
+    height: 190px;
+    font-size: 18px;
+    border-radius: 12px;
+    border: 0.5px solid #2A2E32;
+    @include media-breakpoint-desktop {
+        height: 45px;
+        font-size: 20px;
+        max-width: 370px;
+    }
+  }
+  .input::placeholder,
+  .textarea::placeholder {
+    font-weight: 400;
+    font-size: 18px;
+    color: #2A2E32;
+    
+  }
+
+  .input:required:invalid,
+  .textarea:required:invalid {
+    background-color: white;
+}
+  
