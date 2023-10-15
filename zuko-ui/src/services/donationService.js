@@ -22,3 +22,11 @@ export const getDonationInfo = async () => {
         console.log(error);
       }
 }
+
+export async function getDonationSites() {
+  const response= await axios
+    .get(`${process.env.REACT_APP_ENDPOINT}donations/donors`)
+    .catch(err => console.error(err));
+
+    return response.data
+;}
