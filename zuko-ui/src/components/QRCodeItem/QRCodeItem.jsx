@@ -1,8 +1,7 @@
 import React from 'react'
 import styles from './QRCodeItem.module.scss'
 
-const QRCodeItem = ({ QRUrl }) => {
-	console.log('QRUrl :>> ', QRUrl);
+const QRCodeItem = ({QRUrl}) => {
   return (
     <div className={styles.QRCodeItem}>
         <h3 className={styles.QRCodeTitle}>QR kod za donacije</h3>
