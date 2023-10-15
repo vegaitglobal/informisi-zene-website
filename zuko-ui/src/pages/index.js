@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { getNumberOfPostsService } from '../services/posts.service';
-import { useNavigate } from 'react-router-dom';
 import Stats from '../components/Stats/Stats';
 import QuickInformation from '../components/QuickInformation/QuickInformation';
 import HomePostsContainer from '../components/HomePostsContainer/HomePostsContainer';
@@ -18,12 +17,6 @@ export default function HomePage() {
 			.catch((error) => console.error(error));
 	}, []);
 
-	let navigate = useNavigate();
-	const goToOpportunities = () => {
-		let path = `/opportunities`;
-		navigate(path);
-	};
-
 	return (
 		<div>
 			<HeroBanner />
@@ -31,9 +24,10 @@ export default function HomePage() {
 			<HomePostsContainer data={listOfPosts} />
 			<RoundedButton
 				label="Sve prilike za žene"
-				onClick={goToOpportunities}
+				isAnchor="true"
+				navigateTo='/opportunities'
 			/>
-			<HorizontalSpacer desktopSize={180} mobileSize={90} />-
+			<HorizontalSpacer desktopSize={180} mobileSize={90} />
 			<Stats />
 			<QuickInformation />
 		</div>

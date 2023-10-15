@@ -1,14 +1,14 @@
 import { NavLink } from 'react-router-dom';
-import styles from './RoundedButton.module.css';
+import styles from './RoundedButton.module.scss';
 
 export default function RoundedButton({
 	label = 'Ucitaj jos',
 	onClick = () => {},
 	buttonType = 'button',
-	isAnchor = false,
+	isAnchor = 'false',
 	navigateTo = '/',
 }) {
-	if (isAnchor) {
+	if (isAnchor === "true") {
 		return (
 			<NavLink
 				to={navigateTo}
