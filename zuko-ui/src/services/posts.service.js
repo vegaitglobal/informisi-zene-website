@@ -1,14 +1,14 @@
 import axios from 'axios'
 
-export async function getPostsService() {
+export async function getPostsService(pageNumber = 1) {
     const response = await axios
-        .get(`${process.env.REACT_APP_ENDPOINT}posts`)
+        .get(`${process.env.REACT_APP_ENDPOINT}posts?page=${pageNumber}`)
         .catch(error => console.error(error));
 
-    return response.data.data;
+    return response?.data;
 }
 
-export async function getPostService({id = 0}) {
+export async function getPostService({id = 1}) {
     const response = await axios
         .get(`${process.env.REACT_APP_ENDPOINT}posts/${id}`)
         .catch(error => console.error(error));
@@ -16,12 +16,12 @@ export async function getPostService({id = 0}) {
     return response.data;
 }
 
-export async function getPostByCategoryService({id = 0}) {
+export async function getPostByCategoryService({id = 1, pageNumber = 1}) {
     const response = await axios
-        .get(`${process.env.REACT_APP_ENDPOINT}posts?category=${id}`)
+        .get(`${process.env.REACT_APP_ENDPOINT}posts?page=${pageNumber}category=${id}`)
         .catch(error => console.error(error));
 
-    return response.data.data;
+    return response?.data;
 }
 
 export async function getNumberOfPostsService(number = 2) {
