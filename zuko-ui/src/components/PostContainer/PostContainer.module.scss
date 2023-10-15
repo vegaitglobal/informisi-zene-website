@@ -3,6 +3,7 @@
 .postContainer {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     padding: 48px 0 60px;
 
     .article {
