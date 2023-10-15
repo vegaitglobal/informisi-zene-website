@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import Stats from "../components/Stats/Stats";
-import PostShareLinks from '../components/PostShareLinks/PostShareLinks';
 import PostsContainer from "../components/PostsContainer/PostsContainer";
 import QuickInformation from "../components/QuickInformation/QuickInformation";
+import PostShareLinks from '../components/PostShareLinks/PostShareLinks';
 import StrategyGoals from "../components/StrategyGoals/StrategyGoals";
 import HeroBanner from '../components/HeroBanner/HeroBanner';
 import { getNumberOfPostsService } from "../services/posts.service";

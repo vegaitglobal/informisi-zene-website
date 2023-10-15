@@ -11,8 +11,7 @@ const initialValue = [
 		description:
 			'Bits of moving fluff white dwarf kindling the energy hidden in matter shores of the cosmic ocean Jean-François Champollion consciousness.',
 		coverImageUri: './placeholder.png',
-		category: 'KOLIKI JE MOJ DEO?',
-		readMoreUri: '#',
+		category: 'KOLIKI JE MOJ DEO?'
 	},
 	{
 		id: 1,
@@ -22,8 +21,7 @@ const initialValue = [
 		description:
 			'Bits of moving fluff white dwarf kindling the energy hidden in matter shores of the cosmic ocean Jean-François Champollion consciousness.',
 		coverImageUri: './placeholder.png',
-		category: 'KOLIKI JE MOJ DEO?',
-		readMoreUri: '#',
+		category: 'KOLIKI JE MOJ DEO?'
 	},
 	{
 		id: 2,
@@ -33,8 +31,7 @@ const initialValue = [
 		description:
 			'Bits of moving fluff white dwarf kindling the energy hidden in matter shores of the cosmic ocean Jean-François Champollion consciousness.',
 		coverImageUri: './placeholder.png',
-		category: 'KOLIKI JE MOJ DEO?',
-		readMoreUri: '#',
+		category: 'KOLIKI JE MOJ DEO?'
 	},
 	{
 		id: 3,
@@ -44,8 +41,7 @@ const initialValue = [
 		description:
 			'Bits of moving fluff white dwarf kindling the energy hidden in matter shores of the cosmic ocean Jean-François Champollion consciousness.',
 		coverImageUri: './placeholder.png',
-		category: 'KOLIKI JE MOJ DEO?',
-		readMoreUri: '#',
+		category: 'KOLIKI JE MOJ DEO?'
 	},
 	{
 		id: 4,
@@ -55,8 +51,7 @@ const initialValue = [
 		description:
 			'Bits of moving fluff white dwarf kindling the energy hidden in matter shores of the cosmic ocean Jean-François Champollion consciousness.',
 		coverImageUri: './placeholder.png',
-		category: 'KOLIKI JE MOJ DEO?',
-		readMoreUri: '#',
+		category: 'KOLIKI JE MOJ DEO?'
 	},
 	{
 		id: 5,
@@ -66,8 +61,7 @@ const initialValue = [
 		description:
 			'Bits of moving fluff white dwarf kindling the energy hidden in matter shores of the cosmic ocean Jean-François Champollion consciousness.',
 		coverImageUri: './placeholder.png',
-		category: 'KOLIKI JE MOJ DEO?',
-		readMoreUri: '#',
+		category: 'KOLIKI JE MOJ DEO?'
 	},
 ];
 

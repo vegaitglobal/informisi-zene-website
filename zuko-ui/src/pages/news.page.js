@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import PostsContainer from '../components/PostsContainer/PostsContainer'
 import SearchPostInput from '../components/SearchPostInput/SearchPostInput'
 import { useEffect, useState } from 'react'

@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styles from './Post.module.scss';
 
 const initialValue = {
@@ -15,20 +16,27 @@ export default function Post({ postData = initialValue }) {
 	return (
 		<div>
 			<div className={styles.post}>
-				<div className={styles.post__img}>
-					<img src={postData.coverImageUri} alt="Missing" />
-				</div>
+				<NavLink to={`posts/${postData.id}`} target="_blank">
+					<div className={styles.post__img}>
+						<img
+							src={postData.coverImageUri}
+							alt={postData.title}
+						/>
+					</div>
+				</NavLink>
 				<div className={styles.post__content}>
 					{postData.category && (
 						<span className={styles.post__subheading}>
 							{postData.category}
 						</span>
 					)}
-					{postData.title && (
-						<span className={styles.post__heading}>
-							{postData.title}
-						</span>
-					)}
+					<NavLink to={`posts/${postData.id}`} target="_blank">
+						{postData.title && (
+							<span className={styles.post__heading}>
+								{postData.title}
+							</span>
+						)}
+					</NavLink>
 					{postData.description && (
 						<p className={styles.post__desc}>
 							{postData.description}

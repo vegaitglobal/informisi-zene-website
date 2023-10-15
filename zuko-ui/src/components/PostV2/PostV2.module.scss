@@ -28,6 +28,16 @@
 	@include media-breakpoint-desktop {
 		margin-bottom: unset;
 	}
+
+	@media (hover: hover) {
+		&:hover,
+		&:focus {
+			img {
+				transform: scale(1.2);
+				transition: transform 500ms ease-in-out;
+			}
+		}
+	}
 }
 
 .post__content {
@@ -53,6 +63,7 @@
 }
 
 .post__heading {
+	color: #2a2e32;
 	font-size: 30px;
 	font-weight: 600;
 	margin-bottom: 12px;
@@ -62,6 +73,13 @@
 		font-weight: 700;
 		line-height: 62px;
 		letter-spacing: 2.3px;
+	}
+
+	@media (hover: hover) {
+		&:hover,
+		&:focus {
+			color: #ffaa33;
+		}
 	}
 }
 
