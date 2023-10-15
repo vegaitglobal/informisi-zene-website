@@ -13,7 +13,6 @@ export default function RoundedButton({
 			<NavLink
 				to={navigateTo}
 				className={styles.button}
-				onClick={onClick}
 			>
 				{label}
 			</NavLink>
