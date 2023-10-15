@@ -43,9 +43,9 @@ export default function NewsPage() {
 	return (
 		<div>
 			<SearchPostInput setQuery={setQuery} />
-			<HorizontalSpacer desktopSize={120} mobileSize={60} />
 			<PostsContainer displayVersion="v2" data={data.data} />
             {currentPage === totalPages ? <></> : <Pagination onClick={handlePaginationClick}/> }
+			<HorizontalSpacer desktopSize={120} mobileSize={60} />
 		</div>
 	);
 }

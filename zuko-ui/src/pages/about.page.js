@@ -8,12 +8,20 @@ import { getDonationSites } from '../services/donationService';
 import { useEffect, useState } from 'react';
 
 export default function AboutPage() {
-    return <div>
-        <HorizontalSpacer desktopSize={90} mobileSize={0} />
-        <AboutHero />
-        <OurValues/>
-        <TeamMemberContainer/>
-        <AnnualReport/>
-        <DonorsContainer/>
-    </div>
+	const [data, setData] = useState([]);
+
+	useEffect(() => {
+		getDonationSites().then(setData);
+	}, [])
+
+	return (
+		<div>
+			<HorizontalSpacer desktopSize={90} mobileSize={0} />
+			<AboutHero />
+			<OurValues />
+			<TeamMemberContainer />
+			<AnnualReport />
+			<DonorsContainer data={data} />
+		</div>
+	);
 }
