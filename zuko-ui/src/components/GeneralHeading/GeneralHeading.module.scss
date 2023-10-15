@@ -1,0 +1,11 @@
+@import '../../styles/mixins.scss';
+
+.h1 {
+    font-size: 30px;
+    color: #2A2E32;
+    font-weight: 600;
+    @include media-breakpoint-desktop {
+      font-size: 38px;
+      margin: 0px;
+    }
+}

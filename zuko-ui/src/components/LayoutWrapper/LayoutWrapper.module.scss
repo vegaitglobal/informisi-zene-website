@@ -2,11 +2,11 @@
 
 .layout {
     padding: 0 24px;
-
+    margin-top: 83px;
     @include media-breakpoint-desktop{
         padding: 0 64px;
         max-width: 1440px;
-        margin: 0 auto;
+        margin: 87px auto 0;
     }
 }
 
