@@ -5,6 +5,7 @@ import FooterSocials from '../FooterSocials/FooterSocials'
 const Footer = () => {
   return (
     <footer className={styles.footer}>
+      <div className={styles.footerWrap}>
         <div className={styles.footerContent}>
         <h3 className={styles.footerTitle}>Prijavite se na bilten</h3>
         <form action="" className={styles.footerForm}>
@@ -17,6 +18,7 @@ const Footer = () => {
         <img src="/avioncic.png" alt="paper aeroplane img" className={styles.footerImg} />
         </div>
         <FooterSocials/>
+      </div>
     </footer>
   )
 }
