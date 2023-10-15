@@ -3,3 +3,18 @@
         @content;
     }
 }
+
+@mixin title {
+    color: #2A2E32;
+    font-size: 30px;
+    font-weight: 600; 
+    font-variant: all-small-caps;
+
+    @include media-breakpoint-desktop {
+        font-size: 46px; 
+        font-weight: 700;
+        font-variant: unset;
+        letter-spacing: 2.3px;
+        line-height: 62px;
+    }
+}

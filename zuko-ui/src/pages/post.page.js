@@ -1,9 +1,19 @@
+
+import { useEffect, useState } from 'react';
+import Article from '../components/Article/Article';
 import PostContainer from "../components/PostContainer/PostContainer";
+import { useParams } from "react-router-dom";
+import { getPostService } from '../services/posts.service';
 
 export default function PostPage() {
-    return (
-        <>
-            <PostContainer/>
-        </>
-    )
+    const [data, setData] = useState({})
+    const {id} = useParams();
+
+    useEffect(()=>{
+        getPostService({id}).then(setData)
+    },[])
+
+    return <div>
+        <PostContainer data={data}/>
+    </div>
 }

@@ -1,20 +1,20 @@
-import { useEffect, useState } from 'react'
-import SearchPostInput from '../components/SearchPostInput/SearchPostInput'
-import {getPostsService} from '../services/posts.service'
+import { useEffect, useState } from 'react';
+import { getByQueryService } from '../services/posts.service';
+import PostsContainer from '../components/PostsContainer/PostsContainer';
+import SearchPostInput from '../components/SearchPostInput/SearchPostInput';
 
 export default function NewsPage() {
-    const [data, setData] = useState([])
+	const [query, setQuery] = useState('');
+	const [searchedData, setSearchedData] = useState([]);
 
-    useEffect(()=>{
-        getPostsService().then(response => {
-            setData(response)
-        })
-    },[]);
+	useEffect(() => {
+        getByQueryService({query}).then(setSearchedData);
+	}, [query]);
 
-    // Use this data
-    console.log(data)
-
-    return <div>
-        <SearchPostInput />
-    </div>
+	return (
+		<div>
+			<SearchPostInput setQuery={setQuery} />
+			<PostsContainer displayVersion="v2" data={searchedData.data} />
+		</div>
+	);
 }

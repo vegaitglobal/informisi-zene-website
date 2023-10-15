@@ -25,7 +25,7 @@ const router = createBrowserRouter([
   },
   {
     path: 'donations',
-    element: <PageWrapper><DonationsPage /></PageWrapper>,
+    element: <PageWrapper wrapperSmall><DonationsPage /></PageWrapper>,
   },
   {
     path: 'news',
