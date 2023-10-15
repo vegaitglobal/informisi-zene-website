@@ -4,6 +4,8 @@ import HorizontalSpacer from '../components/HorizontalSpacer/HorizontalSpacer';
 import TeamMemberContainer from "../components/TeamMemberContainer/TeamMemberContainer";
 import DonorsContainer from './../components/DonorsContainer/DonorsContainer';
 import OurValues from './../components/OurValues/OurValues';
+import { getDonationSites } from '../services/donationService';
+import { useEffect, useState } from 'react';
 
 export default function AboutPage() {
     return <div>
