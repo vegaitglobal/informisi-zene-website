@@ -65,7 +65,6 @@ export default function ContactForm({ heading = "Pišite nam" }) {
                 placeholder='Telefon'
                 value={formData.telefon}
                 onChange={handleInputChange}
-                required
             />
             <input
                 className={styles.input}
