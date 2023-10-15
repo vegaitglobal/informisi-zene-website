@@ -1,6 +1,8 @@
 @import "../../styles/mixins.scss";
 
 .blogRecommendationContainer {
+    padding-top: 60px;
+     
     .title {
         font-size: 20px;
         font-weight: 600;
@@ -21,7 +23,7 @@
  
     @include media-breakpoint-desktop {
 		width: 306px;
-
+        padding-top: 0;
         .title {
             font-size: 28px;
             font-weight: 500;

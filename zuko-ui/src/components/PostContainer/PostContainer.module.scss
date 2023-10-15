@@ -1,0 +1,16 @@
+@import "../../styles/mixins.scss";
+
+.postContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 48px 0 60px;
+
+    .article {
+        width: 869px;
+    }
+
+    @include media-breakpoint-desktop {
+		padding: 120px 0;
+	}
+}

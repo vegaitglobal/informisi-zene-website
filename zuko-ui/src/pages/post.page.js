@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
-import Article from '../components/Article/Article'
+
 import { getNumberOfPostsService, getPostService } from "../services/posts.service";
-import BlogRecommendationContainer from './../components/BlogRecommendationContainer/BlogRecommendationContainer';
+import PostContainer from "../components/PostContainer/PostContainer";
 
 export default function PostPage() {
     const [recommendedPosts, setRecommendedPosts] = useState([]);
@@ -11,13 +11,11 @@ export default function PostPage() {
 
     useEffect(()=>{
         getPostService({id}).then(setData);
-
         getNumberOfPostsService(2)
             .then(setRecommendedPosts);
     },[])
 
     return <div>
-        <Article data={data}/>
-        <BlogRecommendationContainer blogs={recommendedPosts}/>
+        <PostContainer data={data} blogs={recommendedPosts}/>
     </div>
 }

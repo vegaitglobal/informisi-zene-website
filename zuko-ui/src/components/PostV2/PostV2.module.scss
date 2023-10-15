@@ -1,14 +1,15 @@
 @import '../../styles/mixins.scss';
 
 .post {
-	max-width: 310px;
+	// max-width: 310px;
+	max-width: 100%;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 
 	@include media-breakpoint-desktop {
 		height: 100%;
-		max-width: 416px;
+		max-width: 32%;
 		gap: 16px;
 	}
 }
