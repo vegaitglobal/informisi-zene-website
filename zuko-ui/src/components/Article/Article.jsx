@@ -5,7 +5,7 @@ import { Fragment } from 'react';
 
 function Article({data = {}}){
     const blocks = data.blocks;
-    console.log(data);
+    
     return (
         <article className={styles.article}>
             {data?.categories ? 
