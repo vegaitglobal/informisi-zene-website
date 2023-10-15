@@ -3,10 +3,11 @@
 .formContainer {
     margin-top: 42px;
     width: auto;
-    flex: 1;
     @include media-breakpoint-desktop {
         margin-top: 0px;
         padding-right: 6rem;    
+        flex: 1;
+        width: 60%;
     }
 }
 

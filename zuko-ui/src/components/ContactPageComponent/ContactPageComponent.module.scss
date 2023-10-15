@@ -4,23 +4,23 @@
     margin-bottom: 60px;
     margin-top: 45px;
     @include media-breakpoint-desktop {
-        margin-bottom: 60px;
         display: flex; 
         justify-content: space-between;
-        margin-top: 95px;
+        margin-top: 90px;
     }
 }
 
 .form {
+
     @include media-breakpoint-desktop {
+        width: 70%;
         margin-bottom: 60px;
         display: flex;
     }
 }
 .text{
-    
-
     @include media-breakpoint-desktop {
+        margin-right: 10%;
         max-width: 100px;
     }
 }
