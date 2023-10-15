@@ -21,6 +21,5 @@
 .text{
     @include media-breakpoint-desktop {
         margin-right: 10%;
-        max-width: 100px;
     }
 }
