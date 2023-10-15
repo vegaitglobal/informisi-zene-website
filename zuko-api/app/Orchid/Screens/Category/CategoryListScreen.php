@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Orchid\Screens;
+namespace App\Orchid\Screens\Category;
 
 use App\Models\Category;
-use App\Orchid\Layouts\CategoryListLayout;
+use App\Orchid\Layouts\Category\CategoryListLayout;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 
