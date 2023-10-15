@@ -1,5 +1,9 @@
 @import '../../styles/mixins.scss';
 
+.container {
+    display: flex;
+}
+
 .title {
     text-align: center;
     font-size: 18px;
@@ -16,6 +20,7 @@
     height: 48px;
     border-width: 0.75px;
     padding: 0px 16px;
+    margin: 12px auto 0;
     @include media-breakpoint-desktop {
         width: 50%;
     }

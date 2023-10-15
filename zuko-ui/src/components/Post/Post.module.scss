@@ -45,6 +45,7 @@
 	color: #2a2e32;
 	display: flex;
 	flex-direction: column;
+    height: 100%;
 
 	@include media-breakpoint-desktop {
 		flex: 0 0 286px;

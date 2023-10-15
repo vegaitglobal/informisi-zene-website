@@ -10,7 +10,7 @@ export default function SearchPostInput({label = "Pretraga", setQuery}){
         return () => clearTimeout(getData);
     }
     
-    return <div>
+    return <div className={styles.container}>
         <p className={styles.title}>{label}</p>
         <input className={styles.search} placeholder={label} type="text" onChange={handleSearch}/>
     </div>
