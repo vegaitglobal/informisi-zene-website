@@ -7,8 +7,8 @@ use App\Orchid\Screens\DonationInfo\DonationInfoScreen;
 use App\Models\Category;
 use App\Models\Post;
 use App\Orchid\Layouts\Post\PostEditLayout;
-use App\Orchid\Screens\CategoryEditScreen;
-use App\Orchid\Screens\CategoryListScreen;
+use App\Orchid\Screens\Category\CategoryEditScreen;
+use App\Orchid\Screens\Category\CategoryListScreen;
 use App\Orchid\Screens\Examples\ExampleActionsScreen;
 use App\Orchid\Screens\Examples\ExampleCardsScreen;
 use App\Orchid\Screens\Examples\ExampleChartsScreen;
@@ -30,6 +30,7 @@ use App\Orchid\Screens\Publications\PublicationsListScreen;
 use App\Orchid\Screens\Publications\PublicationsEditScreen;
 use App\Orchid\Screens\Post\PostEditScreen;
 use App\Orchid\Screens\Post\PostListScreen;
+use App\Orchid\Screens\Block\BlockListScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 

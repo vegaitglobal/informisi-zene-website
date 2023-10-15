@@ -1,0 +1,11 @@
+@import '../../styles/mixins.scss';
+
+.QRCodeSection {
+    @include media-breakpoint-desktop {
+        display: flex;
+        justify-content: space-between;
+        gap: 100px;
+        margin-bottom: 90px;
+    }
+}
+
