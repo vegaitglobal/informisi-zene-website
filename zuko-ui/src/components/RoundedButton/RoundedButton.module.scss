@@ -1,0 +1,19 @@
+@import '../../styles/mixins.scss';
+
+.button {
+	color: #2A2E32;
+	background-color: #ffaa33;
+	border-radius: 12px;
+	width: 100%;
+	padding: 15px 0;
+	font-weight: 500;
+	border: none;
+	font-size: 16px;
+	display: block;
+	text-align: center;
+
+	@include media-breakpoint-desktop {
+		font-size: 20px;
+		padding: 18px 20px;
+	}
+}

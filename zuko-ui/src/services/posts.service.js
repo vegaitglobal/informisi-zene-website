@@ -8,9 +8,17 @@ export async function getPostsService(pageNumber = 1) {
     return response?.data;
 }
 
-export async function getPostService({id = 1}) {
+export async function getPostService({id}) {
     const response = await axios
         .get(`${process.env.REACT_APP_ENDPOINT}posts/${id}`)
+        .catch(error => console.error(error));
+
+    return response.data;
+}
+
+export async function getByQueryService({query = ''}) {
+    const response = await axios
+        .get(`${process.env.REACT_APP_ENDPOINT}posts?title[like]=${query}`)
         .catch(error => console.error(error));
 
     return response.data;
