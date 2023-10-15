@@ -1,7 +1,7 @@
 @import '../../styles/mixins.scss';
 
 .post {
-	max-width: 310px;
+	max-width: 100%;
 	width: 100%;
 
 	@include media-breakpoint-desktop {
@@ -14,7 +14,7 @@
 
 .post__img {
 	height: 223px;
-	max-width: 310px;
+	max-width: 100%;
 	width: 100%;
 	overflow: hidden;
 	margin-bottom: 12px;

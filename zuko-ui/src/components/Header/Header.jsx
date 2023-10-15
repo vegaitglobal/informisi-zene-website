@@ -63,6 +63,11 @@ function Header(){
         setDisplayedSubmenu(index);
     };
 
+    const handleCloseMenus = () => {
+        setDisplayedSubmenu(false)
+        setIsMenuOpen(false);
+    }
+    
     if (isMenuOpen) {
         document.body.classList.add(styles.scrollDisabled);
     } else {
@@ -88,7 +93,7 @@ function Header(){
                                         <ul className={styles.sublist}>
                                             {item?.submenu.map(subitem => (
                                                 <li className={styles.subitem} key={subitem.label}>
-                                                    <NavLink className={styles.sublink} to={subitem.href} onClick={() => setDisplayedSubmenu(false)}>{subitem.label}</NavLink>
+                                                    <NavLink className={styles.sublink} to={subitem.href} onClick={handleCloseMenus}>{subitem.label}</NavLink>
                                                 </li>
                                             ))}
                                         </ul>
@@ -96,7 +101,7 @@ function Header(){
                                 )}
                             </>
                             : 
-                            <NavLink to={item.href} className={styles.link} onClick={() => setDisplayedSubmenu(false)}>{item.label}</NavLink>
+                            <NavLink to={item.href} className={styles.link} onClick={handleCloseMenus}>{item.label}</NavLink>
                             }
                         </li>))}
                     </ul>

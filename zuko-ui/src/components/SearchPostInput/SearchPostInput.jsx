@@ -1,3 +1,4 @@
+import GeneralHeading from '../GeneralHeading/GeneralHeading';
 import styles from './SearchPostInput.module.scss'
 
 export default function SearchPostInput({label = "Pretraga", setQuery}){
@@ -11,6 +12,7 @@ export default function SearchPostInput({label = "Pretraga", setQuery}){
     }
     
     return <div className={styles.container}>
+        <GeneralHeading label='Vesti' />
         <p className={styles.title}>{label}</p>
         <input className={styles.search} placeholder={label} type="text" onChange={handleSearch}/>
     </div>
