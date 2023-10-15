@@ -21,6 +21,8 @@ export default function ContactForm({ heading = "Pišite nam" }) {
     };
 
     const handleSubmit = (e) => {
+        e.preventDefault();
+
         setIsSubmitted(true);
         setFormData({
             ime: '',
@@ -29,12 +31,6 @@ export default function ContactForm({ heading = "Pišite nam" }) {
             naslov: '',
             poruka: '',
         });
-        
-        e.preventDefault();
-        
-        // Handle form submission logic here
-        console.log('Form data:', formData);
-        // You can send the form data to an API endpoint or perform any other actions here
     };
     return <div className={styles.formContainer}>
         <h2 className={styles.title}>{heading}</h2>
