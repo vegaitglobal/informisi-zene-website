@@ -2,21 +2,8 @@ import React from 'react'
 import style from "./OpportunitiesHero.module.scss";
 import CategoriesSelect from "../CategoriesSelect/CategoriesSelect";
 
-export default function OpportunitiesHero() {
-    const option = [
-        {
-            "id": 1,
-            "name": "KOJI JE MOJ DEO?"
-        },
-        {
-            "id": 2,
-            "name": "ANALIZA"
-        },
-        {
-            "id": 3,
-            "name": "ACT"
-        }
-    ]
+export default function OpportunitiesHero({list = [], onSelectChange = () => {} }) {
+
 
     return (
         <div className={style.hero}>
@@ -28,7 +15,7 @@ export default function OpportunitiesHero() {
                 Sortiraj po projektu
             </h3>
             <div className={style.categoriesContainer}>
-                <CategoriesSelect options={option} defaultSelection="Svi projekti" />
+                <CategoriesSelect options={list} defaultSelection="Svi projekti" onSelectChange={onSelectChange} />
             </div>
             
         </div>
