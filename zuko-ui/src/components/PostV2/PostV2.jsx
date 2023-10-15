@@ -43,14 +43,13 @@ export default function PostV2({ postData = initialValue }) {
 						</p>
 					)}
 				</div>
-				{postData.readMoreUri && (
-					<div className={styles.post__link}>
-						<NavLink to={`posts/${postData.id}`}>
-							Pročitaj više
-						</NavLink>
-						<img src="./arrow-right-orange.svg" alt="Arrow icon" />
-					</div>
-				)}
+				<NavLink
+					className={styles.post__link}
+					to={`posts/${postData.id}`}
+				>
+					<span>Pročitaj više</span>
+					<img src="./arrow-right-orange.svg" alt="Arrow icon" />
+				</NavLink>
 			</div>
 		</div>
 	);

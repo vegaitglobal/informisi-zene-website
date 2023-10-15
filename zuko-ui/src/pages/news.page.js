@@ -1,23 +1,24 @@
-import { useEffect, useState } from 'react'
-import PostsContainer from '../components/PostsContainer/PostsContainer'
-import SearchPostInput from '../components/SearchPostInput/SearchPostInput'
-import { useEffect, useState } from 'react'
-import {getPostsService} from '../services/posts.service'
+import { useEffect, useState } from 'react';
+import { getPostsService } from '../services/posts.service';
+import PostsContainer from '../components/PostsContainer/PostsContainer';
+import SearchPostInput from '../components/SearchPostInput/SearchPostInput';
 
 export default function NewsPage() {
-    const [data, setData] = useState([])
+	const [data, setData] = useState([]);
 
-    useEffect(()=>{
-        getPostsService().then(response => {
-            setData(response)
-        })
-    },[]);
+	useEffect(() => {
+		getPostsService().then((response) => {
+			setData(response);
+		});
+	}, []);
 
-    // Use this data
-    console.log(data)
+	// Use this data
+	console.log(data);
 
-    return <div>
-		<SearchPostInput />
-		<PostsContainer displayVersion="v2" />
-    </div>
+	return (
+		<div>
+			<SearchPostInput />
+			<PostsContainer displayVersion="v2" />
+		</div>
+	);
 }

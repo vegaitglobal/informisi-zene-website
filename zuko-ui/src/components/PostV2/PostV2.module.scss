@@ -92,18 +92,23 @@
 }
 
 .post__link {
+	width: fit-content;
+	font-size: 18px;
+	font-weight: 600;
+	color: #fa3;
 	display: flex;
 	align-items: center;
 	gap: 8px;
-	margin-top: 12px;
-
-	a {
-		color: #fa3;
-		font-size: 18px;
-		font-weight: 600;
-	}
+	padding-bottom: 2px;
 
 	img {
 		padding-top: 4px;
+	}
+
+	@media (hover: hover) {
+		&:hover,
+		&:focus {
+			box-shadow: 0 -2px 0 #fa3 inset;
+		}
 	}
 }
