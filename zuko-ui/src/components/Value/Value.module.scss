@@ -1,0 +1,50 @@
+@import "../../styles/mixins.scss";
+
+.value {
+    text-align: center;
+
+    .imgContainer {
+        padding-bottom: 30px;
+
+        img {
+            width: 92px;
+        }
+    }
+
+    .title {
+        font-weight: 700;
+        font-size: 24px;
+    }
+
+    .description {
+        font-size: 18px;
+    }
+
+    @include media-breakpoint-desktop{
+        & {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+
+            .imgContainer {
+                padding: 0 90px 0 0;
+    
+                img {
+                    width: 100px;
+                }
+            }
+            .contentContainer {
+                width: 578px;
+
+                .title {
+                    font-size: 28px;
+                }
+            
+                .description {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}

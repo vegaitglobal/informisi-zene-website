@@ -49,15 +49,18 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route("platform.categories")
                 ->permission('platform.categories'),
             Menu::make(__('Donors'))
-            ->icon('folder')
-            ->route('platform.donors'),
+              ->icon('folder')
+              ->route('platform.donors')
+              ->permission('platform.donors'),
+            Menu::make(__('Publications'))
+              ->icon('folder')
+              ->route('platform.publications')
+              ->permission('platform.publications'),
             Menu::make(__('Donation Info'))
-            ->icon('box')
-            ->route('platform.donation_info'),
-            ->icon('folder')
-                ->route('platform.donors')
-                ->permission('platform.donors'),
-            Menu::make(__('Posts'))
+              ->icon('box')
+              ->route('platform.donation_info')
+              ->permission('platform.donation_info'),
+             Menu::make(__('Posts'))
                 ->icon('folder')
                 ->route('platform.posts')
                 ->permission('platform.posts'),
@@ -77,9 +80,11 @@ class PlatformProvider extends OrchidServiceProvider
                 ->addPermission('platform.systems.users', __('Users')),
 
             ItemPermission::group(__('Blog'))
-                ->addPermission('platform.posts', __('Posts'))
-                ->addPermission('platform.categories', __('Categories'))
-                ->addPermission('platform.donors', __('Donors'))
+              ->addPermission('platform.posts', __('Posts'))
+              ->addPermission('platform.categories', __('Categories'))
+              ->addPermission('platform.donors', __('Donors'))
+              ->addPermission('platform.publications', __('publications'))
+              ->addPermission('platform.donation_info', __('donation_info'))
         ];
     }
 }

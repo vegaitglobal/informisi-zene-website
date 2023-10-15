@@ -4,10 +4,10 @@ const dataZUKOHeading = 'Podaci udruženja'
 const namePropery1 = 'Naziv'
 const namePropery2 = 'Adresa'
 const namePropery3 = 'Mail'
-const text1 = 'Žensko udruženje kolubarskog okruga'
-const text2 = 'Kolubarska 22 \n11563 Veliki Crljen \nSrbija'
-const text3 = 'zenekolubara@yahoo.com'
-export default function ContactInformation(){
+const defaultText1 = 'Žensko udruženje kolubarskog okruga'
+const defaultText2 = 'Kolubarska 22 \n11563 Veliki Crljen \nSrbija'
+const defaultText3 = 'zenekolubara@yahoo.com'
+export default function ContactInformation({text1 = defaultText1,text2 = defaultText2, text3 = defaultText3}){
     return <div className={styles.wrapper}>
                     <h2 className={styles.title}>{dataZUKOHeading}</h2>
                 <div className={styles.wrapperElement}>
