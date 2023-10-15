@@ -1,0 +1,36 @@
+@import '../../styles/mixins.scss';
+
+.container {
+	color: #2a2e32;
+	width: fit-content;
+	margin-inline: auto;
+	display: flex;
+	flex-direction: column;
+
+	@include media-breakpoint-desktop {
+		width: 100%;
+	}
+}
+
+.container__heading {
+	font-size: 24px;
+	font-weight: 700;
+	margin-bottom: 30px;
+
+	@include media-breakpoint-desktop {
+		margin-bottom: 60px;
+	}
+}
+
+.container__posts {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+
+	@include media-breakpoint-desktop {
+		flex-direction: row;
+		gap: 2%;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+}

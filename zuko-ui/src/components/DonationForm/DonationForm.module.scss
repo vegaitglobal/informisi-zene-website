@@ -1,0 +1,49 @@
+@import '../../styles/mixins.scss';
+.donationForm {
+    margin-bottom: 60px;
+    @include media-breakpoint-desktop {
+        margin-bottom: 0;
+    } 
+}
+
+.donationFormTitle {
+    font-size: 24px;
+    line-height: 31px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: #2A2E32;
+}
+
+.donationFormContent {
+    margin-bottom: 24px;
+}
+
+.donationFormSubtitle {
+    font-size: 18px;
+    line-height: 23px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #2A2E32;
+}
+
+.donationFormReciever {
+    padding: 24px 16px;
+    background-color: #fff;
+    color: #2A2E32;
+    border: 0.5px solid #2A2E32;
+    border-radius: 12px;
+}
+
+.donationCardBox {
+    padding: 11px 16px;
+    border: 0.5px solid #2A2E32;
+    border-radius: 12px;
+}
+
+
+.donationFormData {
+    font-size: 18px;
+    line-height: 24px;
+    color: #2A2E32;
+    font-weight: 400;   
+}

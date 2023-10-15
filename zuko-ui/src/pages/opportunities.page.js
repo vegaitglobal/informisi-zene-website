@@ -1,22 +1,48 @@
 import { useEffect, useState } from "react";
-import {getCategoriesService} from '../services/categories.service';
-import { getPostsByCategory } from "../services/posts.service";
+import OpportunitiesHero from "../components/OpportunitiesHero/OpportunitiesHero";
+import { getPostByCategoryService, getPostsService } from "../services/posts.service";
 
 export default function OpportunitiesPage() {
-    const [listOfCategories, setListOfCategories] = useState([]);
-    const [listOfPosts, setListOfPosts] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState(0);
+    const [data, setData] = useState([])
+
+    const listOfPostCategories = [
+        {
+            "id": 1,
+            "name": "KOJI JE MOJ DEO?"
+        },
+        {
+            "id": 2,
+            "name": "ANALIZA"
+        },
+        {
+            "id": 3,
+            "name": "ACT"
+        }
+    ];
+
+    function onSelectChange(id) {
+        if(id !== 0 && !id) return;
+
+        setSelectedCategory(id);
+    }
+
+    function fetchPosts(id){
+        if(id === '0' || !id) {
+            return getPostsService().then(setData)
+        }
+
+        getPostByCategoryService({id}).then(setData)
+        
+    }
+
     useEffect(()=>{
-        getCategoriesService()
-            .then(setListOfCategories)
-            .catch(error => console.error(error));
-    },[])
-    /* 
-        This is how to get post by category when selected
-        getPostsByCategory(categoryId)
-            .then(setListOfPosts)
-            .catch(error => console.error(error));
-    */
-    return <div>
-        Prilike za zene
-    </div>
+        fetchPosts(selectedCategory);
+    },[selectedCategory])
+
+    return (
+        <div>
+            <OpportunitiesHero list={listOfPostCategories} onSelectChange={onSelectChange}/>
+        </div>
+    );
 }

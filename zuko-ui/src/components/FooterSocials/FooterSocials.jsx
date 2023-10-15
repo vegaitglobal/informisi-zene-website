@@ -4,22 +4,22 @@ import styles from './FooterSocials.module.scss'
 
 const socialsList = [
     {
-        linkUrl: 'https://www.instagram.com',
+        linkUrl: 'https://www.instagram.com/zensko_udruzenje/',
         socialImg: '/instagram.svg',
         socialAlt: 'instagram'
     },
     {
-        linkUrl: 'https://www.tiktok.com',
+        linkUrl: 'https://www.tiktok.com/@zenskoudruzenje',
         socialImg: '/tiktok.svg',
         socialAlt: 'tiktok'
     },
     {
-        linkUrl: 'https://www.facebook.com',
+        linkUrl: 'https://www.facebook.com/zenskoudruzenjekolubara/',
         socialImg: '/facebook.svg',
         socialAlt: 'facebook'
     },
     {
-        linkUrl: 'https://www.twitter.com',
+        linkUrl: 'https://twitter.com/ZOkruga',
         socialImg: '/twitter.svg',
         socialAlt: 'twitter'
     }
