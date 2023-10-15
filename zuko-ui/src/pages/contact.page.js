@@ -1,8 +1,7 @@
-import ContactInformation from "../components/ContactInformation/ContactInformation";
+import ContactPageComponent from "../components/ContactPageComponent/ContactPageComponent"
 
 export default function ContactPage() {
     return <div>
-        <h2>Contact us page</h2>
-        <ContactInformation/>
+        <ContactPageComponent/>
     </div>
 }
