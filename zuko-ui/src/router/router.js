@@ -10,7 +10,6 @@ import PostPage from '../pages/post.page';
 import PublicationsPage from '../pages/publications.page';
 import OpportunitiesPage from '../pages/opportunities.page';
 
-
 const router = createBrowserRouter([
   {
     path: '/',
@@ -41,7 +40,7 @@ const router = createBrowserRouter([
     element: <PageWrapper><PostPage /></PageWrapper>,
   },
   {
-    path: 'publications/:id',
+    path: 'publications',
     element: <PageWrapper><PublicationsPage /></PageWrapper>,
   },
 ]);
