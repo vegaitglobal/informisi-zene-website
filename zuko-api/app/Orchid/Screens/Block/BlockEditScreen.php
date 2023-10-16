@@ -33,8 +33,7 @@ class BlockEditScreen extends Screen
     public function query(Block $block, Post $post): iterable
     {
         return [
-            "block" => $block,
-            "post"=> $post
+            "block" => $block
         ];
     }
 
@@ -68,7 +67,7 @@ class BlockEditScreen extends Screen
         $block->post_id = $post->id;
         $block->save();
         Toast::info(__("Block was saved"));
-        return redirect()->route('platform.posts');
+        return redirect()->route('platform.posts.edit',$post);
     }
 
     /**
