@@ -68,8 +68,8 @@ class DonationInfoLayout extends Table
                         Button::make(__('Delete'))
                             ->icon('bs.trash3')
                             ->confirm(__('Are you sure that you want to delete this donor?'))
-                            ->method('delete', [
-                                'donation_info' => $donation->id,
+                            ->method('remove', [
+                                'id' => $donation->id,
                             ]),
                     ])),
         ];

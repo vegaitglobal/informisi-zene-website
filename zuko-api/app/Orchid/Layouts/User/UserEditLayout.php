@@ -7,6 +7,7 @@ namespace App\Orchid\Layouts\User;
 use Orchid\Screen\Field;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Layouts\Rows;
+use Orchid\Screen\Fields\Cropper;
 
 class UserEditLayout extends Rows
 {
@@ -30,6 +31,8 @@ class UserEditLayout extends Rows
                 ->required()
                 ->title(__('Email'))
                 ->placeholder(__('Email')),
+            Cropper::make('user.profile_image_url')
+                ->targetRelativeUrl()
         ];
     }
 }

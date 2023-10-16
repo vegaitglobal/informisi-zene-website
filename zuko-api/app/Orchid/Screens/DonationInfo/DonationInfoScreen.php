@@ -7,6 +7,8 @@ use App\Orchid\Layouts\DonationInfo\DonationInfoLayout;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Toast;
+use Illuminate\Http\Request;
+
 
 class DonationInfoScreen extends Screen
 {
@@ -48,10 +50,11 @@ class DonationInfoScreen extends Screen
     }
 
     
-    public function delete(DonationInfo $donation)
+    public function remove(Request $request): void
     {
-        $donation->delete();
-        Toast::info(__('Donation was deleted'));
+        DonationInfo::findOrFail($request->get('id'))->delete();
+
+        Toast::info(__('DonationInfo was removed'));
     }
 
     /**

@@ -6,6 +6,8 @@ use Orchid\Screen\Screen;
 use App\Models\Donor;
 use App\Orchid\Layouts\Donor\DonorListLayout;
 use Orchid\Screen\Actions\Link;
+use Illuminate\Http\Request;
+use Orchid\Support\Facades\Toast;
 
 class DonorListScreen extends Screen
 {
@@ -46,6 +48,12 @@ class DonorListScreen extends Screen
                 ->href(route('platform.donors.create')),];
     }
 
+    public function remove(Request $request): void
+    {
+        Donor::findOrFail($request->get('id'))->delete();
+
+        Toast::info(__('Donor was removed'));
+    }
     /**
      * The screen's layout elements.
      *

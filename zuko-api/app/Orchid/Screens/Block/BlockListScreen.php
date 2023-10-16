@@ -42,10 +42,20 @@ class BlockListScreen extends Screen
      * @return \Orchid\Screen\Action[]
      */
     public function commandBar(): iterable
-    {        
-        return [];
+    { 
+        return [
+            Link::make(__('bb'))
+                ->icon("plus")
+                ->href(route('platform.categories'))
+        ];
     }
 
+    public function remove(Request $request): void
+    {
+        Block::findOrFail($request->get('id'))->delete();
+
+        Toast::info(__('Block was removed'));
+    }
     /**
      * The screen's layout elements.
      *

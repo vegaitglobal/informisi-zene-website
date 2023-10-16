@@ -6,6 +6,9 @@ use App\Models\Post;
 use App\Orchid\Layouts\Post\PostListLayout;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
+use Illuminate\Http\Request;
+use Orchid\Support\Facades\Toast;
+
 
 class PostListScreen extends Screen
 {
@@ -41,10 +44,18 @@ class PostListScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Link::make(__("Add"))
+            Link::make(__("Add posts"))
                 ->icon("plus")
-                ->href(route("platform.posts.create"))
+                ->href(route("platform.posts.create")),
+                
         ];
+    }
+
+    public function remove(Request $request): void
+    {
+        Post::findOrFail($request->get('id'))->delete();
+
+        Toast::info(__('Post was removed'));
     }
 
     /**

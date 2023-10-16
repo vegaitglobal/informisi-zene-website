@@ -6,6 +6,8 @@ use Orchid\Screen\Screen;
 use App\Models\Publications;
 use App\Orchid\Layouts\Publications\PublicationsListLayout;
 use Orchid\Screen\Actions\Link;
+use Illuminate\Http\Request;
+use Orchid\Support\Facades\Toast;
 
 class PublicationsListScreen extends Screen
 {
@@ -44,6 +46,13 @@ class PublicationsListScreen extends Screen
             Link::make(__('Add'))
                 ->icon('plus')
                 ->href(route('platform.publications.create')),];
+    }
+
+    public function remove(Request $request): void
+    {
+        Publications::findOrFail($request->get('id'))->delete();
+
+        Toast::info(__('Publication was removed'));
     }
 
     /**

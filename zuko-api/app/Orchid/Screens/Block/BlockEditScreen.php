@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Orchid\Screens\Post;
+namespace App\Orchid\Screens\Block;
 
 use App\Models\Post;
 use App\Models\Block;
@@ -17,6 +17,11 @@ class BlockEditScreen extends Screen
      * @var Block
      */
     public $block;
+    
+    /**
+     * @var Post
+     */
+    public $post;
     /*
      * Fetch data to be displayed on the screen.
      * 
@@ -25,10 +30,11 @@ class BlockEditScreen extends Screen
      *
      * @return array
      */
-    public function query(Block $block): iterable
+    public function query(Block $block, Post $post): iterable
     {
         return [
-            "block" => $block
+            "block" => $block,
+            "post"=> $post
         ];
     }
 
@@ -56,11 +62,11 @@ class BlockEditScreen extends Screen
         ];
     }
 
-    public function save(Request $request, Block $block)
+    public function save(Request $request, Block $block, Post $post)
     {
         $block->fill($request->get('block'));
+        $block->post_id = $post->id;
         $block->save();
-
         Toast::info(__("Block was saved"));
         return redirect()->route('platform.posts');
     }

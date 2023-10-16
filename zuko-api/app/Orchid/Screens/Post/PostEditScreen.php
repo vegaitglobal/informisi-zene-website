@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Toast;
+use Orchid\Support\Facades\Layout;
 
 class PostEditScreen extends Screen
 {
@@ -60,7 +61,6 @@ class PostEditScreen extends Screen
 
     public function save(Request $request, Post $post)
     {
-        $post = new Post;
         $post->fill($request->get('post'));
         $post->save();
 
@@ -68,6 +68,11 @@ class PostEditScreen extends Screen
 
         Toast::info(__("Post was saved"));
         return redirect()->route('platform.posts');
+    }
+
+    public function addBlockToPost(Request $request, Post $post)
+    {
+        return redirect()->route('platform.blocks.create',$post->id);
     }
 
     /**
@@ -79,7 +84,13 @@ class PostEditScreen extends Screen
     {
         return [
             PostEditLayout::class,
-            BlockListLayout::class
+            Layout::block(BlockListLayout::class)
+            ->title(__('Blocks'))
+            ->description('Here are all of the blocks that will appear on the post')
+            ->commands(
+                Button::make(__('Add'))
+                    ->method('addBlockToPost')
+            )
         ];
     }
 }

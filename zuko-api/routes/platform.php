@@ -31,6 +31,7 @@ use App\Orchid\Screens\Publications\PublicationsEditScreen;
 use App\Orchid\Screens\Post\PostEditScreen;
 use App\Orchid\Screens\Post\PostListScreen;
 use App\Orchid\Screens\Block\BlockListScreen;
+use App\Orchid\Screens\Block\BlockEditScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 
@@ -171,17 +172,24 @@ Route::screen('publications', PublicationsListScreen::class)
 Route::screen('donation_info', DonationInfoScreen::class)
     ->name('platform.donation_info')
     ->breadcrumbs(fn (Trail $trail) => $trail
-    ->parent('platform.index')
-    ->push(__('Donation Info'), route('platform.donation_info')));
+        ->parent('platform.index')
+        ->push(__('Donation Info'), route('platform.donation_info')));
 
 Route::screen('donation_info/{donation}/edit', DonationInfoEditScreen::class)
     ->name('platform.donation_info.edit')
     ->breadcrumbs(fn (Trail $trail, $donation) => $trail
-    ->parent('platform.donation_info')
-    ->push($donation->id, route('platform.donation_info.edit', $donation)));
+        ->parent('platform.donation_info')
+        ->push($donation->id, route('platform.donation_info.edit', $donation)));
 
 Route::screen('donation_info/create', DonationInfoCreateScreen::class)
     ->name('platform.donation_info.create')
     ->breadcrumbs(fn (Trail $trail) => $trail
     ->parent('platform.donation_info')
     ->push(__('Create'), route('platform.donation_info.create')));
+
+
+Route::screen('posts/{post}/blocks/create', BlockEditScreen::class)
+    ->name('platform.blocks.create')
+    ->breadcrumbs(fn (Trail $trail, $post) => $trail
+        ->parent('platform.posts')
+        ->push('Add block', route('platform.blocks.create',$post)));

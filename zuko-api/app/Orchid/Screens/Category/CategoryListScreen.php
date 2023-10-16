@@ -6,6 +6,8 @@ use App\Models\Category;
 use App\Orchid\Layouts\Category\CategoryListLayout;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
+use Illuminate\Http\Request;
+use Orchid\Support\Facades\Toast;
 
 class CategoryListScreen extends Screen
 {
@@ -32,6 +34,12 @@ class CategoryListScreen extends Screen
     {
         return 'CategoryListScreen';
     }
+    public function permission(): ?iterable
+    {
+        return [
+            'platform.categories',
+        ];
+    }
 
     /**
      * The screen's action buttons.
@@ -46,6 +54,15 @@ class CategoryListScreen extends Screen
                 ->href(route('platform.categories.create'))
         ];
     }
+
+
+    public function remove(Request $request): void
+    {
+        Category::findOrFail($request->get('id'))->delete();
+
+        Toast::info(__('Category was removed'));
+    }
+
 
     /**
      * The screen's layout elements.
