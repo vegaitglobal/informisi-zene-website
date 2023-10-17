@@ -28,7 +28,13 @@ class BlockEditLayout extends Rows
             Input::make('block.type')
                 ->title('Type'),
                 
-            Input::make('block.value')
+            Quill::make('text')
+            ->title('Value'),
+            
+            Picture::make('image')
+            ->title('Value'),
+            
+            Input::make('video')
             ->title('Value')
         ];
     }

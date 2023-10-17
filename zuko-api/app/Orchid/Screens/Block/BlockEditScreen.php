@@ -65,6 +65,7 @@ class BlockEditScreen extends Screen
     {
         $block->fill($request->get('block'));
         $block->post_id = $post->id;
+        $block->value = $request->get($block->type);
         $block->save();
         Toast::info(__("Block was saved"));
         return redirect()->route('platform.posts.edit',$post);

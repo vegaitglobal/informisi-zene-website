@@ -37,7 +37,6 @@ class PostEditLayout extends Rows
                 ->placeholder("Enter post title"),
             Picture::make('post.cover_image_url')
                 ->acceptableFiles(".jpg, .jpeg, .png")
-                ->targetRelativeUrl()
                 ->title("Post Cover image"),
             Input::make("post.description")
                 ->title("Post Description")
