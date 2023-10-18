@@ -15,7 +15,6 @@ class Publications extends Model
     protected $fillable = [
         "type",
         "title",
-        "cover_image_url",
-        "url"
+        "cover_image_url"
     ];
 }

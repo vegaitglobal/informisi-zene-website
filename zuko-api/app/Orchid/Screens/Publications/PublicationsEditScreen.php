@@ -27,6 +27,7 @@ class PublicationsEditScreen extends Screen
      */
     public function query(Publications $publication): iterable
     {
+        $publication->load('attachment');
         return [
             'publication'       => $publication
         ];
@@ -66,10 +67,10 @@ class PublicationsEditScreen extends Screen
      */
     public function save(Request $request, Publications $publication)
     {
-
-        $publication->fill($request->get('publication'));
-        $publication->save();
-
+        $publication->fill($request->get('publication'))->save();
+        $publication->attachment()->syncWithoutDetaching(
+            $request->input('publication.attachment', [])
+        );
         Toast::info(__('Publication was saved'));
         return redirect()->route('platform.publications');
     }

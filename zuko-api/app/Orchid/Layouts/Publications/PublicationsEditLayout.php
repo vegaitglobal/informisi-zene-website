@@ -25,7 +25,7 @@ class PublicationsEditLayout extends Rows
     public function fields(): array
     {
         return [
-            Select::make('publication.')
+            Select::make('publication.type')
             ->options([
                 'izvestaji'   => 'Izvestaj',
                 'saopstenja'   => 'Saopstenje',
@@ -36,7 +36,7 @@ class PublicationsEditLayout extends Rows
                 ->title('Title'),
             Picture::make('publication.cover_image_url')
             ->targetRelativeUrl(),
-            Input::make('publication.url')
+            Upload::make('publication.attachment')
             ->targetRelativeUrl()
         ];
     }
