@@ -30,13 +30,13 @@ class PostListLayout extends Table
     protected function columns(): iterable
     {
         return [
-            TD::make("title", __("Title"))
+            TD::make("title", __("Naslov"))
                 ->sort()
                 ->cantHide()
                 ->filter(Input::make())
                 ->render(fn (Post $post) => $post->title),
 
-            TD::make("created_at", __("Created"))
+            TD::make("created_at", __("Kreirano"))
                 ->sort()
                 ->render(fn (Post $post) => $post->updated_at->toDateTimeString()),
             TD::make(__("Actions"))
@@ -46,12 +46,12 @@ class PostListLayout extends Table
                     fn (Post $post) => DropDown::make()
                         ->icon('bs.three-dots-vertical')
                         ->list([
-                            Link::make(__("Edit"))
+                            Link::make(__("Modifikuj"))
                                 ->route("platform.posts.edit", $post)
                                 ->icon("pencil"),
-                            Button::make(__("Delete"))
+                            Button::make(__("Izbriši"))
                                 ->icon("trash")
-                                ->confirm(__("You are about do delete this post!"))
+                                ->confirm(__("Da li ste sigurni da želite da izbrišete vest?"))
                                 ->method("remove", [
                                     'id' => $post->id
                                 ])

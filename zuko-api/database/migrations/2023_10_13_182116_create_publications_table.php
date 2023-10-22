@@ -16,6 +16,7 @@ return new class extends Migration
             $table->enum('type', ['analize', 'izvestaji', 'saopstenja'])->default('analize');
             $table->string('title');
             $table->string('cover_image_url');
+            $table->string('url');
             $table->timestamps();
         });
     }

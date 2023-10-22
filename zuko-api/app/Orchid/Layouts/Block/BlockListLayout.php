@@ -27,15 +27,35 @@ class BlockListLayout extends Table
     public function columns(): array
     {
         return [
-            TD::make('type', __('type'))
+            TD::make('type', __('Tip bloka'))
                 ->sort()
                 ->cantHide()
                 ->filter(Input::make())
                 ->render(fn (Block $block) => $block->type),
 
-            TD::make('updated_at', __('Created'))
+            TD::make('updated_at', __('Kreirano'))
                 ->sort()
-                ->render(fn (Block $block) => $block->updated_at->toDateTimeString())
+                ->render(fn (Block $block) => $block->updated_at->toDateTimeString()),
+             TD::make(__("Operacije"))
+                ->align(TD::ALIGN_CENTER)
+                ->width("100ox")
+                ->render(
+                    function (Block $block){
+                        return DropDown::make()
+                        ->icon('bs.three-dots-vertical')
+                        ->list([
+                            Link::make(__("Modifikuj"))
+                                ->route("platform.blocks.edit", $block,$block->post_id)
+                                ->icon("pencil"),
+                            Button::make(__("Izbriši"))
+                                ->icon("trash")
+                                ->confirm(__("Da li ste sigurni da želite da izbrišete vest?"))
+                                ->method("remove", [
+                                    'id' => $block->id
+                                ])
+                                ]);
+                            }
+                )
         ];
     }
 }

@@ -42,7 +42,7 @@ class PostEditScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'PostEditScreen';
+        return 'Modifikacija vesti';
     }
 
     /**
@@ -55,7 +55,13 @@ class PostEditScreen extends Screen
         return [
             Button::make(__("Save"))
                 ->icon("check")
-                ->method("save")
+                ->method("save"),
+                
+            Button::make(__('Remove'))
+                ->icon('bs.trash3')
+                ->confirm(__('Da li ste sigurni da želite da izbrišete vest?'))
+                ->method('remove')
+                ->canSee($this->post->exists)
         ];
     }
 
@@ -85,12 +91,25 @@ class PostEditScreen extends Screen
         return [
             PostEditLayout::class,
             Layout::block(BlockListLayout::class)
-            ->title(__('Blocks'))
-            ->description('Here are all of the blocks that will appear on the post')
+            ->title(__('Blokovi'))
+            ->description('Ovde su prikazani svi blokovi koji sačinjavaju ovu vest respoređeni u redosledu kao što su i prikazani na sajtu')
             ->commands(
-                Button::make(__('Add'))
+                Button::make(__('Dodaj'))
                     ->method('addBlockToPost')
             )
         ];
+    }
+        /**
+     * @throws \Exception
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function remove(Post $post)
+    {
+        $post->delete();
+
+        Toast::info(__('Vest je izbrisana!'));
+
+        return redirect()->route('platform.posts');
     }
 }

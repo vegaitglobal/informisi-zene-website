@@ -25,17 +25,22 @@ class BlockEditLayout extends Rows
     public function fields(): array
     {
         return [
-            Input::make('block.type')
-                ->title('Type'),
+            Select::make('block.type')
+                ->options([
+                     'image'   => 'Slika',
+                     'video' => 'Video',
+                     'text' => 'Tekst'
+                     ])
+                ->title('Izaberite tip bloka:'),
                 
             Quill::make('text')
-            ->title('Value'),
+            ->title('Tekst (Ostaviti prazno ako nije izabran tekst tip bloka):'),
             
             Picture::make('image')
-            ->title('Value'),
+            ->title('Slika (Ostaviti prazno ako nije izabran slika tip bloka):'),
             
             Input::make('video')
-            ->title('Value')
+            ->title('Link ka videu (Ostaviti prazno ako nije izabran video tip bloka):')
         ];
     }
 }
