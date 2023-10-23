@@ -33,22 +33,23 @@ class PostEditLayout extends Rows
     {
         return [
             Input::make('post.title')
-                ->title("Post Title")
-                ->placeholder("Enter post title"),
+                ->title("Naslov")
+                ->placeholder("Unesite naslov svoje vesti maksimum 50 karaktera."),
             Picture::make('post.cover_image_url')
                 ->acceptableFiles(".jpg, .jpeg, .png")
-                ->title("Post Cover image"),
+                ->title("Naslovna fotografija vesti"),
             Input::make("post.description")
-                ->title("Post Description")
-                ->placeholder("Enter Your Text"),
+                ->title("Detaljniji opis vesti")
+                ->placeholder("Maksimum 250 karaktera"),
             Select::make("categories")
-                ->title("Post Categories")
+                ->title("Kategorije vesti")
                 ->fromModel(Category::class, "name", "id")
                 ->multiple(true)
-                ->empty("No select"),
+                ->empty(""),
             Select::make('post.user_id')
+                ->title("Autor vesti")
                 ->fromModel(User::class, 'name')
-                ->empty('No select'),
+                ->empty(''),
         ];
     }
 }

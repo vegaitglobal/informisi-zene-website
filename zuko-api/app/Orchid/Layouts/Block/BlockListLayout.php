@@ -27,13 +27,13 @@ class BlockListLayout extends Table
     public function columns(): array
     {
         return [
-            TD::make('type', __('type'))
+            TD::make('type', __('Tip bloka'))
                 ->sort()
                 ->cantHide()
                 ->filter(Input::make())
                 ->render(fn (Block $block) => $block->type),
 
-            TD::make('updated_at', __('Created'))
+            TD::make('updated_at', __('Kreirano'))
                 ->sort()
                 ->render(fn (Block $block) => $block->updated_at->toDateTimeString())
         ];

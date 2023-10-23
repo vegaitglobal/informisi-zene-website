@@ -33,7 +33,7 @@ class PostListScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'PostListScreen';
+        return 'Vesti';
     }
 
     /**
@@ -44,7 +44,7 @@ class PostListScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Link::make(__("Add posts"))
+            Link::make(__("Dodaj"))
                 ->icon("plus")
                 ->href(route("platform.posts.create")),
                 
@@ -55,7 +55,7 @@ class PostListScreen extends Screen
     {
         Post::findOrFail($request->get('id'))->delete();
 
-        Toast::info(__('Post was removed'));
+        Toast::info(__('Vest je izbrisana!'));
     }
 
     /**
