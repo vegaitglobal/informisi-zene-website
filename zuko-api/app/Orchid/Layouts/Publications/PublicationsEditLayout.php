@@ -34,10 +34,8 @@ class PublicationsEditLayout extends Rows
                 ->help('Allow search bots to index'),
             Input::make('publication.title')
                 ->title('Title'),
-            Picture::make('publication.cover_image_url')
-            ->targetRelativeUrl(),
-            Upload::make('publication.attachment')
-            ->targetRelativeUrl()
+            Picture::make('publication.cover_image_url'),
+            Upload::make('publication.attachment'),
         ];
     }
 }

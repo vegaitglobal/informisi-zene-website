@@ -34,13 +34,13 @@ class BlockEditLayout extends Rows
                 ->title('Izaberite tip bloka:'),
                 
             Quill::make('text')
-            ->title('Tekst (Ostaviti prazno ako nije izabran tekst tip bloka):'),
+                ->title('Tekst (Ostaviti prazno ako nije izabran tekst tip bloka):'),
             
             Picture::make('image')
-            ->title('Slika (Ostaviti prazno ako nije izabran slika tip bloka):'),
+                ->title('Slika (Ostaviti prazno ako nije izabran slika tip bloka):'),
             
             Input::make('video')
-            ->title('Link ka videu (Ostaviti prazno ako nije izabran video tip bloka):')
+                ->title('Link ka videu (Ostaviti prazno ako nije izabran video tip bloka):')
         ];
     }
 }
