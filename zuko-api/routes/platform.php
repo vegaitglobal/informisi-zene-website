@@ -194,7 +194,7 @@ Route::screen('posts/{post}/blocks/create', BlockEditScreen::class)
         ->parent('platform.posts')
         ->push('Add block', route('platform.blocks.create',$post)));
 
-Route::screen('posts/{post}/blocks/{block}/edit', BlockEditScreen::class)
+Route::screen('blocks/{block}/edit', BlockEditScreen::class)
     ->name('platform.blocks.edit')
     ->breadcrumbs(fn (Trail $trail, $block) => $trail
         ->parent('platform.posts')

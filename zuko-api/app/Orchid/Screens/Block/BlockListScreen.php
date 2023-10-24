@@ -44,9 +44,6 @@ class BlockListScreen extends Screen
     public function commandBar(): iterable
     { 
         return [
-            Link::make(__('bb'))
-                ->icon("plus")
-                ->href(route('platform.categories'))
         ];
     }
 

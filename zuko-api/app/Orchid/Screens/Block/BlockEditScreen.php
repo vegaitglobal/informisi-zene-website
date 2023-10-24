@@ -33,7 +33,8 @@ class BlockEditScreen extends Screen
     public function query(Block $block, Post $post): iterable
     {
         return [
-            "block" => $block
+            "block" => $block,
+            $block->type => $block->value
         ];
     }
 
@@ -57,17 +58,41 @@ class BlockEditScreen extends Screen
         return [
             Button::make(__("Save"))
                 ->icon("check")
-                ->method("save")
+                ->method("save"),
+                
+            Button::make(__('Remove'))
+            ->icon('bs.trash3')
+            ->confirm(__('Da li ste sigurni da želite da izbrišete vest?'))
+            ->method('remove')
+            ->canSee($this->block->exists)
         ];
     }
 
     public function save(Request $request, Block $block, Post $post)
     {
         $block->fill($request->get('block'));
-        $block->post_id = $post->id;
+        if($block->post_id == null)
+        {
+            $block->post_id = $post->id;
+        }
         $block->value = $request->get($block->type);
         $block->save();
         Toast::info(__("Block was saved"));
+        return redirect()->route('platform.posts.edit',$block->post);
+    }
+
+            /**
+     * @throws \Exception
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function remove(Block $block)
+    {
+        $post = $block->post;
+        $block->delete();
+
+        Toast::info(__('Block je izbrisan!'));
+
         return redirect()->route('platform.posts.edit',$post);
     }
 
