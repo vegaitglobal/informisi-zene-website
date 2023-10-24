@@ -19,7 +19,6 @@ services:
             IGNITION_LOCAL_SITES_PATH: '${PWD}'
         volumes:
             - '.:/var/www/html'
-        entrypoint: sh -c "sleep 30 && php /var/www/html/artisan migrate
         networks:
             - sail
         depends_on:
