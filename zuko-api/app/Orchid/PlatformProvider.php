@@ -58,7 +58,7 @@ class PlatformProvider extends OrchidServiceProvider
               ->icon('box')
               ->route('platform.donation_info')
               ->permission('platform.donation_info'),
-             Menu::make(__('Posts'))
+             Menu::make(__('Vesti'))
                 ->icon('folder')
                 ->route('platform.posts')
                 ->permission('platform.posts'),

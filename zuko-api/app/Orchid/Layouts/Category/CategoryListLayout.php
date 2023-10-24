@@ -38,7 +38,7 @@ class CategoryListLayout extends Table
             TD::make("created_at", __("Created"))
                 ->sort()
                 ->render(fn (Category $category) => $category->created_at->toDateTimeString()),
-            TD::make(__("Actions"))
+            TD::make(__("Akcije"))
                 ->align(TD::ALIGN_CENTER)
                 ->width("100px")
                 ->render(

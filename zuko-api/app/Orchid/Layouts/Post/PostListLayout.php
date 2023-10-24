@@ -39,7 +39,7 @@ class PostListLayout extends Table
             TD::make("created_at", __("Kreirano"))
                 ->sort()
                 ->render(fn (Post $post) => $post->updated_at->toDateTimeString()),
-            TD::make(__("Actions"))
+            TD::make(__("Akcije"))
                 ->align(TD::ALIGN_CENTER)
                 ->width("100ox")
                 ->render(

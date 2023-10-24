@@ -45,7 +45,7 @@ class BlockEditScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'BlockEditScreen';
+        return 'Modifikacija bloka';
     }
 
     /**
@@ -56,7 +56,7 @@ class BlockEditScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Button::make(__("Save"))
+            Button::make(__("Sačuvaj"))
                 ->icon("check")
                 ->method("save"),
                 

@@ -139,7 +139,7 @@ Route::screen('posts/{post}/edit', PostEditScreen::class)
     ->name('platform.posts.edit')
     ->breadcrumbs(fn (Trail $trail, Post $post) => $trail
         ->parent('platform.posts')
-        ->push(route('platform.posts.edit', $post)));
+        ->push($post->id,route('platform.posts.edit', $post)));
 
 Route::screen('donors/create', DonorEditScreen::class)
     ->name('platform.donors.create')

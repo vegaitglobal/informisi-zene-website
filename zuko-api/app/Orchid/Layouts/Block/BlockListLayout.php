@@ -28,15 +28,12 @@ class BlockListLayout extends Table
     {
         return [
             TD::make('type', __('Tip bloka'))
-                ->sort()
                 ->cantHide()
-                ->filter(Input::make())
                 ->render(fn (Block $block) => $block->type),
 
             TD::make('updated_at', __('Kreirano'))
-                ->sort()
                 ->render(fn (Block $block) => $block->updated_at->toDateTimeString()),
-            TD::make(__("Actions"))
+            TD::make(__("Akcije"))
                 ->align(TD::ALIGN_CENTER)
                 ->width("100ox")
                 ->render(

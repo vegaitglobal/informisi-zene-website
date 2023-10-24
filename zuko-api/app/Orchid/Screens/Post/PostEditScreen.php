@@ -11,6 +11,9 @@ use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Toast;
 use Orchid\Support\Facades\Layout;
+use App\Notifications\NewPost;
+use App\Models\Guest;
+use Notification;
 
 class PostEditScreen extends Screen
 {
@@ -57,12 +60,25 @@ class PostEditScreen extends Screen
                 ->icon("check")
                 ->method("save"),
                 
-            Button::make(__('Remove'))
+            Button::make(__('Izbriši'))
                 ->icon('bs.trash3')
                 ->confirm(__('Da li ste sigurni da želite da izbrišete vest?'))
                 ->method('remove')
+                ->canSee($this->post->exists),
+                
+            Button::make(__('Obavesti korisnike'))
+                ->icon('bs.people')
+                ->confirm(__('Da li ste sigurni da želite da pošaljete obaveštenja korisnicima?'))
+                ->method('sendPushNotifications')
                 ->canSee($this->post->exists)
         ];
+    }
+
+    public function sendPushNotifications(Post $post)
+    {
+        Notification::send(Guest::all(),new NewPost($post));
+        
+        Toast::info(__("Obaveštenja su poslata."));
     }
 
     public function save(Request $request, Post $post)
@@ -72,7 +88,7 @@ class PostEditScreen extends Screen
 
         $post->categories()->sync($request->input('categories', []));
 
-        Toast::info(__("Post was saved"));
+        Toast::info(__("Vest je kreirana."));
         return redirect()->route('platform.posts');
     }
 
@@ -92,7 +108,7 @@ class PostEditScreen extends Screen
             PostEditLayout::class,
             Layout::block(BlockListLayout::class)
             ->title(__('Blokovi'))
-            ->description('Ovde su prikazani svi blokovi koji sačinjavaju ovu vest respoređeni u redosledu kao što su i prikazani na sajtu')
+            ->description('Ovde su prikazani svi blokovi koji sačinjavaju ovu vest raspoređeni u redosledu kao što su i prikazani na sajtu')
             ->commands(
                 Button::make(__('Dodaj'))
                     ->method('addBlockToPost')
