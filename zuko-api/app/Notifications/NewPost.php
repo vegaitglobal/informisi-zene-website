@@ -7,14 +7,14 @@ use NotificationChannels\WebPush\WebPushMessage;
 use NotificationChannels\WebPush\WebPushChannel;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-use App\Models\Guest;
+use App\Models\Post;
 
 class NewPost extends Notification
 {
 
     use Queueable;
     public $newPost;
-    public function __construct(Guest $post)
+    public function __construct(Post $post)
     {
         $this->newPost = $post;
     }

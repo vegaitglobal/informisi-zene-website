@@ -139,7 +139,7 @@ Route::screen('posts/{post}/edit', PostEditScreen::class)
     ->name('platform.posts.edit')
     ->breadcrumbs(fn (Trail $trail, Post $post) => $trail
         ->parent('platform.posts')
-        ->push(route('platform.posts.edit', $post)));
+        ->push($post->id,route('platform.posts.edit', $post)));
 
 Route::screen('donors/create', DonorEditScreen::class)
     ->name('platform.donors.create')
@@ -194,7 +194,7 @@ Route::screen('posts/{post}/blocks/create', BlockEditScreen::class)
         ->parent('platform.posts')
         ->push('Add block', route('platform.blocks.create',$post)));
 
-Route::screen('posts/{post}/blocks/{block}/edit', BlockEditScreen::class)
+Route::screen('blocks/{block}/edit', BlockEditScreen::class)
     ->name('platform.blocks.edit')
     ->breadcrumbs(fn (Trail $trail, $block) => $trail
         ->parent('platform.posts')
