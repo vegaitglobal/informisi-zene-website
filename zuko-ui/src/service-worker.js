@@ -111,7 +111,7 @@ function newPostNotificationAction(event) {
 
       for (const client of allClients) {
         const url = new URL(
-          `http://localhost:3000/posts/${event.notification.data.id}`
+          `https://informisizene.codeforacause.rs/posts/${event.notification.data.id}`
         );
         await client.navigate(url);
       }
