@@ -30,12 +30,13 @@ class PublicationsEditLayout extends Rows
                 'izvestaji'   => 'Izvestaj',
                 'saopstenja'   => 'Saopstenje',
                 'analize' => 'Analiza'])
-                ->title('Select tags')
-                ->help('Allow search bots to index'),
+                ->title('Izaberite tip publikacije'),
             Input::make('publication.title')
-                ->title('Title'),
-            Picture::make('publication.cover_image_url'),
-            Upload::make('publication.attachment'),
+                ->title('Naslov'),
+            Picture::make('publication.cover_image_url')
+                ->title("Naslovna fotografija publikacije"),
+            Upload::make('publication.attachment')
+                ->title("Publikacija"),
         ];
     }
 }

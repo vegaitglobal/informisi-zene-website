@@ -28,31 +28,31 @@ class PublicationsListLayout extends Table
     public function columns(): array
     {
         return [
-            TD::make('type', __('Type'))
+            TD::make('type', __('Tip'))
                 ->sort()
                 ->cantHide()
                 ->filter(Input::make())
                 ->render(fn (Publications $publication) => $publication->type),
                 
-            TD::make('title', __('Title'))
+            TD::make('title', __('Naslov'))
             ->sort()
             ->cantHide()
             ->filter(Input::make())
             ->render(fn (Publications $publication) => $publication->title),
-            TD::make(__('Actions'))
+            TD::make(__('Akcije'))
                 ->align(TD::ALIGN_CENTER)
                 ->width('100px')
                 ->render(fn (Publications $publication) => DropDown::make()
                     ->icon('bs.three-dots-vertical')
                     ->list([
 
-                        Link::make(__('Edit'))
+                        Link::make(__('Modifikuj'))
                             ->route('platform.publications.edit', $publication->id)
                             ->icon('bs.pencil'),
 
-                        Button::make(__('Delete'))
+                        Button::make(__('Izbriši'))
                             ->icon('bs.trash3')
-                            ->confirm(__('Are you sure that you want to delete this donor?'))
+                            ->confirm(__('Da li ste sigurni da želite da izbrišete publikaciju?'))
                             ->method('remove', [
                                 'id' => $publication->id,
                             ]),

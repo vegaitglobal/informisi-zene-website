@@ -40,7 +40,7 @@ class PublicationsEditScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'PublicationEditScreen';
+        return 'Modifikacija publikacije';
     }
 
     /**
@@ -51,7 +51,7 @@ class PublicationsEditScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Button::make(__('Save'))
+            Button::make(__('Sačuvaj'))
             ->icon('check')
             ->method('save')
         ];
@@ -71,7 +71,7 @@ class PublicationsEditScreen extends Screen
         $publication->attachment()->syncWithoutDetaching(
             $request->input('publication.attachment', [])
         );
-        Toast::info(__('Publication was saved'));
+        Toast::info(__('Publikacija je sačuvana'));
         return redirect()->route('platform.publications');
     }
 
