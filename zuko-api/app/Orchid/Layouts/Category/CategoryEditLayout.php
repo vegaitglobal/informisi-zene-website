@@ -24,8 +24,8 @@ class CategoryEditLayout extends Rows
     {
         return [
             Input::make('category.name')
-                ->title("Category Name")
-                ->placeholder("Enter Category Name")
+                ->title("Naziv kategorije")
+                ->placeholder("Unesite naziv kategorije")
         ];
     }
 }

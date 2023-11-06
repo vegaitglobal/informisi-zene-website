@@ -30,7 +30,7 @@ class CategoryEditScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'CategoryEditScreen';
+        return 'Modifikacija kategorije';
     }
 
     /**
@@ -41,7 +41,7 @@ class CategoryEditScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Button::make(__('Save'))
+            Button::make(__('Sačuvaj'))
                 ->icon('check')
                 ->method('save')
         ];
@@ -52,7 +52,7 @@ class CategoryEditScreen extends Screen
         $category->fill($request->get('category'));
         $category->save();
 
-        Toast::info(__("Category was saved"));
+        Toast::info(__("Kategorija je sačuvana"));
         return redirect()->route('platform.categories');
     }
 

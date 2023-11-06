@@ -30,12 +30,12 @@ class CategoryListLayout extends Table
     protected function columns(): iterable
     {
         return [
-            TD::make('name', __("Name"))
+            TD::make('name', __("Naziv"))
                 ->sort()
                 ->cantHide()
                 ->filter(Input::make())
                 ->render(fn (Category $category) => $category->name),
-            TD::make("created_at", __("Created"))
+            TD::make("created_at", __("Kreirano"))
                 ->sort()
                 ->render(fn (Category $category) => $category->created_at->toDateTimeString()),
             TD::make(__("Akcije"))
@@ -45,13 +45,13 @@ class CategoryListLayout extends Table
                     fn (Category $category) => DropDown::make()
                         ->icon('bs.three-dots-vertical')
                         ->list([
-                            Link::make(__("Edit"))
+                            Link::make(__("Modifikuj"))
                                 ->route("platform.categories.edit", $category->id)
                                 ->icon('pencil'),
 
-                            Button::make(__("Delete"))
+                            Button::make(__("Izbriši"))
                                 ->icon('bs.trash3')
-                                ->confirm(__("Are you sure that you want to delete this category"))
+                                ->confirm(__("Da li ste sigurni da želite da izbrišete kategoriju?"))
                                 ->method("remove", [
                                     'id' => $category->id
                                 ])
