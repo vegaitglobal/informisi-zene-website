@@ -32,7 +32,7 @@ class DonorListScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'DonorListScreen';
+        return 'Donatori';
     }
 
     /**
@@ -43,7 +43,7 @@ class DonorListScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Link::make(__('Add'))
+            Link::make(__('Dodaj'))
                 ->icon('plus')
                 ->href(route('platform.donors.create')),];
     }
@@ -52,7 +52,7 @@ class DonorListScreen extends Screen
     {
         Donor::findOrFail($request->get('id'))->delete();
 
-        Toast::info(__('Donor was removed'));
+        Toast::info(__('Donator je izbrisan'));
     }
     /**
      * The screen's layout elements.

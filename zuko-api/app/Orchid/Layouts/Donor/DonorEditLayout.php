@@ -24,9 +24,9 @@ class DonorEditLayout extends Rows
     {
         return [
             Input::make('donor.name')
-                ->title('Name'),
+                ->title('Naziv'),
             Input::make('donor.website_url')
-                ->title('Website'),
+                ->title('Veb sajt'),
         ];
     }
 }
