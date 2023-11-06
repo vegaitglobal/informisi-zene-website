@@ -34,28 +34,28 @@ class PlatformProvider extends OrchidServiceProvider
     public function menu(): array
     {
         return [
-            Menu::make(__('Users'))
+            Menu::make(__('Zaposleni'))
                 ->icon('people')
                 ->route('platform.systems.users')
                 ->permission('platform.systems.users'),
-            Menu::make(__('Roles'))
-                ->icon('controller')
+            Menu::make(__('Uloge'))
+                ->icon('folder')
                 ->route('platform.systems.roles')
                 ->permission('platform.systems.roles'),
-            Menu::make(__("Categories"))
+            Menu::make(__("Kategorije"))
                 ->icon("folder")
                 ->route("platform.categories")
                 ->permission('platform.categories'),
-            Menu::make(__('Donors'))
+            Menu::make(__('Donatori'))
               ->icon('folder')
               ->route('platform.donors')
               ->permission('platform.donors'),
-            Menu::make(__('Publications'))
+            Menu::make(__('Publikacije'))
               ->icon('folder')
               ->route('platform.publications')
               ->permission('platform.publications'),
-            Menu::make(__('Donation Info'))
-              ->icon('box')
+            Menu::make(__('Donacije'))
+              ->icon('folder')
               ->route('platform.donation_info')
               ->permission('platform.donation_info'),
              Menu::make(__('Vesti'))

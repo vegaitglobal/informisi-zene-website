@@ -32,7 +32,7 @@ class PublicationsListScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'PublicationsListScreen';
+        return 'Publikacije';
     }
 
     /**
@@ -43,7 +43,7 @@ class PublicationsListScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Link::make(__('Add'))
+            Link::make(__('Dodaj'))
                 ->icon('plus')
                 ->href(route('platform.publications.create')),];
     }
@@ -52,7 +52,7 @@ class PublicationsListScreen extends Screen
     {
         Publications::findOrFail($request->get('id'))->delete();
 
-        Toast::info(__('Publication was removed'));
+        Toast::info(__('Publikacija je izbrisana'));
     }
 
     /**

@@ -33,7 +33,7 @@ class DonationInfoEditScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'Donation Info Edit';
+        return 'Modifikacija informacija za donacije';
     }
 
     /**
@@ -44,7 +44,7 @@ class DonationInfoEditScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Button::make(__('Save'))
+            Button::make(__('Sačuvaj'))
             ->icon('check')
             ->method('save')
         ];
@@ -65,7 +65,7 @@ class DonationInfoEditScreen extends Screen
         $donation->fill($data);
         $donation->save();
 
-        Toast::info(__('Donation info was saved'));
+        Toast::info(__('Informacije o donaciji su sačuvane'));
         return redirect()->route('platform.donation_info');
     }
 

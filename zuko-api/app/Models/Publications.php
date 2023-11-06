@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Orchid\Filters\Filterable;
 use Orchid\Screen\AsSource;
 use Orchid\Attachment\Attachable;
+use Orchid\Filters\Types\Like;
 
 class Publications extends Model
 {
@@ -17,4 +18,25 @@ class Publications extends Model
         "title",
         "cover_image_url"
     ];
+
+        /**
+     * The attributes for which you can use filters in url.
+     *
+     * @var array
+     */
+    protected $allowedFilters = [
+        'title'       => Like::class,
+        'type' => Like::class
+    ];
+
+    /**
+    * The attributes for which can use sort in url.
+    *
+    * @var array
+    */
+    protected $allowedSorts = [
+     'title',
+     'type'
+    ];
+
 }
