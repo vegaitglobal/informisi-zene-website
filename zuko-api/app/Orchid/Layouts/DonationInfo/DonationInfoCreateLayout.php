@@ -25,20 +25,20 @@ class DonationInfoCreateLayout extends Rows
         return [
             Group::make([
                 Input::make('donation_infos.account_number')
-                    ->title('Account Number')
+                    ->title('Broj računa')
                     ->required(),
     
                 Input::make('donation_infos.recipient_name')
-                    ->title('Recipient Name')
+                    ->title('Naziv primaoca')
                     ->required(),
     
                 Input::make('donation_infos.default_amount')
-                    ->title('Default Amount')
+                    ->title('Predefinisana vrednost')
                     ->type('number')
                     ->required(),
     
                 Input::make('donation_infos.payment_code')
-                    ->title('Payment Code')
+                    ->title('Šifra plaćanja')
                     ->required(),
             ]),
         ];

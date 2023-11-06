@@ -33,7 +33,7 @@ class DonationInfoScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'Donation Info';
+        return 'Informacije o donacijama';
     }
 
     /**
@@ -44,7 +44,7 @@ class DonationInfoScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Link::make(__('Add'))
+            Link::make(__('Dodaj'))
             ->icon('plus')
             ->href(route('platform.donation_info.create')),];
     }
@@ -54,7 +54,7 @@ class DonationInfoScreen extends Screen
     {
         DonationInfo::findOrFail($request->get('id'))->delete();
 
-        Toast::info(__('DonationInfo was removed'));
+        Toast::info(__('Informacije o donaciji su izbrisane'));
     }
 
     /**

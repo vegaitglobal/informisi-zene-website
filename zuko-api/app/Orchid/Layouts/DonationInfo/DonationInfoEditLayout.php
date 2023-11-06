@@ -19,13 +19,13 @@ class DonationInfoEditLayout extends Rows
     {
         return [
             Input::make('donation_infos.account_number')
-                ->title('Account Number'),
+                ->title('Broj računa'),
             Input::make('donation_infos.recipient_name')
-                ->title('Recipient Name'),
+                ->title('Naziv primaoca'),
             Input::make('donation_infos.default_amount')
-            ->title('Amount'),
+            ->title('Predefinisana vrednost'),
             Input::make('donation_infos.payment_code')
-            ->title('Payment Code'),
+            ->title('Šifra plaćanja'),
         ];
     }
 }
