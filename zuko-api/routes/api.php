@@ -31,4 +31,5 @@ Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\V1'], funct
     Route::apiResource('employees', EmployeController::class);
     Route::apiResource('donations/donation-info', DonationInfoController::class);
     Route::apiResource('donations/donors', DonorController::class);
+    Route::post('/contact', 'ContactController@mailContactForm');
 });
