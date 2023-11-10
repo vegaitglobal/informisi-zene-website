@@ -2,6 +2,6 @@
 
 
 return [
-    'email' => '1giordano54bruno8@gmail.com',
-    'name' => 'GiordanoBruno',
+    'email' => env("MAIL_RECIPIENT_EMAIL"),
+    'name' => env("MAIL_RECIPIENT_NAME"),
 ];

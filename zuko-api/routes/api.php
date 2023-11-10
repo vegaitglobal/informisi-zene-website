@@ -25,11 +25,11 @@ Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\V1'], funct
     Route::get('notifications/push/subscriptions/notify', 'PushController@notify');
     Route::post('notifications/push/subscriptions', 'PushController@store');
     Route::post('notifications/newsletters/subscriptions', 'NewsletterController@store');
+    Route::post('notifications/email', 'ContactController@sendContactEmail');
     Route::apiResource('publications', PublicationsController::class);
     Route::apiResource('categories', CategoriesController::class);
     Route::apiResource('posts', PostController::class);
     Route::apiResource('employees', EmployeController::class);
     Route::apiResource('donations/donation-info', DonationInfoController::class);
     Route::apiResource('donations/donors', DonorController::class);
-    Route::post('/contact', 'ContactController@mailContactForm');
 });

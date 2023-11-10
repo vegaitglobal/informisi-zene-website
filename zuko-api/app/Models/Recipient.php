@@ -9,7 +9,7 @@ class Recipient extends Model
   protected $recipient;
   protected $email;
   public function __construct() {
-        $this->recipient = "Marko";
-        $this->email = "1giordano54bruno8@gmail.com";
-    }
+    $this->recipient = config('recipient.name');
+    $this->email = config('recipient.email');
+  }
 }

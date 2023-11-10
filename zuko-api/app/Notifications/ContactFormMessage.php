@@ -10,13 +10,13 @@ use Illuminate\Notifications\Notification;
 class ContactFormMessage extends Notification
 {
     use Queueable;
-    protected $message;
+    protected $request;
     /**
      * Create a new notification instance.
      */
-    public function __construct(ContactFormRequest $message)
+    public function __construct(ContactFormRequest $request)
     {
-        $this->message = $message;
+        $this->request = $request;
     }
 
     /**
@@ -35,11 +35,9 @@ class ContactFormMessage extends Notification
     public function toMail($notifiable)
     {
      return (new MailMessage)
-     ->subject("New message from".$this->message->email)
-     ->greeting(" ")
-     ->salutation(" ")
-     ->from($this->message->email, $this->message->name)
-     ->line($this->message->message);
+        ->subject($this->request->title)
+        ->from($this->request->email,$this->request->name)
+        ->view("contactEmail",["contactRequest"=>$this->request]);
     }
 
     /**
