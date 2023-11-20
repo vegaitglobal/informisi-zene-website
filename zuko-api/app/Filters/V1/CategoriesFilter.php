@@ -4,13 +4,13 @@ namespace App\Filters\V1;
 
 use App\Filters\ApiFilter;
 
-class PublicationsFilter extends ApiFilter {
+class CategoriesFilter extends ApiFilter {
     protected $safeParams = [
-        'type' => ['eq'],
+        'isOpportunity' => ['eq'],
     ];
 
     protected $columnMap = [
-        'type' => 'type',
+        'isOpportunity' => 'is_opportunity',
     ];
 
     protected $operatorMap = [

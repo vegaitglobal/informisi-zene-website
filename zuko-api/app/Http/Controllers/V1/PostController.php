@@ -27,6 +27,8 @@ class PostController extends Controller
             $query->whereHas('categories', function ($subQuery) use ($categoryId) {
                 $subQuery->where('category_id', $categoryId);
             });
+        })->when(isset($queryItems['is_opportunity']), function ($query) use ($queryItems) {
+            $query->where($queryItems['is_opportunity']);
         });
 
         $result = $postsQuery->where($queryItems)->paginate($request->query('size', 3));

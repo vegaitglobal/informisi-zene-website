@@ -21,7 +21,8 @@ class Post extends Model
         'description',
         'cover_image_url',
         'title',
-        "categories"
+        'categories',
+        'is_opportunity'
     ];
 
     /**

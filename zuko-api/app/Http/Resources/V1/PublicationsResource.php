@@ -19,8 +19,7 @@ class PublicationsResource extends JsonResource
             'id' => $this->id,
             'type' => strtoupper($this->type),
             'title' => $this->title,
-            'cover_image_url' => $this->cover_image_url,
-            'url' => $this->attachment()->first()->url()
+            'cover_image_url' => $this->cover_image_url
         ];
     }
 }

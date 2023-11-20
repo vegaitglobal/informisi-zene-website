@@ -5,6 +5,7 @@ namespace App\Orchid\Layouts\Post;
 use App\Models\Category;
 use App\Models\User;
 use Orchid\Screen\Field;
+use Orchid\Screen\Fields\CheckBox;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Picture;
 use Orchid\Screen\Fields\Select;
@@ -22,6 +23,7 @@ class PostEditLayout extends Rows
     protected $description;
     protected $user_id;
     protected $categories;
+    protected $is_opportunity;
 
 
     /**
@@ -50,6 +52,10 @@ class PostEditLayout extends Rows
                 ->title("Autor vesti")
                 ->fromModel(User::class, 'name')
                 ->empty(''),
+            CheckBox::make('post.is_opportunity')
+                ->title("Prilika?")
+                ->placeholder('Treba da bude čekirano ukoliko ova vest treba da bude u prilikama.')
+                ->sendTrueOrFalse(),
         ];
     }
 }
