@@ -20,16 +20,21 @@ export default function NewsPage() {
     useEffect(() => {
         getByQueryService({query}).then(response => {
             setTotalPages(response.meta.last_page);
+            setCurrentPage(1);
             setData(response)
         });
 	}, [query]);
 
     useEffect(()=>{
         if(!data?.data) return; 
-        
+
         getByQueryService({query, pageNumber: currentPage}).then(response => {
             const responseData = response;
             setTotalPages(responseData.meta.last_page);
+            if (currentPage === 1) {
+                setData(response);
+                return;
+            } 
             setData(prev => {
                 return {
                     ...prev,
@@ -42,9 +47,9 @@ export default function NewsPage() {
 
 	return (
 		<div>
-			<SearchPostInput setQuery={setQuery} />
+			<SearchPostInput setQuery={setQuery} setCurrentPage={setCurrentPage}/>
 			<PostsContainer displayVersion="v2" data={data.data} />
-			<HorizontalSpacer desktopSize={120} mobileSize={60} />
+			<HorizontalSpacer desktopSize={20} mobileSize={60} />
             {currentPage === totalPages ? <></> : <Pagination onClick={handlePaginationClick}/> }
 			<HorizontalSpacer desktopSize={120} mobileSize={60} />
 		</div>

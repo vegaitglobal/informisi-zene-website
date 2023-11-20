@@ -1,16 +1,23 @@
 @import '../../styles/mixins.scss';
 
 .post {
-	// max-width: 310px;
 	max-width: 100%;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
+	gap: 12px;
+	&:not(:last-child) {
+		margin-bottom: 18px;
+	}
 
-	@include media-breakpoint-desktop {
+	@include media-breakpoint-desktop() {
 		height: 100%;
 		max-width: 32%;
 		gap: 16px;
+		margin-bottom: 100px;
+		&:not(:last-child) {
+			margin-bottom: 100px;
+		}
 	}
 }
 
@@ -26,7 +33,7 @@
 		object-fit: cover;
 	}
 
-	@include media-breakpoint-desktop {
+	@include media-breakpoint-desktop() {
 		margin-bottom: unset;
 	}
 
@@ -46,7 +53,7 @@
 	display: flex;
 	flex-direction: column;
 
-	@include media-breakpoint-desktop {
+	@include media-breakpoint-desktop() {
 		margin-bottom: auto;
 	}
 }
@@ -55,8 +62,9 @@
 	font-size: 14px;
 	font-weight: 500;
 	letter-spacing: 0.84px;
+	text-transform: uppercase;
 
-	@include media-breakpoint-desktop {
+	@include media-breakpoint-desktop() {
 		font-size: 16px;
 		font-weight: 500;
 		letter-spacing: 0.32px;
@@ -67,9 +75,8 @@
 	color: #2a2e32;
 	font-size: 30px;
 	font-weight: 600;
-	margin-bottom: 12px;
 
-	@include media-breakpoint-desktop {
+	@include media-breakpoint-desktop() {
 		font-size: 46px;
 		font-weight: 700;
 		line-height: 62px;
@@ -86,9 +93,11 @@
 
 .post__desc {
 	font-size: 18px;
+	margin-top: 12px;
 
-	@include media-breakpoint-desktop {
+	@include media-breakpoint-desktop() {
 		font-size: 20px;
+		margin-top: 16px;
 	}
 }
 
