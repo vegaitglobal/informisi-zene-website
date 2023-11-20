@@ -1,25 +1,19 @@
 import styles from './PostShareLinks.module.scss';
 
 export default function PostShareLinks() {
+	const href = window.location.href;
+
 	const data = [
 		{
-			alt: 'Instagram icon',
-			href: 'www.instagram.com',
-			src: '/instagram-icon.svg'
-		},
-		{
-			alt: 'Tiktok icon',
-			href: 'www.tiktok.com',
-			src: '/tiktok-icon.svg'
-		},
-		{
+			index: 0,
 			alt: 'Facebook icon',
-			href: 'www.facebook.com',
+			href: `https://www.facebook.com/sharer.php?${href}`,
 			src: '/facebook-icon.svg'
 		},
 		{
+			index: 1,
 			alt: 'Twitter icon',
-			href: 'www.twitter.com',
+			href: `https://twitter.com/intent/tweet?${href}`,
 			src: '/twitter-icon.svg'
 		},
 	];
