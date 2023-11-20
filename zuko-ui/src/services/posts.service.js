@@ -13,7 +13,7 @@ export async function getPostService({ id }) {
 		.get(`${process.env.REACT_APP_ENDPOINT}posts/${id}`)
 		.catch((error) => console.error(error));
 
-	return response.data;
+	return response?.data;
 }
 
 export async function getByQueryService({query = '', pageNumber = 1}) {
@@ -21,7 +21,7 @@ export async function getByQueryService({query = '', pageNumber = 1}) {
         .get(`${process.env.REACT_APP_ENDPOINT}posts?title[like]=${query}&page=${pageNumber}&size=6`)
         .catch(error => console.error(error));
 
-	return response.data;
+	return response?.data;
 }
 
 export async function getPostByCategoryService({id = 1, pageNumber = 1}) {
