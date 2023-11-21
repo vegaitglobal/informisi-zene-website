@@ -11,9 +11,13 @@ export default function PostPage() {
 
     useEffect(()=>{
         getPostService({id}).then(setData);
-        getNumberOfPostsService(2)
-            .then(setRecommendedPosts);
-    },[])
+        getNumberOfPostsService(4).then((response) => {
+            const responseData = response.filter(
+                (item) => item.id !== Number(id)
+            );
+            setRecommendedPosts(responseData);
+        });
+    }, [id]);
 
     return <div>
         <PostContainer data={data} blogs={recommendedPosts}/>
