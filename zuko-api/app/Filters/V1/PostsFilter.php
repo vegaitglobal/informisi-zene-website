@@ -34,14 +34,14 @@ class PostsFilter extends ApiFilter {
             $column = $this->columnMap[$param] ?? $param;
 
             foreach ($operators as $operator) {
-
-                if (isset($query[$operator])) {
-                    $value = $query[$operator];
-                    if ($operator === 'like') {
-                        $value = '%' . $value . '%';
-                    }
-                    $eloQuery[] = [$column, $this->operatorMap[$operator], $value];
+                if (!isset($query[$operator])) {
+                    continue;
                 }
+                $value = $query[$operator];
+                if ($operator === 'like') {
+                    $value = '%' . $value . '%';
+                }
+                $eloQuery[] = [$column, $this->operatorMap[$operator], $value];
             }
         }
 

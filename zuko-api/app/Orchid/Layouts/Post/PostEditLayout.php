@@ -14,19 +14,6 @@ use Orchid\Screen\Layouts\Rows;
 class PostEditLayout extends Rows
 {
     /**
-     * Used to create the title of a group of form elements.
-     *
-     * @var string|null
-     */
-    protected $title;
-    protected $cover_image_url;
-    protected $description;
-    protected $user_id;
-    protected $categories;
-    protected $is_opportunity;
-
-
-    /**
      * Get the fields elements to be displayed.
      *
      * @return Field[]

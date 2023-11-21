@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
     {
         \Schema::defaultStringLength(191);
         CategoryResource::withoutWrapping();
-        // \URL::forceScheme('https');
+        \URL::forceScheme('https');
 
     }
 }
