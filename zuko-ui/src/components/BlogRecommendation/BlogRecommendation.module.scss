@@ -20,9 +20,17 @@
     .title {
         font-size: 28px;
         font-weight: 700;
+        transition: color 0.3s ease-out;
     }
 
     .description {
         font-size: 20px;
+        margin-top: 10px;
+    }
+
+    &:hover {
+        .title {
+            color: #ffaa33;
+        }
     }
 }
