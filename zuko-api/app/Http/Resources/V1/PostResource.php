@@ -5,6 +5,7 @@ namespace App\Http\Resources\V1;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\V1\CategoryResource;
+use Exception;
 
 class PostResource extends JsonResource
 {
@@ -22,7 +23,17 @@ class PostResource extends JsonResource
             'created' => $this->created_at,
             'description' => $this->description,
             'cover_image' => $this->cover_image_url,
-            'categories' => CategoryResource::collection($this->categories)
+            'categories' => CategoryResource::collection($this->categories),
+            'url' => $this->getUrl(),
         ];
+    }
+
+    protected function getUrl()
+    {
+        try {
+            return $this->attachment()->firstOrFail()->url();
+        } catch (Exception $e) {
+            return "";
+        }
     }
 }
