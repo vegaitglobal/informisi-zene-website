@@ -5,7 +5,6 @@ namespace App\Http\Controllers\V1;
 use App\Models\Publications;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\V1\PublicationsResource;
 use App\Http\Resources\V1\PublicationsCollection;
 use App\Filters\V1\PublicationsFilter;
 
@@ -18,7 +17,11 @@ class PublicationsController extends Controller
     {
         $filter = new PublicationsFilter();
         $queryItems = $filter->transform($request);
-        return new PublicationsCollection(Publications::where($queryItems)->paginate($request->query('size',3)));
-    }
 
+        $publications = Publications::where($queryItems)
+            ->orderBy('created_at', 'desc')
+            ->paginate($request->query('size', 3));
+
+        return new PublicationsCollection($publications);
+    }
 }
