@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Orchid\Layouts\User;
 
 use Orchid\Screen\Field;
+use Orchid\Screen\Fields\CheckBox;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Layouts\Rows;
 use Orchid\Screen\Fields\Cropper;
@@ -19,6 +20,10 @@ class UserEditLayout extends Rows
     public function fields(): array
     {
         return [
+            CheckBox::make('user.show')
+                ->title(__('Show on website?'))
+                ->placeholder('Check if you want this employee to be visible on the site.')
+                ->sendTrueOrFalse(),
             Input::make('user.name')
                 ->type('text')
                 ->max(255)
@@ -31,7 +36,7 @@ class UserEditLayout extends Rows
                 ->required()
                 ->title(__('Email'))
                 ->placeholder(__('Email')),
-            Cropper::make('user.profile_image_url')
+            Cropper::make('user.profile_image_url'),
         ];
     }
 }
