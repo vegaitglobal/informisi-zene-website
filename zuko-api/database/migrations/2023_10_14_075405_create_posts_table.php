@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->index();
-            $table->string('description',250)->nullable();
+            $table->string('description',1024)->nullable();
             $table->string('cover_image_url')->nullable();
             $table->string('title',50);
             $table->boolean('is_opportunity')->default(false);
