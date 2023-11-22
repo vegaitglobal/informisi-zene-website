@@ -49,6 +49,10 @@ class CategoryEditScreen extends Screen
 
     public function save(Request $request, Category $category)
     {
+        $request->validate([
+            'category.name' => ['required','max:191'],
+        ]);
+
         $category->fill($request->get('category'));
         $category->save();
 

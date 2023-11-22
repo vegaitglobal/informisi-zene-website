@@ -9,6 +9,9 @@ use Orchid\Platform\Models\Role;
 use Orchid\Screen\Action;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
+use Illuminate\Http\Request;
+use Orchid\Support\Facades\Toast;
+
 
 class RoleListScreen extends Screen
 {
@@ -29,7 +32,7 @@ class RoleListScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'Role Management';
+        return 'Upravljanje ulogama';
     }
 
     /**
@@ -37,7 +40,7 @@ class RoleListScreen extends Screen
      */
     public function description(): ?string
     {
-        return 'A comprehensive list of all roles, including their permissions and associated users.';
+        return 'Potpuni spisak svih uloga, uključujući njihove dozvole i povezane korisnike.';
     }
 
     public function permission(): ?iterable
@@ -55,7 +58,7 @@ class RoleListScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Link::make(__('Add'))
+            Link::make(__('Dodaj'))
                 ->icon('bs.plus-circle')
                 ->href(route('platform.systems.roles.create')),
         ];
@@ -71,5 +74,12 @@ class RoleListScreen extends Screen
         return [
             RoleListLayout::class,
         ];
+    }
+
+    public function remove(Request $request): void
+    {
+        Role::findOrFail($request->get('id'))->delete();
+
+        Toast::info(__('Uloga je izbrisana'));
     }
 }

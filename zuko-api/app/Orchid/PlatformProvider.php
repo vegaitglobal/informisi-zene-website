@@ -8,7 +8,6 @@ use Orchid\Platform\Dashboard;
 use Orchid\Platform\ItemPermission;
 use Orchid\Platform\OrchidServiceProvider;
 use Orchid\Screen\Actions\Menu;
-use Orchid\Support\Color;
 
 class PlatformProvider extends OrchidServiceProvider
 {
@@ -74,15 +73,15 @@ class PlatformProvider extends OrchidServiceProvider
     {
         return [
             ItemPermission::group(__('System'))
-                ->addPermission('platform.systems.roles', __('Roles'))
-                ->addPermission('platform.systems.users', __('Users')),
+                ->addPermission('platform.systems.roles', __('Uloge'))
+                ->addPermission('platform.systems.users', __('Zaposleni')),
 
             ItemPermission::group(__('Blog'))
-              ->addPermission('platform.posts', __('Posts'))
-              ->addPermission('platform.categories', __('Categories'))
-              ->addPermission('platform.donors', __('Donors'))
-              ->addPermission('platform.publications', __('publications'))
-              ->addPermission('platform.donation_info', __('donation_info'))
+              ->addPermission('platform.posts', __('Vesti'))
+              ->addPermission('platform.categories', __('Kategorije'))
+              ->addPermission('platform.donors', __('Donatori'))
+              ->addPermission('platform.publications', __('Publikacije'))
+              ->addPermission('platform.donation_info', __('Donacije'))
         ];
     }
 }

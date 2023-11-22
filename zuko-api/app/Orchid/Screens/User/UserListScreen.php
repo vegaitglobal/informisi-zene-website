@@ -37,7 +37,7 @@ class UserListScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'User Management';
+        return 'Upravljanje zaposlenima';
     }
 
     /**
@@ -45,7 +45,7 @@ class UserListScreen extends Screen
      */
     public function description(): ?string
     {
-        return 'A comprehensive list of all registered users, including their profiles and privileges.';
+        return 'Potpuni spisak svih zaposlenih, uključujući njihove profile i privilegije.';
     }
 
     public function permission(): ?iterable
@@ -63,7 +63,7 @@ class UserListScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Link::make(__('Add'))
+            Link::make(__('Dodaj'))
                 ->icon('bs.plus-circle')
                 ->route('platform.systems.users.create'),
         ];
@@ -106,13 +106,13 @@ class UserListScreen extends Screen
 
         $user->fill($request->input('user'))->save();
 
-        Toast::info(__('User was saved.'));
+        Toast::info(__('Sačuvane su izmene za zaposlenog.'));
     }
 
     public function remove(Request $request): void
     {
         User::findOrFail($request->get('id'))->delete();
 
-        Toast::info(__('User was removed'));
+        Toast::info(__('Zaposleni je obrisan'));
     }
 }

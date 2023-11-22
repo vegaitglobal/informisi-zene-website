@@ -55,7 +55,7 @@ Route::screen('profile', UserProfileScreen::class)
     ->name('platform.profile')
     ->breadcrumbs(fn (Trail $trail) => $trail
         ->parent('platform.index')
-        ->push(__('Profile'), route('platform.profile')));
+        ->push(__('Nalog'), route('platform.profile')));
 
 // Platform > System > Users > User
 Route::screen('users/{user}/edit', UserEditScreen::class)
@@ -69,14 +69,14 @@ Route::screen('users/create', UserEditScreen::class)
     ->name('platform.systems.users.create')
     ->breadcrumbs(fn (Trail $trail) => $trail
         ->parent('platform.systems.users')
-        ->push(__('Create'), route('platform.systems.users.create')));
+        ->push(__('Dodaj'), route('platform.systems.users.create')));
 
 // Platform > System > Users
 Route::screen('users', UserListScreen::class)
     ->name('platform.systems.users')
     ->breadcrumbs(fn (Trail $trail) => $trail
         ->parent('platform.index')
-        ->push(__('Users'), route('platform.systems.users')));
+        ->push(__('Zaposleni'), route('platform.systems.users')));
 
 // Platform > System > Roles > Role
 Route::screen('roles/{role}/edit', RoleEditScreen::class)
@@ -90,32 +90,32 @@ Route::screen('roles/create', RoleEditScreen::class)
     ->name('platform.systems.roles.create')
     ->breadcrumbs(fn (Trail $trail) => $trail
         ->parent('platform.systems.roles')
-        ->push(__('Create'), route('platform.systems.roles.create')));
+        ->push(__('Dodaj'), route('platform.systems.roles.create')));
 
 // Platform > System > Roles
 Route::screen('roles', RoleListScreen::class)
     ->name('platform.systems.roles')
     ->breadcrumbs(fn (Trail $trail) => $trail
         ->parent('platform.index')
-        ->push(__('Roles'), route('platform.systems.roles')));
+        ->push(__('Uloge'), route('platform.systems.roles')));
 
 Route::screen('donors', DonorListScreen::class)
     ->name('platform.donors')
     ->breadcrumbs(fn (Trail $trail) => $trail
         ->parent('platform.index')
-        ->push(__('Donors'), route('platform.donors')));
+        ->push(__('Donatori'), route('platform.donors')));
 
 Route::screen('categories', CategoryListScreen::class)
     ->name('platform.categories')
     ->breadcrumbs(fn (Trail $trail) => $trail
         ->parent('platform.index')
-        ->push(__('Categories'), route('platform.categories')));
+        ->push(__('Kategorije'), route('platform.categories')));
 
 Route::screen('categories/create', CategoryEditScreen::class)
     ->name('platform.categories.create')
     ->breadcrumbs(fn (Trail $trail) => $trail
         ->parent('platform.categories')
-        ->push(__('Create'), route('platform.categories.create')));
+        ->push(__('Dodaj'), route('platform.categories.create')));
 
 Route::screen('categories/{category}/edit', CategoryEditScreen::class)
     ->name('platform.categories.edit')
@@ -127,13 +127,13 @@ Route::screen('posts', PostListScreen::class)
     ->name('platform.posts')
     ->breadcrumbs(fn (Trail $trail) => $trail
         ->parent('platform.index')
-        ->push(__('Posts'), route('platform.posts')));
+        ->push(__('Vesti'), route('platform.posts')));
 
 Route::screen('posts/create', PostEditScreen::class)
     ->name('platform.posts.create')
     ->breadcrumbs(fn (Trail $trail) => $trail
         ->parent('platform.posts')
-        ->push(__('Create'), route('platform.posts.create')));
+        ->push(__('Dodaj'), route('platform.posts.create')));
 
 Route::screen('posts/{post}/edit', PostEditScreen::class)
     ->name('platform.posts.edit')
@@ -145,7 +145,7 @@ Route::screen('donors/create', DonorEditScreen::class)
     ->name('platform.donors.create')
     ->breadcrumbs(fn (Trail $trail) => $trail
         ->parent('platform.donors')
-        ->push(__('Create'), route('platform.donors.create')));
+        ->push(__('Dodaj'), route('platform.donors.create')));
 
 Route::screen('donors/{donor}/edit', DonorEditScreen::class)
     ->name('platform.donors.edit')
@@ -154,26 +154,28 @@ Route::screen('donors/{donor}/edit', DonorEditScreen::class)
         ->push($donor->id, route('platform.donors.edit', $donor)));
 
 Route::screen('publications/create', PublicationsEditScreen::class)
-->name('platform.publications.create')
-->breadcrumbs(fn (Trail $trail) => $trail
-    ->parent('platform.publications')
-    ->push(__('Create'), route('platform.publications.create')));
+    ->name('platform.publications.create')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.publications')
+        ->push(__('Dodaj'), route('platform.publications.create')));
 
 Route::screen('publications/{publication}/edit', PublicationsEditScreen::class)
     ->name('platform.publications.edit')
     ->breadcrumbs(fn (Trail $trail, $publication) => $trail
         ->parent('platform.publications')
         ->push($publication->id, route('platform.publications.edit', $publication)));
+
 Route::screen('publications', PublicationsListScreen::class)
     ->name('platform.publications')
     ->breadcrumbs(fn (Trail $trail) => $trail
         ->parent('platform.index')
-        ->push(__('Publications'), route('platform.publications')));
+        ->push(__('Publikacije'), route('platform.publications')));
+
 Route::screen('donation_info', DonationInfoScreen::class)
     ->name('platform.donation_info')
     ->breadcrumbs(fn (Trail $trail) => $trail
         ->parent('platform.index')
-        ->push(__('Donation Info'), route('platform.donation_info')));
+        ->push(__('Donacije'), route('platform.donation_info')));
 
 Route::screen('donation_info/{donation}/edit', DonationInfoEditScreen::class)
     ->name('platform.donation_info.edit')
@@ -184,15 +186,14 @@ Route::screen('donation_info/{donation}/edit', DonationInfoEditScreen::class)
 Route::screen('donation_info/create', DonationInfoCreateScreen::class)
     ->name('platform.donation_info.create')
     ->breadcrumbs(fn (Trail $trail) => $trail
-    ->parent('platform.donation_info')
-    ->push(__('Create'), route('platform.donation_info.create')));
-
+        ->parent('platform.donation_info')
+        ->push(__('Dodaj'), route('platform.donation_info.create')));
 
 Route::screen('posts/{post}/blocks/create', BlockEditScreen::class)
     ->name('platform.blocks.create')
     ->breadcrumbs(fn (Trail $trail, $post) => $trail
         ->parent('platform.posts')
-        ->push('Add block', route('platform.blocks.create',$post)));
+        ->push('Dodaj blok', route('platform.blocks.create',$post)));
 
 Route::screen('blocks/{block}/edit', BlockEditScreen::class)
     ->name('platform.blocks.edit')

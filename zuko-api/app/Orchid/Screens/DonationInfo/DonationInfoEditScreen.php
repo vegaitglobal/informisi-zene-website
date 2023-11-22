@@ -15,7 +15,7 @@ class DonationInfoEditScreen extends Screen
      * Fetch data to be displayed on the screen.
      *
      * @return array
-     * 
+     *
      */
     public $donation;
 

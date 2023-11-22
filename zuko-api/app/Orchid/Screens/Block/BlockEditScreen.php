@@ -17,14 +17,14 @@ class BlockEditScreen extends Screen
      * @var Block
      */
     public $block;
-    
+
     /**
      * @var Post
      */
     public $post;
     /*
      * Fetch data to be displayed on the screen.
-     * 
+     *
      *
      *
      *
@@ -59,7 +59,7 @@ class BlockEditScreen extends Screen
             Button::make(__("Sačuvaj"))
                 ->icon("check")
                 ->method("save"),
-                
+
             Button::make(__('Remove'))
             ->icon('bs.trash3')
             ->confirm(__('Da li ste sigurni da želite da izbrišete vest?'))
@@ -71,6 +71,11 @@ class BlockEditScreen extends Screen
     public function save(Request $request, Block $block, Post $post)
     {
         $block->fill($request->get('block'));
+
+        $request->validate([
+            $block->type => ['required','max:10']
+        ]);
+
         if($block->post_id == null)
         {
             $block->post_id = $post->id;

@@ -57,7 +57,7 @@ class DonorEditScreen extends Screen
     }
 
 
-    
+
     /**
      * @param Request $request
      * @param Donor    $post
@@ -66,6 +66,9 @@ class DonorEditScreen extends Screen
      */
     public function save(Request $request, Donor $post)
     {
+        $request->validate([
+            'donor.name' => ['required','max:191'],
+        ]);
 
         $post->fill($request->get('donor'));
         $post->save();

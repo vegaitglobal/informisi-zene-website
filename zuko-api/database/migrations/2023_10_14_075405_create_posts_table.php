@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->index();
-            $table->string('description');
-            $table->string('cover_image_url');
-            $table->string('title');
+            $table->string('description',250)->nullable();
+            $table->string('cover_image_url')->nullable();
+            $table->string('title',50);
+            $table->boolean('is_opportunity')->default(false);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();

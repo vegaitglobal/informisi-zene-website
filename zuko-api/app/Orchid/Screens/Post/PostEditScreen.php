@@ -23,7 +23,7 @@ class PostEditScreen extends Screen
     public $post;
     /*
      * Fetch data to be displayed on the screen.
-     * 
+     *
      *
      *
      *
@@ -59,13 +59,13 @@ class PostEditScreen extends Screen
             Button::make(__("Save"))
                 ->icon("check")
                 ->method("save"),
-                
+
             Button::make(__('Izbriši'))
                 ->icon('bs.trash3')
                 ->confirm(__('Da li ste sigurni da želite da izbrišete vest?'))
                 ->method('remove')
                 ->canSee($this->post->exists),
-                
+
             Button::make(__('Obavesti korisnike'))
                 ->icon('bs.people')
                 ->confirm(__('Da li ste sigurni da želite da pošaljete obaveštenja korisnicima?'))
@@ -77,12 +77,18 @@ class PostEditScreen extends Screen
     public function sendPushNotifications(Post $post)
     {
         Notification::send(Guest::all(),new NewPost($post));
-        
+
         Toast::info(__("Obaveštenja su poslata."));
     }
 
     public function save(Request $request, Post $post)
     {
+        $request->validate([
+            'post.description' => ['max:1024'],
+            'post.cover_image_url' => ['max:191'],
+            'post.title' => ['required','max:50'],
+        ]);
+
         $post->fill($request->get('post'));
         $post->save();
 
