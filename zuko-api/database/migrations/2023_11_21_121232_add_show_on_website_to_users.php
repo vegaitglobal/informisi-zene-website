@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->boolean('show')->default(false)->after('email_verified_at');
+            $table->boolean('show')->default(false);
         });
     }
 
