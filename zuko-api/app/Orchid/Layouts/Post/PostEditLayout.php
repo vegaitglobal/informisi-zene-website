@@ -5,6 +5,7 @@ namespace App\Orchid\Layouts\Post;
 use App\Models\Category;
 use App\Models\User;
 use Orchid\Screen\Field;
+use Orchid\Screen\Fields\CheckBox;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Picture;
 use Orchid\Screen\Fields\Select;
@@ -12,18 +13,6 @@ use Orchid\Screen\Layouts\Rows;
 
 class PostEditLayout extends Rows
 {
-    /**
-     * Used to create the title of a group of form elements.
-     *
-     * @var string|null
-     */
-    protected $title;
-    protected $cover_image_url;
-    protected $description;
-    protected $user_id;
-    protected $categories;
-
-
     /**
      * Get the fields elements to be displayed.
      *
@@ -50,6 +39,10 @@ class PostEditLayout extends Rows
                 ->title("Autor vesti")
                 ->fromModel(User::class, 'name')
                 ->empty(''),
+            CheckBox::make('post.is_opportunity')
+                ->title("Prilika?")
+                ->placeholder('Treba da bude čekirano ukoliko ova vest treba da bude u prilikama.')
+                ->sendTrueOrFalse(),
         ];
     }
 }

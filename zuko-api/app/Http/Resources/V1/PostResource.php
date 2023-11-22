@@ -22,7 +22,7 @@ class PostResource extends JsonResource
             'created' => $this->created_at,
             'description' => $this->description,
             'cover_image' => $this->cover_image_url,
-            'categories' => CategoryResource::collection($this->categories)
+            'categories' => CategoryResource::collection($this->categories),
         ];
     }
 }

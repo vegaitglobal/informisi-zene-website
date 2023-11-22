@@ -8,14 +8,17 @@ use App\Filters\ApiFilter;
 class PostsFilter extends ApiFilter {
     protected $safeParams = [
         'title' => ['like'],
+        'isOpportunity' => ['eq'],
     ];
 
     protected $columnMap = [
         'title' => 'title',
+        'isOpportunity' => 'is_opportunity',
     ];
 
     protected $operatorMap = [
         'like' => 'LIKE',
+        'eq' => '=',
     ];
 
     public function transform(Request $request) {
@@ -31,10 +34,14 @@ class PostsFilter extends ApiFilter {
             $column = $this->columnMap[$param] ?? $param;
 
             foreach ($operators as $operator) {
-
-                if (isset($query[$operator])){
-                    $eloQuery[] = [$column, $this->operatorMap[$operator], '%' . $query[$operator] . '%'];
+                if (!isset($query[$operator])) {
+                    continue;
                 }
+                $value = $query[$operator];
+                if ($operator === 'like') {
+                    $value = '%' . $value . '%';
+                }
+                $eloQuery[] = [$column, $this->operatorMap[$operator], $value];
             }
         }
 
