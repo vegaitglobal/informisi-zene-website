@@ -14,7 +14,7 @@ class EmployeController extends Controller
      */
     public function index()
     {
-        $employees = User::all();
+        $employees = User::where('show', true)->get();
 
         return EmployeResource::collection($employees);
     }
