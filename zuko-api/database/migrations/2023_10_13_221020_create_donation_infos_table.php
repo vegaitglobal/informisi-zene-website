@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('donation_infos', function (Blueprint $table) {
             $table->id();
-            $table->string("account_number");
-            $table->string("recipient_name");
+            $table->string("account_number", 50);
+            $table->string("recipient_name", 256);
             $table->integer("default_amount");
             $table->integer("payment_code");
             $table->timestamps();

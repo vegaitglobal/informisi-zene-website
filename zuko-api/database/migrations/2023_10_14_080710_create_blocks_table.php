@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('post_id')->index();
             $table->enum('type', ['image', 'video', 'text'])->default('image');
-            $table->string('value');
+            $table->string('value', 1024);
             $table->timestamps();
 
             $table->foreign('post_id')->references('id')->on('posts')->cascadeOnDelete();

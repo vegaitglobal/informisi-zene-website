@@ -21,13 +21,13 @@ class UserPasswordLayout extends Rows
         $user = $this->query->get('user');
 
         $placeholder = $user->exists
-            ? __('Leave empty to keep current password')
-            : __('Enter the password to be set');
+            ? __('Ostavite prazno da biste zadržali trenutnu lozinku.')
+            : __('Unesite lozinku koju želite postaviti.');
 
         return [
             Password::make('user.password')
                 ->placeholder($placeholder)
-                ->title(__('Password')),
+                ->title(__('Lozinka')),
         ];
     }
 }

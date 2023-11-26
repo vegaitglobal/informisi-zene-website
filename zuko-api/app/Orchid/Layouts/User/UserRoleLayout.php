@@ -22,8 +22,8 @@ class UserRoleLayout extends Rows
             Select::make('user.roles.')
                 ->fromModel(Role::class, 'name')
                 ->multiple()
-                ->title(__('Name role'))
-                ->help('Specify which groups this account should belong to'),
+                ->title(__('Naziv uloge'))
+                ->help('Navedite koje grupe treba da pripadaju ovom nalogu.'),
         ];
     }
 }

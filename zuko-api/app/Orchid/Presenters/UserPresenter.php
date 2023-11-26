@@ -17,7 +17,7 @@ class UserPresenter extends Presenter implements Personable, Searchable
      */
     public function label(): string
     {
-        return 'Users';
+        return 'Zaposleni';
     }
 
     /**
@@ -36,8 +36,7 @@ class UserPresenter extends Presenter implements Personable, Searchable
         $roles = $this->entity->roles->pluck('name')->implode(' / ');
 
         return (string) Str::of($roles)
-            ->limit(20)
-            ->whenEmpty(fn () => __('Regular User'));
+            ->limit(20);
     }
 
     /**
@@ -53,11 +52,7 @@ class UserPresenter extends Presenter implements Personable, Searchable
      */
     public function image(): ?string
     {
-        $hash = md5(strtolower(trim($this->entity->email)));
-
-        $default = urlencode('https://raw.githubusercontent.com/orchidsoftware/.github/main/web/avatars/gravatar.png');
-
-        return "https://www.gravatar.com/avatar/$hash?d=$default";
+        return "";
     }
 
     /**

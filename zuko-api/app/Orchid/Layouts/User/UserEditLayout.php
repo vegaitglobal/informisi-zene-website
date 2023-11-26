@@ -21,15 +21,15 @@ class UserEditLayout extends Rows
     {
         return [
             CheckBox::make('user.show')
-                ->title(__('Show on website?'))
-                ->placeholder('Check if you want this employee to be visible on the site.')
+                ->title(__('Prikaži na sajtu?'))
+                ->placeholder('Opcija ukoliko želite da ovaj zaposleni bude vidljiv na sajtu.')
                 ->sendTrueOrFalse(),
             Input::make('user.name')
                 ->type('text')
                 ->max(255)
                 ->required()
-                ->title(__('Name'))
-                ->placeholder(__('Name')),
+                ->title(__('Ime'))
+                ->placeholder(__('Ime')),
 
             Input::make('user.email')
                 ->type('email')

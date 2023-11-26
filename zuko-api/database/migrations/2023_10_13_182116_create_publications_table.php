@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('publications', function (Blueprint $table) {
             $table->id();
             $table->enum('type', ['analize', 'izvestaji', 'saopstenja'])->default('analize');
-            $table->string('title');
-            $table->string('cover_image_url');
-            $table->string('url');
+            $table->string('title', 128);
+            $table->string('cover_image_url', 256);
             $table->timestamps();
         });
     }

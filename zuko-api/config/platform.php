@@ -160,7 +160,7 @@ return [
      */
 
     'template' => [
-        'header' => '',
+        'header' => 'brand.header',
         'footer' => '',
     ],
 
@@ -221,7 +221,7 @@ return [
      */
 
     'notifications' => [
-        'enabled'  => true,
+        'enabled'  => false,
         'interval' => 60,
     ],
 

@@ -19,18 +19,18 @@ class ProfilePasswordLayout extends Rows
     {
         return [
             Password::make('old_password')
-                ->placeholder(__('Enter the current password'))
-                ->title(__('Current password'))
-                ->help('This is your password set at the moment.'),
+                ->placeholder(__('Unesi trenutnu lozinku'))
+                ->title(__('Trenutna lozinka'))
+                ->help('Ovo je vaša trenutno postavljena lozinka.'),
 
             Password::make('password')
-                ->placeholder(__('Enter the password to be set'))
-                ->title(__('New password')),
+                ->placeholder(__('Unesite lozinku koju želite postaviti.'))
+                ->title(__('Nova lozinka')),
 
             Password::make('password_confirmation')
-                ->placeholder(__('Enter the password to be set'))
-                ->title(__('Confirm new password'))
-                ->help('A good password is at least 15 characters or at least 8 characters long, including a number and a lowercase letter.'),
+                ->placeholder(__('Unesite lozinku koju želite postaviti.'))
+                ->title(__('Potvrda nove lozinke'))
+                ->help('Dobra lozinka treba da ima barem 15 karaktera ili najmanje 8 karaktera, uključujući jedan broj i malo slovo.'),
         ];
     }
 }

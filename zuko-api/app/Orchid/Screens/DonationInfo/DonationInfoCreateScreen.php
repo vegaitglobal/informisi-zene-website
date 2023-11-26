@@ -49,6 +49,10 @@ class DonationInfoCreateScreen extends Screen
 
     public function save(Request $request, DonationInfo $donation)
     {
+        $request->validate([
+            'donation_infos.account_number' => ['required','max:50'],
+            'donation_infos.recipient_name' => ['required','max:256'],
+        ]);
 
         $donation->fill($request->get('donation_infos'));
         $donation->save();

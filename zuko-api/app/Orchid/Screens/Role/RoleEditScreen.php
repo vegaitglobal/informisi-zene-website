@@ -67,11 +67,11 @@ class RoleEditScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Button::make(__('Save'))
+            Button::make(__('Sačuvaj'))
                 ->icon('bs.check-circle')
                 ->method('save'),
 
-            Button::make(__('Remove'))
+            Button::make(__('Izbriši'))
                 ->icon('bs.trash3')
                 ->method('remove')
                 ->canSee($this->role->exists),
@@ -89,14 +89,14 @@ class RoleEditScreen extends Screen
             Layout::block([
                 RoleEditLayout::class,
             ])
-                ->title('Role')
-                ->description('A role is a collection of privileges (of possibly different services like the Users service, Moderator, and so on) that grants users with that role the ability to perform certain tasks or operations.'),
+                ->title('Uloga')
+                ->description('Uloge su skup privilegija (moguće različitih usluga poput usluge Korisnika, Moderatora, i slično) koje korisnicima dodeljuju mogućnost izvršavanja određenih zadataka ili operacija.'),
 
             Layout::block([
                 RolePermissionLayout::class,
             ])
-                ->title('Permission/Privilege')
-                ->description('A privilege is necessary to perform certain tasks and operations in an area.'),
+                ->title('Dozvola/Privilegija')
+                ->description('Privilegija je neophodna za izvođenje određenih zadataka i operacija u određenom području.'),
         ];
     }
 
@@ -106,10 +106,8 @@ class RoleEditScreen extends Screen
     public function save(Request $request, Role $role)
     {
         $request->validate([
-            'role.slug' => [
-                'required',
-                Rule::unique(Role::class, 'slug')->ignore($role),
-            ],
+            'role.slug' => ['required'],
+            'role.name' => ['required','max:191'],
         ]);
 
         $role->fill($request->get('role'));
@@ -121,7 +119,7 @@ class RoleEditScreen extends Screen
 
         $role->save();
 
-        Toast::info(__('Role was saved'));
+        Toast::info(__('Uloga je sačuvana'));
 
         return redirect()->route('platform.systems.roles');
     }
@@ -135,7 +133,7 @@ class RoleEditScreen extends Screen
     {
         $role->delete();
 
-        Toast::info(__('Role was removed'));
+        Toast::info(__('Uloga je izbrisana'));
 
         return redirect()->route('platform.systems.roles');
     }

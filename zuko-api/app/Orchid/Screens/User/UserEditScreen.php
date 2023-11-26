@@ -48,7 +48,7 @@ class UserEditScreen extends Screen
      */
     public function name(): ?string
     {
-        return $this->user->exists ? 'Edit User' : 'Create User';
+        return $this->user->exists ? 'Modifikuj informacije zaposlenog' : 'Novi zaposleni';
     }
 
     /**
@@ -56,7 +56,7 @@ class UserEditScreen extends Screen
      */
     public function description(): ?string
     {
-        return 'User profile and privileges, including their associated role.';
+        return 'Korisnički profil i privilegije, uključujući njihovu povezanu ulogu.';
     }
 
     public function permission(): ?iterable
@@ -74,19 +74,13 @@ class UserEditScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Button::make(__('Impersonate user'))
-                ->icon('bg.box-arrow-in-right')
-                ->confirm(__('You can revert to your original state by logging out.'))
-                ->method('loginAs')
-                ->canSee($this->user->exists && $this->user->id !== \request()->user()->id),
-
-            Button::make(__('Remove'))
+            Button::make(__('Izbriši'))
                 ->icon('bs.trash3')
-                ->confirm(__('Once the account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.'))
+                ->confirm(__('Nakon što se nalog obriše, svi resursi i podaci će biti trajno izbrisani. Pre nego što obrišete svoj nalog, molimo vas da preuzmete sve podatke ili informacije koje želite zadržati.'))
                 ->method('remove')
                 ->canSee($this->user->exists),
 
-            Button::make(__('Save'))
+            Button::make(__('Sačuvaj'))
                 ->icon('bs.check-circle')
                 ->method('save'),
         ];
@@ -100,10 +94,10 @@ class UserEditScreen extends Screen
         return [
 
             Layout::block(UserEditLayout::class)
-                ->title(__('Profile Information'))
-                ->description(__('Update your account\'s profile information and email address.'))
+                ->title(__('Informacije naloga'))
+                ->description(__('Ažurirajte informacije o nalogu i e-mail adresu vašeg naloga.'))
                 ->commands(
-                    Button::make(__('Save'))
+                    Button::make(__('Sačuvaj'))
                         ->type(Color::BASIC)
                         ->icon('bs.check-circle')
                         ->canSee($this->user->exists)
@@ -111,10 +105,10 @@ class UserEditScreen extends Screen
                 ),
 
             Layout::block(UserPasswordLayout::class)
-                ->title(__('Password'))
-                ->description(__('Ensure your account is using a long, random password to stay secure.'))
+                ->title(__('Lozinka'))
+                ->description(__('Osigurajte da vaš nalog koristi dugu i nasumičnu generisanu lozinku za očuvanje bezbednosti.'))
                 ->commands(
-                    Button::make(__('Save'))
+                    Button::make(__('Sačuvaj'))
                         ->type(Color::BASIC)
                         ->icon('bs.check-circle')
                         ->canSee($this->user->exists)
@@ -122,10 +116,10 @@ class UserEditScreen extends Screen
                 ),
 
             Layout::block(UserRoleLayout::class)
-                ->title(__('Roles'))
-                ->description(__('A Role defines a set of tasks a user assigned the role is allowed to perform.'))
+                ->title(__('Uloge'))
+                ->description(__('Uloga definiše skup zadataka koje korisniku dodeljenom toj ulozi dozvoljava izvršavanje.'))
                 ->commands(
-                    Button::make(__('Save'))
+                    Button::make(__('Sačuvaj'))
                         ->type(Color::BASIC)
                         ->icon('bs.check-circle')
                         ->canSee($this->user->exists)
@@ -133,10 +127,10 @@ class UserEditScreen extends Screen
                 ),
 
             Layout::block(RolePermissionLayout::class)
-                ->title(__('Permissions'))
-                ->description(__('Allow the user to perform some actions that are not provided for by his roles'))
+                ->title(__('Dozvole/Ovlašćenja'))
+                ->description(__('Dozvoliti zaposlenom da izvršava neke radnje koje nisu predviđene njegovim ulogama.'))
                 ->commands(
-                    Button::make(__('Save'))
+                    Button::make(__('Sačuvaj'))
                         ->type(Color::BASIC)
                         ->icon('bs.check-circle')
                         ->canSee($this->user->exists)
@@ -174,7 +168,7 @@ class UserEditScreen extends Screen
 
         $user->replaceRoles($request->input('user.roles'));
 
-        Toast::info(__('User was saved.'));
+        Toast::info(__('Sačuvane su izmene za zaposlenog.'));
 
         return redirect()->route('platform.systems.users');
     }
@@ -188,7 +182,7 @@ class UserEditScreen extends Screen
     {
         $user->delete();
 
-        Toast::info(__('User was removed'));
+        Toast::info(__('Zaposleni je izbrisan.'));
 
         return redirect()->route('platform.systems.users');
     }
@@ -200,7 +194,7 @@ class UserEditScreen extends Screen
     {
         Impersonation::loginAs($user);
 
-        Toast::info(__('You are now impersonating this user'));
+        Toast::info(__('Sada se predstavljate kao ovaj zaposleni.'));
 
         return redirect()->route(config('platform.index'));
     }
