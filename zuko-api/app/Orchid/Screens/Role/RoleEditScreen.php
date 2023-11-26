@@ -106,11 +106,8 @@ class RoleEditScreen extends Screen
     public function save(Request $request, Role $role)
     {
         $request->validate([
-            'role.slug' => [
-                'required',
-                Rule::unique(Role::class, 'slug')->ignore($role),
-            ],
-            'role.name' => ['required|max:191'],
+            'role.slug' => ['required'],
+            'role.name' => ['required','max:191'],
         ]);
 
         $role->fill($request->get('role'));

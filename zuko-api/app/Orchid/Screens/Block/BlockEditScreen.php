@@ -73,7 +73,7 @@ class BlockEditScreen extends Screen
         $block->fill($request->get('block'));
 
         $request->validate([
-            $block->type => ['required','max:10']
+            $block->type => ['required','max:1024']
         ]);
 
         if($block->post_id == null)

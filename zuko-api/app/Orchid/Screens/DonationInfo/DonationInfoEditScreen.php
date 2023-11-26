@@ -50,17 +50,13 @@ class DonationInfoEditScreen extends Screen
         ];
     }
 
-    public function rules(): array
-    {
-        return [
-            'donation_infos.account_number' => 'required|regex:/^[a-zA-Z0-9\-\.]+$/',
-            'donation_infos.default_amount' => 'required|regex:/^[a-zA-Z0-9\-\.]+$/',
-        ];
-    }
 
     public function save(Request $request, DonationInfo $donation)
     {
-
+        $request->validate([
+            'donation_infos.account_number' => ['required','max:50'],
+            'donation_infos.recipient_name' => ['required','max:256'],
+        ]);
         $data = $request->get('donation_infos');
         $donation->fill($data);
         $donation->save();

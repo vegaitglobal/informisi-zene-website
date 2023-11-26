@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('donors', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
-            $table->string("website_url")->nullable();
+            $table->string("name", 128);
+            $table->string("website_url", 256)->nullable();
             $table->timestamps();
         });
     }

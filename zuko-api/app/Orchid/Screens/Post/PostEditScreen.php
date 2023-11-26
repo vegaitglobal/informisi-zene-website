@@ -84,9 +84,9 @@ class PostEditScreen extends Screen
     public function save(Request $request, Post $post)
     {
         $request->validate([
-            'post.description' => ['max:1024'],
-            'post.cover_image_url' => ['max:191'],
-            'post.title' => ['required','max:50'],
+            'post.description' => ['max:512'],
+            'post.cover_image_url' => ['max:256'],
+            'post.title' => ['required','max:128'],
         ]);
 
         $post->fill($request->get('post'));

@@ -69,8 +69,8 @@ class PublicationsEditScreen extends Screen
     {
         $request->validate([
             'publication.type' => ['required','in:analize,izvestaji,saopstenja'],
-            'publication.title' => ['required','max:191'],
-            'publication.cover_image_url' => ['required','max:191'],
+            'publication.title' => ['required','max:128'],
+            'publication.cover_image_url' => ['required','max:256'],
         ]);
 
         $publication->fill($request->get('publication'))->save();

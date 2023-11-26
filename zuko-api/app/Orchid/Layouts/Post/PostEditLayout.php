@@ -23,13 +23,12 @@ class PostEditLayout extends Rows
         return [
             Input::make('post.title')
                 ->title("Naslov")
-                ->placeholder("Unesite naslov svoje vesti maksimum 50 karaktera."),
+                ->placeholder("Unesite naslov svoje vesti"),
             Picture::make('post.cover_image_url')
                 ->acceptableFiles(".jpg, .jpeg, .png")
                 ->title("Naslovna fotografija vesti"),
             Input::make("post.description")
-                ->title("Detaljniji opis vesti")
-                ->placeholder("Maksimum 250 karaktera"),
+                ->title("Detaljniji opis vesti"),
             Select::make("categories")
                 ->title("Kategorije vesti")
                 ->fromModel(Category::class, "name", "id")
