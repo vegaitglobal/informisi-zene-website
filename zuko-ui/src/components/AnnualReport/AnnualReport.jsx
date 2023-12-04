@@ -1,14 +1,20 @@
 import React from "react";
 import style from "./AnnualReport.module.scss";
 
-export default function AnnualReport() {
+export default function AnnualReport({ report }) {
+  console.log("report", report);
   return (
     <section className={style.annualReport}>
-        <h2 className={style.annualReportTitle}>
-            <a className={style.annualReportLink} href="https://example.com/" target="_blank" rel="noreferrer">
-                Godišnji izveštaj o radu (link)
-            </a>
-        </h2>
+      <h2 className={style.annualReportTitle}>
+        <a
+          className={style.annualReportLink}
+          href={report?.url}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Godišnji izveštaj o radu (link)
+        </a>
+      </h2>
     </section>
-  )
+  );
 }
