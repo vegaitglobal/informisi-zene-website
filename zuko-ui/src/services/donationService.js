@@ -8,7 +8,6 @@ export const getDonationInfo = async () => {
     const donationData = res.data;
 
     const [data] = donationData;
-    console.log(data);
     const { account_number, recepient_name, default_amount, payment_code } =
       data;
     // R: should be changed dynamically

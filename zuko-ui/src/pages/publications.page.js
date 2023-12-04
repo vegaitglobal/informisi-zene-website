@@ -33,7 +33,6 @@ export default function PublicationsPage() {
 
   function fetchPublication(id) {
     if (id === "0" || !id) {
-      console.log(id);
       return getPublicationsService().then(setData);
     }
 

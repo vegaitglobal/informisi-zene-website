@@ -2,7 +2,6 @@ import React from "react";
 import style from "./AnnualReport.module.scss";
 
 export default function AnnualReport({ report }) {
-  console.log("report", report);
   return (
     <section className={style.annualReport}>
       <h2 className={style.annualReportTitle}>
