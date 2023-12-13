@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./DonationForm.module.scss";
 
 const DonationForm = ({ donationData }) => {
-  // console.log(donationData)
   return (
     <div className={styles.donationForm}>
       <h3 className={styles.donationFormTitle}>Račun za donacije</h3>
