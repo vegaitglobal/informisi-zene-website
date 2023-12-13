@@ -1,14 +1,15 @@
+import { sendEmailNotification } from '../../services/notification.service';
 import RoundedButton from '../RoundedButton/RoundedButton';
 import styles from './ContactForm.module.scss'
 import { useState } from "react";
 
 export default function ContactForm({ heading = "Pišite nam" }) {
     const [formData, setFormData] = useState({
-        ime: '',
-        mail: '',
-        telefon: '',
-        naslov: '',
-        poruka: '',
+        name: '',
+        email: '',
+        phone: '',
+        title: '',
+        message: '',
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -22,14 +23,14 @@ export default function ContactForm({ heading = "Pišite nam" }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        sendEmailNotification(formData);
         setIsSubmitted(true);
         setFormData({
-            ime: '',
-            mail: '',
-            telefon: '',
-            naslov: '',
-            poruka: '',
+            name: '',
+            email: '',
+            phone: '',
+            title: '',
+            message: '',
         });
     };
     return <div className={styles.formContainer}>
@@ -40,9 +41,9 @@ export default function ContactForm({ heading = "Pišite nam" }) {
             <input
                 className={styles.input}
                 type="text"
-                name="ime"
+                name="name"
                 placeholder='Ime'
-                value={formData.ime}
+                value={formData.name}
                 onChange={handleInputChange}
                 required
             />
@@ -51,9 +52,9 @@ export default function ContactForm({ heading = "Pišite nam" }) {
             <input
                 className={styles.input}
                 type="email"
-                name="mail"
+                name="email"
                 placeholder='Mail'
-                value={formData.mail}
+                value={formData.email}
                 onChange={handleInputChange}
                 required
             />
@@ -61,25 +62,25 @@ export default function ContactForm({ heading = "Pišite nam" }) {
             <input
                 className={styles.input}
                 type="tel"
-                name="telefon"
+                name="phone"
                 placeholder='Telefon'
-                value={formData.telefon}
+                value={formData.phone}
                 onChange={handleInputChange}
             />
             <input
                 className={styles.input}
                 type="text"
-                name="naslov"
+                name="title"
                 placeholder='Naslov'
-                value={formData.naslov}
+                value={formData.title}
                 onChange={handleInputChange}
                 required
             />
             <textarea
                 className={styles.textarea}
-                name="poruka"
+                name="message"
                 placeholder='Poruka'
-                value={formData.poruka}
+                value={formData.message}
                 onChange={handleInputChange}
                 required
             />

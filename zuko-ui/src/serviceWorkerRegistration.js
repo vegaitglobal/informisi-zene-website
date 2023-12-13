@@ -55,7 +55,7 @@ function subscribeUser(registration) {
   const subscribeOptions = {
     userVisibleOnly: true,
     applicationServerKey: urlBase64ToUint8Array(
-      "BF0T59pjNlQcoHeG-FG-QHBFZ7uN1jgniCO83xbyzXZJeYIKTIg3CttCUCCO8q1rkQ_7ZyrQ25fjjugEwAg2Bck"
+      process.env.REACT_APP_PUSH_NOTIFICATION_KEY
     ),
   };
   registration.pushManager
@@ -75,7 +75,7 @@ function subscribeUser(registration) {
 
 function storePushSubscription(pushSubscription) {
   fetch(
-    "https://api.informisizene.codeforacause.rs/api/v1/notifications/push/subscriptions",
+    `${process.env.REACT_APP_ENDPOINT}notifications/push/subscriptions`,
     {
       method: "POST",
       body: JSON.stringify(pushSubscription),
