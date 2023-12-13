@@ -104,17 +104,18 @@ self.addEventListener("notificationclick", (event) => {
 
 function newPostNotificationAction(event) {
   event.waitUntil(
-    (async () => {
-      const allClients = await self.clients.matchAll({
-        includeUncontrolled: true,
-      });
-
-      for (const client of allClients) {
-        const url = new URL(
-          `https://informisizene.codeforacause.rs/posts/${event.notification.data.id}`
-        );
-        await client.navigate(url);
+    self.clients.matchAll({ type: "window" }).then((clientsArr) => {
+      const hadWindowToFocus = clientsArr.some((windowClient) =>
+        windowClient.url.includes(`${process.env.REACT_APP_BASE_APP_URL}posts/${event.notification.data.id}`)
+          ? (windowClient.focus(), true)
+          : false,
+      );
+      if (!hadWindowToFocus)
+      {
+        self.clients
+          .openWindow(`${process.env.REACT_APP_BASE_APP_URL}posts/${event.notification.data.id}`)
+          .then((windowClient) => (windowClient ? windowClient.focus() : null));
       }
-    })()
+    })
   );
 }
