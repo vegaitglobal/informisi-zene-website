@@ -1,29 +1,23 @@
 import styles from './PostShareLinks.module.scss';
 
-export default function PostShareLinks() {
-	const data = [
-		{
-			alt: 'Instagram icon',
-			href: 'www.instagram.com',
-			src: '/instagram-icon.svg'
-		},
-		{
-			alt: 'Tiktok icon',
-			href: 'www.tiktok.com',
-			src: '/tiktok-icon.svg'
-		},
-		{
-			alt: 'Facebook icon',
-			href: 'www.facebook.com',
-			src: '/facebook-icon.svg'
-		},
-		{
-			alt: 'Twitter icon',
-			href: 'www.twitter.com',
-			src: '/twitter-icon.svg'
-		},
-	];
+const href = window.location.href;
 
+const data = [
+	{
+		index: 0,
+		alt: 'Facebook icon',
+		href: `https://www.facebook.com/sharer.php?${href}`,
+		src: '/facebook-icon.svg'
+	},
+	{
+		index: 1,
+		alt: 'Twitter icon',
+		href: `https://twitter.com/intent/tweet?${href}`,
+		src: '/twitter-icon.svg'
+	},
+];
+
+export default function PostShareLinks() {
 	return (
 		<div className={styles.share}>
 			<span className={styles.share__text}>Podeli</span>

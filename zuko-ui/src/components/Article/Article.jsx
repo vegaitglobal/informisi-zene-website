@@ -11,7 +11,7 @@ function Article({data = {}}){
             {data?.categories ? 
             <div className={styles.categories}>
                 {data?.categories.map((el, i) => (
-                    <span className={styles.subtitle}>{el?.name}</span>
+                    <span className={styles.subtitle} key={el?.id}>{el?.name}</span>
                 ))}
             </div>
             : null}
