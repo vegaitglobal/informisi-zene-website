@@ -23,6 +23,7 @@ function Article({data = {}}){
                             {parse(el?.value)}
                         </div>}
                         {el.type === 'image' && <img className={styles.image} src={el?.value} alt="Post image" />}
+                        {el.type === 'video' && <iframe className={styles.iframe} src={el?.value} frameBorder="0" allow='autoplay; encrypted-media; picture-in-picture;' allowFullScreen></iframe>}
                     </Fragment>
                 )
             })}
