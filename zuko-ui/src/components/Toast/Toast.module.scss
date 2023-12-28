@@ -1,0 +1,88 @@
+@import '../../styles/mixins.scss';
+
+@keyframes slideIn {
+    from {
+        top: 0;
+    } to {
+        top: 110px;
+    }
+}
+
+.container {
+    min-width: 200px;
+    max-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    border-radius: 10px;
+    position: fixed;
+    top: 110px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    animation: .4s slideIn;
+}
+
+
+.success {
+    border: 1px solid #3abc3a;
+    .message {
+        color: #3abc3a;
+    }
+}
+
+.error {
+    border: 1px solid #d82e2e;
+    .message {
+        color: #d82e2e;
+    }
+}
+
+.successIcon {
+    position: relative;
+    min-width: 25px;
+    min-height: 25px;
+    background-color: #3abc3a;
+    border-radius: 50%;
+    &::before {
+        position: absolute;
+        content: '';
+        width: 5px;
+        height: 8px;
+        top: 44%;
+        left: 53%;
+        border-right: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+}
+
+.errorIcon {
+    position: relative;
+    min-width: 25px;
+    min-height: 25px;
+    background-color: #d82e2e;
+    border-radius: 50%;
+    &::before,
+    &::after {
+        position: absolute;
+        content: '';
+        top: 50%;
+        left: 50%;
+        height: 12px;
+        width: 2px;
+        background-color: #fff;
+    }
+    &::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+    &::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+}
+
+.message {
+    margin-left: 10px;
+    font-weight: 500;
+}
