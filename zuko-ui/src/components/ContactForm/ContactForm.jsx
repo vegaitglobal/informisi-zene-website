@@ -1,3 +1,4 @@
+import { useToast } from '../../hooks/useToast';
 import { sendEmailNotification } from '../../services/notification.service';
 import RoundedButton from '../RoundedButton/RoundedButton';
 import styles from './ContactForm.module.scss'
@@ -20,6 +21,8 @@ export default function ContactForm({ heading = "Pišite nam" }) {
             [name]: value,
         });
     };
+
+    const {successToast} = useToast();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -84,9 +87,8 @@ export default function ContactForm({ heading = "Pišite nam" }) {
                 onChange={handleInputChange}
                 required
             />
-            {isSubmitted && <p>Hvala Vam. Vaša poruka je uspešno poslata!</p>}
             <div className={styles.button}>
-                <RoundedButton buttonType='submit' label='Pošalji' />
+                <RoundedButton onClick={() => successToast('Vaša poruka je uspešno poslata!')} buttonType='submit' label='Pošalji' />
             </div>
         </form>
     </div>

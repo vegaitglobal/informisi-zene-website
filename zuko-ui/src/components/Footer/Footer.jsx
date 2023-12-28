@@ -2,13 +2,16 @@ import React, { useRef } from 'react'
 import styles from './Footer.module.scss'
 import FooterSocials from '../FooterSocials/FooterSocials'
 import { subscribeToNewsletter } from '../../services/notification.service'
+import { useToast } from '../../hooks/useToast'
 
 const Footer = () => {
-  const email = useRef()
-  function handleSubscribe(e) {
-    e.preventDefault();
-    subscribeToNewsletter(email.current.value);
-  }
+    const email = useRef();
+    const { successToast } = useToast();
+    function handleSubscribe(e) {
+        e.preventDefault();
+        subscribeToNewsletter(email.current.value);
+        successToast("Uspešno ste se prijavili na naš newsletter!");
+    }
   return (
     <footer className={styles.footer}>
       <div className={styles.footerWrap}>
