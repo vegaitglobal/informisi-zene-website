@@ -1,55 +1,54 @@
 import { useState, useEffect } from "react";
 import PublicationHero from "../components/PublicationHero/PublicationHero";
-import {
-  getPublicationsService,
-  getPublicationByCategoryService,
-} from "../services/publication.service";
+import {getPublicationByCategoryService} from "../services/publication.service";
 import Publications from "../components/Publications/Publications";
 import HorizontalSpacer from "../components/HorizontalSpacer/HorizontalSpacer";
+import Pagination from "../components/Pagination/Pagination";
+import { getPublicationCategoriesService } from "../services/categories.service";
 export default function PublicationsPage() {
   const [selectedCategory, setSelectedCategory] = useState(0);
-  const [data, setData] = useState([]);
+  const [listOfCategories, setlistOfCategories] = useState([])
+  const [publications, setPublications] = useState([]);
+  const [currentPage, setcurrentPage] = useState(1);
+  const [totalPages, settotalPages] = useState(1);
 
-  const listOfPostCategories = [
-    {
-      id: 1,
-      name: "KOJI JE MOJ DEO?",
-    },
-    {
-      id: 2,
-      name: "ANALIZA",
-    },
-    {
-      id: 3,
-      name: "ACT",
-    },
-  ];
-
-  function onSelectChange(id) {
-    if (id !== 0 && !id) return;
-
-    setSelectedCategory(id);
+  const handleCategorySelection = (id)=>
+  {
+    setcurrentPage(1);
+    var categoryName=listOfCategories.find(category => category.id === id);
+    setSelectedCategory(categoryName?.name);
   }
 
-  function fetchPublication(id) {
-    if (id === "0" || !id) {
-      return getPublicationsService().then(setData);
-    }
-
-    getPublicationByCategoryService({ id }).then(setData);
-  }
+  const handlePaginationClick = () => {
+    if (currentPage === totalPages) return;
+    setcurrentPage(prev => prev + 1);
+  };
 
   useEffect(() => {
-    fetchPublication(selectedCategory);
-  }, [selectedCategory]);
+    getPublicationByCategoryService( selectedCategory, currentPage ).then(({data,meta})=>{
+      settotalPages(meta.last_page);
+      setPublications(prev => currentPage===1 ? [...data]:[...prev,...data]);
+    });
+  }, [selectedCategory,currentPage]);
+
+  
+  useEffect(() => {
+    getPublicationCategoriesService()
+    .then(data => {
+      setlistOfCategories([...data]);
+    });
+  }, []);
+
   return (
     <div>
       <PublicationHero
-        list={listOfPostCategories}
-        onSelectChange={onSelectChange}
+        list={listOfCategories}
+        onSelectChange={handleCategorySelection}
       />
-      {data?.data?.length && <Publications data={data?.data} />}
+      <Publications data={publications} />
 
+      <HorizontalSpacer desktopSize={120} mobileSize={60} />
+      {currentPage === totalPages || <Pagination onClick={handlePaginationClick} />}
       <HorizontalSpacer desktopSize={120} mobileSize={60} />
     </div>
   );

@@ -1,78 +1,49 @@
 import { useEffect, useState } from "react";
 import OpportunitiesHero from "../components/OpportunitiesHero/OpportunitiesHero";
-import {
-  getPostByCategoryService,
-  getPostsService,
-} from "../services/posts.service";
+import {getOpportunityByCategoryId} from "../services/posts.service";
 import Pagination from "../components/Pagination/Pagination";
 import PostsContainer from "../components/PostsContainer/PostsContainer";
 import HorizontalSpacer from "../components/HorizontalSpacer/HorizontalSpacer";
-
+import { getCategoriesService } from "../services/categories.service";
 export default function OpportunitiesPage() {
-  const [selectedCategory, setSelectedCategory] = useState(0);
-  const [data, setData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState();
-
-  const listOfPostCategories = [
-    {
-      id: 1,
-      name: "KOJI JE MOJ DEO?",
-    },
-    {
-      id: 2,
-      name: "ANALIZA",
-    },
-    {
-      id: 3,
-      name: "ACT",
-    },
-  ];
-
+  const [opportunities, setopportunities] = useState([]);
+  const [listOfCategories, setlistOfCategories] = useState([])
+  const [currentPage, setcurrentPage] = useState(1);
+  const [selectedCategory, setselectedCategory] = useState(0);
+  const [totalPages, settotalPages] = useState(1);
+  
+  const handleCategorySelection = (id)=>
+  {
+    setcurrentPage(1);
+    setselectedCategory(id);
+  }
   const handlePaginationClick = () => {
     if (currentPage === totalPages) return;
-    setCurrentPage((prev) => prev + 1);
+    setcurrentPage(prev => prev + 1);
   };
 
-  function onSelectChange(id) {
-    if (id !== 0 && !id) return;
-
-    setSelectedCategory(id);
-  }
-
-  function fetchPosts(id) {
-    if (id === "0" || !id) {
-      return getPostsService(currentPage).then((response) => {
-        const responseData = response.data;
-        setTotalPages(response.meta.last_page);
-        setData((prev) => [...prev, ...responseData]);
-      });
-    }
-
-    getPostByCategoryService({ id, currentPage }).then((response) => {
-      const responseData = response.data;
-      setTotalPages(response.meta.last_page);
-      setData((prev) => [...prev, ...responseData]);
-    });
-  }
-
   useEffect(() => {
-    fetchPosts(selectedCategory);
-  }, [selectedCategory, currentPage]);
+    getCategoriesService().then((data)=>{
+      setlistOfCategories([...data]);
+    });
+  }, [])
+  
+  useEffect(() => {    
+    getOpportunityByCategoryId(selectedCategory,currentPage).then(({data,meta}) => {
+    settotalPages(meta?.last_page);
+    setopportunities(prev => currentPage===1 ? [...data]:[...prev,...data]);
+  });
+  }, [currentPage,selectedCategory]);
 
   return (
     <div>
       <OpportunitiesHero
-        list={listOfPostCategories}
-        onSelectChange={onSelectChange}
+        list={listOfCategories}
+        onSelectChange={handleCategorySelection}
       />
-      <PostsContainer displayVersion="v2" data={data} />{" "}
+      <PostsContainer displayVersion="v2" data={opportunities} />{" "}
       <HorizontalSpacer desktopSize={120} mobileSize={60} />
-      {currentPage === totalPages ? (
-        <></>
-      ) : (
-        <Pagination onClick={handlePaginationClick} />
-      )}
+      {currentPage === totalPages || <Pagination onClick={handlePaginationClick} />}
       <HorizontalSpacer desktopSize={120} mobileSize={60} />
     </div>
   );
