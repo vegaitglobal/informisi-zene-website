@@ -3,28 +3,29 @@
 .annualReport {
     margin: 60px 0;
 
-    .annualReportTitle {
-        font-size: 30px;
-        font-weight: 600;
-        max-width: 312px;
-        
-        .annualReportLink {
-            color: #2A2E32;
-        }
-    }
-
     @include media-breakpoint-desktop {
         margin: 90px 0;
+    }
+}
 
-        .annualReportTitle {
-            font-size: 34px;
-            max-width: unset;
-            line-height: 44px;
-            letter-spacing: 0.68px; 
+.annualReportTitle {
+    font-size: 30px;
+    font-weight: 600;
+    max-width: 312px;
 
-            .annualReportLink {
-                color: #2A2E32;
-            }
-        }
+    @include media-breakpoint-desktop {
+        font-size: 34px;
+        max-width: unset;
+        line-height: 44px;
+        letter-spacing: 0.68px;
+    }
+}
+
+.annualReportLink {
+    color: #2A2E32;
+    transition: color .3s ease;
+
+    &:hover {
+        color: #FFAA33;
     }
 }

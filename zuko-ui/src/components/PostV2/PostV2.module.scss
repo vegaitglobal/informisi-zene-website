@@ -6,6 +6,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: 12px;
+
 	&:not(:last-child) {
 		margin-bottom: 18px;
 	}
@@ -15,6 +16,10 @@
 		max-width: 32%;
 		gap: 16px;
 		margin-bottom: 100px;
+		min-height: 630px;
+		padding-bottom: 40px;
+		position: relative;
+
 		&:not(:last-child) {
 			margin-bottom: 100px;
 		}
@@ -38,6 +43,7 @@
 	}
 
 	@media (hover: hover) {
+
 		&:hover,
 		&:focus {
 			img {
@@ -58,14 +64,25 @@
 	}
 }
 
+.post__tagholder {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
 .post__subheading {
 	font-size: 14px;
 	font-weight: 500;
 	letter-spacing: 0.84px;
 	text-transform: uppercase;
+	padding: 4px 8px;
+	border: 1px solid #000;
+	border-radius: 100px;
+	width: fit-content;
+	margin-bottom: 10px;
 
 	@include media-breakpoint-desktop() {
-		font-size: 16px;
+		font-size: 14px;
 		font-weight: 500;
 		letter-spacing: 0.32px;
 	}
@@ -75,15 +92,18 @@
 	color: #2a2e32;
 	font-size: 30px;
 	font-weight: 600;
+	margin-top: 10px;
+	display: block;
 
 	@include media-breakpoint-desktop() {
-		font-size: 46px;
+		font-size: 30px;
 		font-weight: 700;
-		line-height: 62px;
-		letter-spacing: 2.3px;
+		line-height: 36px;
+		letter-spacing: 1.3px;
 	}
 
 	@media (hover: hover) {
+
 		&:hover,
 		&:focus {
 			color: #ffaa33;
@@ -116,9 +136,16 @@
 	}
 
 	@media (hover: hover) {
+
 		&:hover,
 		&:focus {
 			box-shadow: 0 -2px 0 #fa3 inset;
 		}
+	}
+
+	@include media-breakpoint-desktop() {
+		position: absolute;
+		bottom: 0;
+		left: 0;
 	}
 }

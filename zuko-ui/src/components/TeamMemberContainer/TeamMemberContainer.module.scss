@@ -14,15 +14,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
-    & > div:nth-child(odd) {
-      padding-left: 27px;
-      width: 100%;
-    }
-    & > div:nth-child(even) {
-      padding-right: 27px;
-      width: 100%;
-    }
+    width: 100%;
   }
 
   @include media-breakpoint-desktop {
@@ -36,15 +28,6 @@
 
     .teamContainer {
       gap: 90px;
-
-      & > div:nth-child(odd) {
-        padding-left: 0;
-        width: unset;
-      }
-      & > div:nth-child(even) {
-        padding-right: 0;
-        width: unset;
-      }
     }
   }
 }

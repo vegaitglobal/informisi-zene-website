@@ -3,21 +3,20 @@
 .footer {
     background-color: #FFF8E7;
     padding: 121px 25px 70px;
+
     @include media-breakpoint-desktop {
-        padding: 59px 25px 78px;
-       
-        
+        padding: 100px 25px 78px;
     }
 }
 
 .footerWrap {
-    @include media-breakpoint-desktop  {
+    @include media-breakpoint-desktop {
         max-width: 1289px;
         width: 100%;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
-    }   
+    }
 }
 
 .footerTitle {
@@ -25,6 +24,7 @@
     line-height: 31px;
     text-align: center;
     margin-bottom: 24px;
+
     @include media-breakpoint-desktop {
         text-align: left;
         margin-bottom: 31px;
@@ -36,6 +36,7 @@
     position: relative;
     max-width: 500px;
     margin: 0 auto 49px;
+
     @include media-breakpoint-desktop {
         margin: 0;
         max-width: 100%;
@@ -61,12 +62,19 @@
     border: none;
     display: flex;
     transition: right .3s ease;
+    padding: 12px;
+
+    &:hover {
+        transition: right .3s ease;
+        right: 20px;
+    }
 }
 
 .footerImg {
     margin: 0 auto 146px;
     display: block;
     max-width: 100%;
+
     @include media-breakpoint-desktop {
         margin: 0;
         position: absolute;
@@ -77,7 +85,7 @@
 
 .footerContent {
     @include media-breakpoint-desktop {
-       width: 36.2%;
-       position: relative;
+        width: 36.2%;
+        position: relative;
     }
 }

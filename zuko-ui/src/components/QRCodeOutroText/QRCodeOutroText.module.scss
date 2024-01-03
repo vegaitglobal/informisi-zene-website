@@ -6,9 +6,15 @@
     line-height: 26px;
     font-weight: 600;
     color: #2A2E32;
+
     a {
         color: #FFAA33;
+
+        &:hover {
+            color: #3B79D4;
+        }
     }
+
     @include media-breakpoint-desktop {
         margin-bottom: 120px;
     }

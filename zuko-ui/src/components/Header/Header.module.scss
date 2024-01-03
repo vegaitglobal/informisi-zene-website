@@ -26,6 +26,7 @@
     width: 100%;
     position: relative;
     z-index: 2;
+
     @include media-breakpoint-desktop {
         max-width: 100px;
     }
@@ -42,6 +43,7 @@
     overflow: hidden;
     position: fixed;
     transform: translateY(-110%);
+
     @include media-breakpoint-desktop {
         top: auto;
         left: auto;
@@ -59,6 +61,7 @@
     align-items: center;
     justify-content: center;
     height: calc(100vh - 83px);
+
     @include media-breakpoint-desktop {
         flex-direction: row;
         justify-content: flex-end;
@@ -74,11 +77,14 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+
     &:not(:last-child) {
         margin-bottom: 40px;
     }
+
     @include media-breakpoint-desktop {
         position: relative;
+
         &:not(:last-child) {
             margin-bottom: 0;
             margin-right: 54px;
@@ -90,6 +96,7 @@
     &:not(:last-child) {
         margin-bottom: 15px;
     }
+
     @include media-breakpoint-desktop {
         width: 100%;
         text-align: center;
@@ -100,10 +107,12 @@
     font-size: 18px;
     font-weight: 600;
     color: inherit;
+
     @include media-breakpoint-desktop {
         transition: color .15s ease-out;
         font-size: 16px;
         font-weight: 400;
+
         &:hover {
             color: #FFAA33;
         }
@@ -121,12 +130,15 @@
     padding: 0;
     display: flex;
     align-items: center;
+
     @include media-breakpoint-desktop {
         font-size: 16px;
         letter-spacing: 1.7px;
         transition: color .15s ease-out;
+
         &:hover {
             color: #FFAA33;
+
             .chevronIcon {
                 border-color: #ffaa33;
             }
@@ -138,8 +150,10 @@
     .chevronIcon {
         transform: rotate(45deg);
     }
+
     @include media-breakpoint-desktop {
         color: #FFAA33;
+
         .chevronIcon {
             border-color: #ffaa33;
         }
@@ -155,16 +169,19 @@
     margin-left: 10px;
     transition-property: border-color transform;
     transition: .3s ease-out;
+
     @include media-breakpoint-desktop {
         transform: rotate(45deg);
         margin-top: -8px;
     }
 }
 
-@keyframes slideIn{
+@keyframes slideIn {
     from {
         max-height: 0;
-    } to {
+    }
+
+    to {
         max-height: 1000px;
     }
 }
@@ -172,7 +189,9 @@
 @keyframes fadeIn {
     from {
         opacity: 0;
-    } to {
+    }
+
+    to {
         opacity: 1;
     }
 }
@@ -184,13 +203,14 @@
     width: 100%;
     overflow: hidden;
     animation: sladeIn .5s ease-in;
+
     @include media-breakpoint-desktop {
         position: absolute;
         width: 200px;
         background-color: #FFF8E7;
         border-radius: 10px;
         top: 40px;
-        box-shadow: 0px 4px 24px 5px rgba(62,66,66,0.1);
+        box-shadow: 0px 4px 24px 5px rgba(62, 66, 66, 0.1);
         animation: fadeIn .15s ease-out;
     }
 }
@@ -200,6 +220,7 @@
     flex-direction: column;
     align-items: center;
     padding: 16px 0 0;
+
     @include media-breakpoint-desktop {
         padding: 20px;
     }
@@ -215,16 +236,19 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+
     @include media-breakpoint-desktop {
         display: none;
     }
 }
 
-.menuIcon {
-    height: 3px;
+.menuIconOpen {
+    height: 0;
     width: 18px;
     background-color: #000;
     display: block;
+    transition: height .3s ease;
+
     &::before,
     &::after {
         position: absolute;
@@ -234,11 +258,45 @@
         background-color: #000;
         right: 0;
     }
+
+    &::after {
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+        transition: transform .3s ease;
+    }
+
+    &::before {
+        bottom: 50%;
+        transform: translateY(50%) rotate(-45deg);
+        transition: transform .3s ease;
+    }
+}
+
+.menuIcon {
+    height: 3px;
+    width: 18px;
+    background-color: #000;
+    display: block;
+    transition: height .3s ease;
+
+    &::before,
+    &::after {
+        position: absolute;
+        content: '';
+        height: 3px;
+        width: 25px;
+        background-color: #000;
+        right: 0;
+    }
+
     &::after {
         top: 0;
+        transition: transform .3s ease;
     }
+
     &::before {
         bottom: 0;
+        transition: transform .3s ease;
     }
 }
 
