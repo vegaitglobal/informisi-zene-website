@@ -24,9 +24,11 @@ export async function getByQueryService({query = '', pageNumber = 1}) {
 	return response?.data;
 }
 
-export async function getPostByCategoryService({id = 1, pageNumber = 1}) {
+export async function getOpportunityByCategoryId(id, pageNumber) {
+    var uri = `${process.env.REACT_APP_ENDPOINT}posts?page=${pageNumber}&is_opportunity=1&size=6`
+    if(Number(id)) uri+=`&category=${id}`
     const response = await axios
-        .get(`${process.env.REACT_APP_ENDPOINT}posts?page=${pageNumber}category=${id}`)
+        .get(uri)
         .catch(error => console.error(error));
 
     return response?.data;

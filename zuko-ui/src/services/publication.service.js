@@ -18,10 +18,12 @@ export async function getLatestReportService() {
   return response.data.data[0];
 }
 
-export async function getPublicationByCategoryService({ id = 1 }) {
+export async function getPublicationByCategoryService(id,pageNumber) {
+  var uri = `${process.env.REACT_APP_ENDPOINT}publications?size=6&page=${pageNumber}`;
+  if(id) uri+=`&type[eq]=${id}`;
   const response = await axios
-    .get(`${process.env.REACT_APP_ENDPOINT}publications?type=${id}`)
+    .get(uri)
     .catch((error) => console.error(error));
 
-  return response.data.data;
+  return response.data;
 }
