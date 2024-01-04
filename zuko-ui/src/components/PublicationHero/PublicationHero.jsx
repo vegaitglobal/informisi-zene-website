@@ -7,7 +7,6 @@ export default function PublicationHero({list = [], onSelectChange = () => {} })
     return (
         <div className={style.hero}>
             <GeneralHeading label='Publikacije'/>
-
             <h3 className={style.subtitle}>
                 Sortiraj po vrsti
             </h3>

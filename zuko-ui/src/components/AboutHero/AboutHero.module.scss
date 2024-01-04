@@ -1,38 +1,41 @@
 @import '../../styles/mixins.scss';
 
 .h1 {
-    font-size: 30px;
-    color: #2A2E32;
-    font-weight: 700;
-    @include media-breakpoint-desktop {
-      font-size: 38px;
-      margin: 0px;
-    }
+  font-size: 30px;
+  color: #2A2E32;
+  font-weight: 700;
+
+  @include media-breakpoint-desktop {
+    font-size: 38px;
+    margin: 0px;
+  }
 }
-.wrapper{
+
+.wrapper {
   position: relative;
-  
+
   @include media-breakpoint-desktop {
     display: flex;
     flex-direction: row-reverse;
     margin-top: 90px;
     justify-content: space-between;
+    gap: 40px;
   }
 }
-.image{
+
+.image {
   width: 100%;
   margin-top: 30px;
   margin-bottom: 30px;
+  border-radius: 10px;
 
   @include media-breakpoint-desktop {
-      width: 50%;
-      max-width: 534px;
-      margin: 0;
-      object-fit: contain;
-    }
+    width: 50%;
+    max-width: 534px;
+    margin: 0;
+    object-fit: contain;
+  }
 }
-
-
 
 .paragraph {
   margin-bottom: 30px;

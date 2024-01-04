@@ -9,11 +9,13 @@
 
     .card {
         display: block;
-        .imgContainer, .img{
+
+        .imgContainer,
+        .img {
             margin-bottom: 12px;
             width: 206px;
         }
-    
+
         .title {
             font-size: 18px;
             font-weight: 600;
@@ -25,13 +27,22 @@
         gap: 60px 24px;
 
         .card {
-            .imgContainer, .img{
+
+            .imgContainer,
+            .img {
                 margin-bottom: 32px;
                 width: 306px;
             }
-        
+
             .title {
                 font-size: 20px;
+                transition: color .3s ease;
+            }
+
+            &:hover {
+                .title {
+                    color: #FFAA33;
+                }
             }
         }
     }

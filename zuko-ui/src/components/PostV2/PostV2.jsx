@@ -10,12 +10,14 @@ export default function PostV2({ postData = {} }) {
         </div>
       </NavLink>
       <div className={styles.post__content}>
-        {postData.categories &&
+        <div className={styles.post__tagholder}>
+        {postData.categories && 
           postData.categories.map((category) => (
             <span key={category.id} className={styles.post__subheading}>
               {category.name}
             </span>
           ))}
+        </div>
         <NavLink to={`/posts/${postData.id}`} target="_blank">
           {postData.title && (
             <span className={styles.post__heading}>{postData.title}</span>

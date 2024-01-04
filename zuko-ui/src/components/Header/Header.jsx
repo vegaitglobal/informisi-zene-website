@@ -107,7 +107,7 @@ function Header(){
                     </ul>
                 </div>
                 <button className={styles.menuBtn} type='button' onClick={() => setIsMenuOpen(isMenuOpen => !isMenuOpen)}>
-                    <span className={styles.menuIcon}></span>
+                    <span className={isMenuOpen ? styles.menuIconOpen : styles.menuIcon}></span>
                 </button>
             </div>
         </header>
