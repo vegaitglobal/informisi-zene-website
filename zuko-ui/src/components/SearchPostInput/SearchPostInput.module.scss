@@ -4,14 +4,16 @@
     display: flex;
     margin: 60px 0;
     flex-direction: column;
+
     h1 {
         text-align: center;
         margin-top: 10px;
         margin-bottom: 60px;
     }
+
     @include media-breakpoint-desktop {
         h1 {
-            margin-top: 64px; 
+            margin-top: 64px;
             margin-bottom: 0;
         }
     }
@@ -22,11 +24,13 @@
     font-size: 18px;
     color: #2A2E32;
     font-weight: 600;
+
     @include media-breakpoint-desktop {
-        visibility:hidden;
+        visibility: hidden;
     }
 }
-.search{
+
+.search {
     border-radius: 12px;
     margin-top: 12px;
     width: calc(100% - 2 * 16px);
@@ -34,17 +38,38 @@
     border-width: 0.75px;
     padding: 0px 16px;
     margin: 12px auto 0;
+
     @include media-breakpoint-desktop {
-        width: 50%;
+        width: 100%;
     }
 }
 
-.search::placeholder{
-    visibility:hidden;
+.search::placeholder {
+    visibility: hidden;
+
     @include media-breakpoint-desktop {
-        visibility:visible;
+        visibility: visible;
         font-size: 20px;
         color: #2A2E32;
         font-weight: 600;
     }
+}
+
+.searchHolder {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    @include media-breakpoint-desktop {
+        max-width: 754px;
+        min-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+.searchLoader {
+    position: absolute;
+    top: 57%;
+    transform: translateY(-50%);
+    right: 20px;
 }
