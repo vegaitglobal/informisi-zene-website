@@ -60,19 +60,19 @@ class DonorEditScreen extends Screen
 
     /**
      * @param Request $request
-     * @param Donor    $post
+     * @param Donor    $donor
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function save(Request $request, Donor $post)
+    public function save(Request $request, Donor $donor)
     {
         $request->validate([
             'donor.name' => ['required','max:128'],
             'donor.website_url' => ['max:256'],
         ]);
 
-        $post->fill($request->get('donor'));
-        $post->save();
+        $donor->fill($request->get('donor'));
+        $donor->save();
 
         Toast::info(__('Donator je sačuvan'));
         return redirect()->route('platform.donors');
