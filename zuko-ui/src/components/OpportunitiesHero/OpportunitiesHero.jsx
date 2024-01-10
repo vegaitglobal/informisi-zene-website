@@ -3,7 +3,7 @@ import style from "./OpportunitiesHero.module.scss";
 import CategoriesSelect from "../CategoriesSelect/CategoriesSelect";
 import GeneralHeading from './../GeneralHeading/GeneralHeading';
 
-export default function OpportunitiesHero({list = [], onSelectChange = () => {} }) {
+export default function OpportunitiesHero({list = [], onSelectChange = () => {}, selectedCategory }) {
 
 
     return (
@@ -14,7 +14,7 @@ export default function OpportunitiesHero({list = [], onSelectChange = () => {} 
                 Sortiraj po projektu
             </h3>
             <div className={style.categoriesContainer}>
-                <CategoriesSelect options={list} defaultSelection="Svi projekti" onSelectChange={onSelectChange} />
+                <CategoriesSelect options={list} defaultSelection="Svi projekti" onSelectChange={onSelectChange} selectedCategory={selectedCategory} />
             </div>
             
         </div>

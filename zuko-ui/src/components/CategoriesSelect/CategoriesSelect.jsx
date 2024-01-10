@@ -1,21 +1,17 @@
-import React, {useState} from 'react'
+import React from 'react'
 import style from "./CategoriesSelect.module.scss";
 
-export default function CategoriesSelect({options, defaultSelection, onSelectChange = () => {}}) {
-    const [localState, setLocalState] = useState(0);
+export default function CategoriesSelect({options, defaultSelection, onSelectChange = () => {}, selectedCategory}) {
 
     const onChange = (event) => {
         const selectedValue = event.target.value;
-
-        setLocalState(selectedValue);
-
         onSelectChange(selectedValue);
     }
 
     return (
         <select
             className={style.categories}
-            value={localState}
+            value={selectedCategory}
             onChange={onChange}
         >
             <option value={0}> 

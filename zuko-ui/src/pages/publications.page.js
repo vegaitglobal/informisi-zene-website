@@ -18,7 +18,7 @@ export default function PublicationsPage() {
   {
     setcurrentPage(1);
     var categoryName=listOfCategories.find(category => category.id === id);
-    setSelectedCategory(categoryName?.name);
+    setSelectedCategory(categoryName?.id);
   }
 
   const handlePaginationClick = () => {
@@ -54,6 +54,7 @@ export default function PublicationsPage() {
       <PublicationHero
         list={listOfCategories}
         onSelectChange={handleCategorySelection}
+        selectedCategory={selectedCategory}
       />
       <Publications data={publications} />
 

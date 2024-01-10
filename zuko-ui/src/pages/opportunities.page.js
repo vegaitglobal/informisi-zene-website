@@ -51,6 +51,7 @@ export default function OpportunitiesPage() {
       <OpportunitiesHero
         list={listOfCategories}
         onSelectChange={handleCategorySelection}
+        selectedCategory={selectedCategory}
       />
       <PostsContainer displayVersion="v2" data={opportunities} />{" "}
       <HorizontalSpacer desktopSize={120} mobileSize={60} />
