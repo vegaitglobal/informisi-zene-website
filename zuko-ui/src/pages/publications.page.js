@@ -17,8 +17,7 @@ export default function PublicationsPage() {
   const handleCategorySelection = (id)=>
   {
     setcurrentPage(1);
-    var categoryName=listOfCategories.find(category => category.id === id);
-    setSelectedCategory(categoryName?.id);
+    setSelectedCategory(id);
   }
 
   const handlePaginationClick = () => {

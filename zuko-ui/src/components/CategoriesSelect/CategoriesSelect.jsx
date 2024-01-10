@@ -14,7 +14,7 @@ export default function CategoriesSelect({options, defaultSelection, onSelectCha
             value={selectedCategory}
             onChange={onChange}
         >
-            <option value={0}> 
+            <option value={""}> 
                 {defaultSelection}
             </option>
             {options.map(({id, name}) => <option value={id} key={`option-${id}`}>{name}</option>)}
