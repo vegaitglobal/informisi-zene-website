@@ -3,7 +3,7 @@ import style from "./PublicationHero.module.scss";
 import CategoriesSelect from "../CategoriesSelect/CategoriesSelect";
 import GeneralHeading from './../GeneralHeading/GeneralHeading';
 
-export default function PublicationHero({list = [], onSelectChange = () => {} }) {
+export default function PublicationHero({list = [], onSelectChange = () => {}, selectedCategory }) {
     return (
         <div className={style.hero}>
             <GeneralHeading label='Publikacije'/>
@@ -11,7 +11,7 @@ export default function PublicationHero({list = [], onSelectChange = () => {} })
                 Sortiraj po vrsti
             </h3>
             <div className={style.categoriesContainer}>
-                <CategoriesSelect options={list} defaultSelection="Sve vrste" onSelectChange={onSelectChange} />
+                <CategoriesSelect options={list} defaultSelection="Sve vrste" onSelectChange={onSelectChange} selectedCategory={selectedCategory}/>
             </div>
         </div>
     );

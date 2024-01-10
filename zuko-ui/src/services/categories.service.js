@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const listOfPostCategories = [{"id":"1","name":"ANALIZA"},{"id":"2","name":"AKT"},{"id":"3","name":"IZVESTAJI"}];
+const listOfPostCategories = [{"id":"ANALIZE","name":"Analize"},{"id":"SAOPSTENJA","name":"Saopštenja"},{"id":"IZVESTAJI","name":"Izveštaji"}];
 
 export async function getCategoriesService() {
     const response = await axios
