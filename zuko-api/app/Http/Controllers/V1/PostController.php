@@ -31,7 +31,9 @@ class PostController extends Controller
             $query->where($queryItems['is_opportunity']);
         });
 
-        $result = $postsQuery->where($queryItems)->paginate($request->query('size', 3));
+        $result = $postsQuery->where($queryItems)
+            ->orderBy('created_at', 'desc')
+            ->paginate($request->query('size', 3));
 
         return new PostCollection($result);
     }
