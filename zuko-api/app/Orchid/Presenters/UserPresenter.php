@@ -52,7 +52,7 @@ class UserPresenter extends Presenter implements Personable, Searchable
      */
     public function image(): ?string
     {
-        return "";
+        return $this->entity->profile_image_url;
     }
 
     /**
