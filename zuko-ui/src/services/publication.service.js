@@ -11,7 +11,7 @@ export async function getPublicationsService(page = 1) {
 export async function getLatestReportService() {
   const response = await axios
     .get(
-      `${process.env.REACT_APP_ENDPOINT}publications?category[eq]=${reportCategoryType}&size=1&page=1`
+      `${process.env.REACT_APP_ENDPOINT}publications?type[eq]=${reportCategoryType}&size=1&page=1`
     )
     .catch((error) => console.error(error));
 
