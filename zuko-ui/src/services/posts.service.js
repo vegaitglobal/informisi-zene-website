@@ -25,7 +25,7 @@ export async function getByQueryService({query = '', pageNumber = 1}) {
 }
 
 export async function getOpportunityByCategoryId(id, pageNumber) {
-    var uri = `${process.env.REACT_APP_ENDPOINT}posts?page=${pageNumber}&is_opportunity=1&size=6`
+    var uri = `${process.env.REACT_APP_ENDPOINT}posts?page=${pageNumber}&isOpportunity[eq]=1&size=6`
     if(Number(id)) uri+=`&category=${id}`
     const response = await axios
         .get(uri)
