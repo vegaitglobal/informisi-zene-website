@@ -4,7 +4,7 @@ const listOfPostCategories = [{"id":"ANALIZE","name":"Analize"},{"id":"SAOPSTENJ
 
 export async function getCategoriesService() {
     const response = await axios
-        .get(`${process.env.REACT_APP_ENDPOINT}categories`)
+        .get(`${process.env.REACT_APP_ENDPOINT}categories?isOpportunity[eq]=1`)
         .catch(error => console.error(error));
 
     return response.data;
