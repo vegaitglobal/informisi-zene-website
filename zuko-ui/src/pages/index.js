@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getNumberOfPostsService } from '../services/posts.service';
+import { getNumberOfPostsService, getOpportunityByCategoryId } from '../services/posts.service';
 import StrategyGoals from '../components/StrategyGoals/StrategyGoals';
 import Stats from "../components/Stats/Stats";
 import PostsContainer from "../components/PostsContainer/PostsContainer";
@@ -12,8 +12,8 @@ export default function HomePage() {
 	const [listOfPosts, setListOfPosts] = useState([]);
 
 	useEffect(() => {
-		getNumberOfPostsService(2)
-			.then(setListOfPosts)
+		getOpportunityByCategoryId(null,1,2)
+			.then(({data}) => setListOfPosts([...data]))
 			.catch((error) => console.error(error));
 	}, []);
 
