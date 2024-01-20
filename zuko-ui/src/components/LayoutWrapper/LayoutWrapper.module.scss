@@ -3,7 +3,7 @@
 .layout {
     padding: 0 24px;
     margin-top: 132px;
-
+    min-height: calc( 100vh - 376px);
     @include media-breakpoint-desktop{
         padding: 0 64px;
         max-width: 1440px;

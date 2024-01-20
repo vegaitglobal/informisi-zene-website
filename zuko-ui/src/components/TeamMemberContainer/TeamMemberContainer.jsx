@@ -6,28 +6,6 @@ import { getEmployeesService } from '../../services/employees.service';
 export default function TeamMemberContainer() {
 	const [team, setTeam] = useState([]);
 
-	const mockData = {
-		title: 'Naš tim',
-		data: [
-			{
-				profileImageUrl: 'https://placehold.co/260x315/webp',
-				name: 'Jelena Ružić',
-			},
-			{
-				profileImageUrl: 'https://placehold.co/260x315/webp',
-				name: 'Jelena Ružić',
-			},
-			{
-				profileImageUrl: 'https://placehold.co/260x315/webp',
-				name: 'Jelena Ružić',
-			},
-			{
-				profileImageUrl: 'https://placehold.co/260x315/webp',
-				name: 'Jelena Ružić',
-			},
-		],
-	};
-
 	useEffect(() => {
 		getEmployeesService()
 			.then(setTeam)

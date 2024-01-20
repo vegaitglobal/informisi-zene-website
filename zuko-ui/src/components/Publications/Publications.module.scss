@@ -14,12 +14,17 @@
         .img {
             margin-bottom: 12px;
             width: 206px;
+            height: 206px;
+            object-fit: cover;
+            object-position: center;
         }
 
         .title {
             font-size: 18px;
             font-weight: 600;
             color: #2A2E32;
+            inline-size: 206px;
+            word-wrap: break-word;
         }
     }
 
@@ -32,11 +37,13 @@
             .img {
                 margin-bottom: 32px;
                 width: 306px;
+                height: 306px;
             }
 
             .title {
                 font-size: 20px;
                 transition: color .3s ease;
+                inline-size: 306px;
             }
 
             &:hover {
