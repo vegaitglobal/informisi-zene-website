@@ -6,13 +6,13 @@ const data = [
 	{
 		index: 0,
 		alt: 'Facebook icon',
-		href: `https://www.facebook.com/sharer.php?${href}`,
+		href: `https://www.facebook.com/sharer.php?u=${href}`,
 		src: '/facebook-icon.svg'
 	},
 	{
 		index: 1,
 		alt: 'Twitter icon',
-		href: `https://twitter.com/intent/tweet?${href}`,
+		href: `https://twitter.com/intent/tweet?url=${href}`,
 		src: '/twitter-icon.svg'
 	},
 ];
