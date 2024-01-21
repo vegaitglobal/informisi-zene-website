@@ -19,7 +19,7 @@ const Footer = () => {
         <h3 className={styles.footerTitle}>Prijavite se na bilten</h3>
         <form className={styles.footerForm} onSubmit={handleSubscribe}>
             <label htmlFor="newsletter"></label>
-            <input ref={email} type="email" id='newsletter' placeholder='Vaša mail adresa' className={styles.footerInput}/>
+            <input ref={email} type="email" id='newsletter' required placeholder='Vaša mail adresa' className={styles.footerInput}/>
             <button className={styles.footerBtn}>
                 <img src="/arrow-right.svg" alt="submit to newsletter" />
             </button>

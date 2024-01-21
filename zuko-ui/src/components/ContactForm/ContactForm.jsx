@@ -12,7 +12,6 @@ export default function ContactForm({ heading = "Pišite nam" }) {
         title: '',
         message: '',
     });
-    const [isSubmitted, setIsSubmitted] = useState(false);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -27,7 +26,6 @@ export default function ContactForm({ heading = "Pišite nam" }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         sendEmailNotification(formData);
-        setIsSubmitted(true);
         setFormData({
             name: '',
             email: '',
@@ -35,6 +33,7 @@ export default function ContactForm({ heading = "Pišite nam" }) {
             title: '',
             message: '',
         });
+        successToast('Vaša poruka je uspešno poslata!');
     };
     return <div className={styles.formContainer}>
         <h2 className={styles.title}>{heading}</h2>
@@ -69,6 +68,7 @@ export default function ContactForm({ heading = "Pišite nam" }) {
                 placeholder='Telefon'
                 value={formData.phone}
                 onChange={handleInputChange}
+                required
             />
             <input
                 className={styles.input}
@@ -88,7 +88,7 @@ export default function ContactForm({ heading = "Pišite nam" }) {
                 required
             />
             <div className={styles.button}>
-                <RoundedButton onClick={() => successToast('Vaša poruka je uspešno poslata!')} buttonType='submit' label='Pošalji' />
+                <RoundedButton buttonType='submit' label='Pošalji' />
             </div>
         </form>
     </div>
