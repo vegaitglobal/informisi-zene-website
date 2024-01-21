@@ -6,7 +6,7 @@
 	margin-inline: auto;
 	display: flex;
 	flex-direction: column;
-
+	
 	@include media-breakpoint-desktop {
 		width: 100%;
 	}
@@ -30,7 +30,6 @@
 	@include media-breakpoint-desktop {
 		flex-direction: row;
 		gap: 2%;
-		justify-content: center;
 		flex-wrap: wrap;
 	}
 }
