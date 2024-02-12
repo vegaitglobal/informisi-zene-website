@@ -185,4 +185,9 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    /*
+    | For resolving the public prefix on production
+    */
+    'mix_url' => '/public',
+
 ];
